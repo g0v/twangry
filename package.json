@@ -1,0 +1,21 @@
+{
+  "name": "twtimeline",
+  "version": "0.1.0",
+  "author": "Jimmy Huang <jimmy@netivism.com.tw>",
+  "repository": {
+    "type": "git",
+    "url": "http://git.netivism.com.tw/jimmy/twtimeline.git"
+  },
+  "dependencies" : {
+    "request-json": "0.3.7",
+    "cheerio": "0.12.0"
+  },
+  "license": "GPL",
+  "engines": {
+    "node": ">=0.10.x",
+    "npm": "1.2.x"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}
