@@ -24,7 +24,6 @@
     <!-- Style-->
     <style>
       html, body {
-       height:100%;
        padding: 0px;
        margin: 0px;
       }
@@ -43,14 +42,14 @@
     </ul>
   </div>
   <div id="header">
-    <h1>nodeProtest</h1>
+    <h1>NodeProtest</h1>
     <p class="mission">社運專用歷史事件時間軸</p>
   </div>
   <div id="timeline-embed"></div>
   <script type="text/javascript">
     var timeline_config = {
      width: "100%",
-     height: "100%",
+     height: "580",
      source: 'example_json.json',
      hash_bookmark: true,
      font: 'Merriweather-NewsCycle',
