@@ -42,7 +42,8 @@
      source: 'example_json.json',
      hash_bookmark: true,
      font: 'Bevan-PotanoSans',
-     lang: 'zh-tw'
+     lang: 'zh-tw',
+     css: '/css/custom.css'
     }
   </script>
   <script type="text/javascript" src="/compiled/js/storyjs-embed.js"></script>
