@@ -28,7 +28,9 @@ var server = http.createServer(function(req, res){
     request(uri, function (error, response, body) {
       if (!error && response.statusCode == 200) {
         var dom =  cheerio.load(body);
-        res.write(wiki.parse(dom, body, page), 'utf8');
+        var json = wiki.parse(dom, body, page);
+        fs.writeFile('./public/cache/wiki/'+page+'.json', json);
+        res.write(json, 'utf8');
         res.end();
       }
     })
