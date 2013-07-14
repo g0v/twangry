@@ -1,3 +1,8 @@
+html, body{
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
+}
 body {
   font-family: 'Merriweather', '微軟正黑體', serif;
   font-size: 16px;
@@ -12,6 +17,19 @@ a:hover, a:active {
   border-bottom: 1px dotted #999;
   text-decoration: none;
 }
+#header{
+  text-align: center;
+  height: 20%;
+}
+#header * {
+  margin: 0;
+}
+#header h1 {
+  font-size: 38px;
+  line-height: 1.5em;
+  font-weight: bold;
+  color: #000;
+}
 #navbar {
   font-size: 15px;
   text-align: center;
@@ -25,17 +43,4 @@ a:hover, a:active {
   list-style-type: none;
   display: inline-block;
   margin: 0 30px;
-}
-#header{
-  text-align: center;
-  margin: 10px 0;
-}
-#header * {
-  margin: 0;
-}
-#header h1 {
-  font-size: 38px;
-  line-height: 1.5em;
-  font-weight: bold;
-  color: #000;
 }

@@ -21,27 +21,20 @@
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <link href="/css/other.css" media="all" rel="stylesheet" type="text/css" />
-    <!-- Style-->
-    <style>
-      html, body {
-       padding: 0px;
-       margin: 0px;
-      }
-    </style>
     <!-- HTML5 shim, for IE6-8 support of HTML elements--><!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   </head>
 </html>
 <body>
   <!-- BEGIN Timeline Embed -->
-  <div id="navbar">
-    <ul>
-      <li class="first"><a href="http://zh.wikipedia.org/wiki/Template:%E5%8F%B0%E7%81%A3%E7%A4%BE%E6%9C%83%E9%81%8B%E5%8B%95">wikipedia</a></li>
-      <li><a href="http://timeline.verite.co/">Timeline</a></li>
-      <li class="last"><a href="http://netivism.com.tw/project/nodeprotest">powered by NETivism</a></li>
-    </ul>
-  </div>
   <div id="header">
+    <div id="navbar">
+      <ul>
+        <li class="first"><a href="http://zh.wikipedia.org/wiki/Template:%E5%8F%B0%E7%81%A3%E7%A4%BE%E6%9C%83%E9%81%8B%E5%8B%95">wikipedia</a></li>
+        <li><a href="http://timeline.verite.co/">Timeline</a></li>
+        <li class="last"><a href="http://netivism.com.tw/project/nodeprotest">powered by NETivism</a></li>
+      </ul>
+    </div>
     <h1>NodeProtest</h1>
     <p class="mission">社運專用歷史事件時間軸</p>
   </div>
@@ -49,7 +42,7 @@
   <script type="text/javascript">
     var timeline_config = {
      width: "100%",
-     height: "580",
+     height: "80%",
      source: 'example_json.json',
      hash_bookmark: true,
      font: 'Merriweather-NewsCycle',
