@@ -23,7 +23,7 @@ var server = http.createServer(function(req, res){
   }
   if(path.pathname.match(/^\/wiki\/.+\.json$/g)){
     var page = path.pathname.replace('/wiki/', '').replace('.json','');
-    var uri = wiki.option.render+page;
+    var uri = 'http://'+wiki.option.domain+'/'+wiki.option.render+page;
 
     request(uri, function (error, response, body) {
       if (!error && response.statusCode == 200) {
@@ -35,10 +35,10 @@ var server = http.createServer(function(req, res){
     // should be end inside
   }
   else
-  if(path.pathname.match(/^\/p-.+$/g)){
-    var page = path.pathname.replace('/p-', '');
+  if(path.pathname.match(/^\/wiki\/[^.]+$/g)){
+    var page = path.pathname.replace('/', '');
     var source = fs.readFileSync('./page.tpl', 'utf-8').replace();
-    var html = source.replace('example_json.json', 'wiki/'+page+'.json');
+    var html = source.replace('example_json.json', '/'+page+'.json');
     if(html === false){
       http.serverError(404, 'Could not found keyword on wikipedia');
     }
