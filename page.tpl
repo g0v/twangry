@@ -45,6 +45,7 @@
      height: "80%",
      source: 'example_json.json',
      hash_bookmark: true,
+     start_zoom_adjust: 4,
      font: 'Merriweather-NewsCycle',
      lang: 'zh-tw',
      css: '/css/custom.css'
