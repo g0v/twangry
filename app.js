@@ -26,11 +26,11 @@ var server = http.createServer(function(req, res){
   // see which path we need to follow
   // we suppose all the data format is json
   // var arg0 = path.pathname.match(/^\/[^\/]+/); // not use this yet
-  var key = path.pathname.replace(/^\/[^\/]+\/|\.[^\/]+$/g, '');
+  var key = path.pathname.replace(/^\/[^\/]+\/|\.[^\/]+$/g, '').replace('/','');
   var ext = path.pathname.lastIndexOf('.') === -1 ? null : path.pathname.split('.').pop();
 
   if(!ext && key){
-    var source = fs.readFileSync('./page.tpl', 'utf-8').replace();
+    var source = fs.readFileSync('./page.tpl', 'utf-8');
     var html = source.replace('example_json.json', '/wiki/'+key+'.json');
     res.writeHead(200, {"Content-Type": "text/html"});
     res.end(html);
@@ -70,8 +70,9 @@ var server = http.createServer(function(req, res){
     });
   }
   else{
-    res.writeHead(404, {'Content-Type': 'text/plain'});
-    res.end('404 not found.');
+    var source = fs.readFileSync('./page.tpl', 'utf-8');
+    res.writeHead(200, {"Content-Type": "text/html"});
+    res.end(source);
   }
 });
 
