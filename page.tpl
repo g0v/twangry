@@ -36,7 +36,7 @@
       </ul>
     </div>
     <h1>NodeProtest</h1>
-    <p class="mission">社運專用歷史事件時間軸</p>
+    <p class="mission">歷史事件時間軸</p>
   </div>
   <div id="timeline-embed"></div>
   <script type="text/javascript">
@@ -45,7 +45,7 @@
      height: "80%",
      source: 'example_json.json',
      hash_bookmark: true,
-     start_zoom_adjust: 4,
+     start_zoom_adjust: -1,
      font: 'Merriweather-NewsCycle',
      lang: 'zh-tw',
      css: '/css/custom.css'

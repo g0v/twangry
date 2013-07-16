@@ -40,9 +40,12 @@ var server = http.createServer(function(req, res){
     timeline.init();
     async.parallel({
       w: function wr(callback){
+        wiki.request(key, callback);
+      },
+      wcoord: function wc(callback){
         setTimeout(function wrt(){
-          wiki.request(key, callback);
-        }, 100);
+          wiki.requestCoord(key, callback);
+        }, 500);
       }
       /*
       ,
