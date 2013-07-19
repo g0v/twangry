@@ -25,9 +25,23 @@ var server = http.createServer(function(req, res){
 
   if(!ext && key){
     var source = fs.readFileSync('./page.tpl', 'utf-8');
-    var html = source.replace('example_json.json', '/wiki/'+key+'.json');
-    res.writeHead(200, {"Content-Type": "text/html"});
-    res.end(html);
+    var jsonpath = '/wiki/'+key+'.json';
+    var html = source.replace('example_json.json', jsonpath);
+    var have_cache = fs.existsSync('public/cache'+jsonpath);
+
+    if(have_cache){
+      res.writeHead(200, {"Content-Type": "text/html"});
+      res.end(html);
+    }
+    else{
+      var preload = 'http://' + req.headers.host + jsonpath;
+      request(preload, function (error, response, data) {
+        if(!error) { 
+          res.writeHead(200, {"Content-Type": "text/html"});
+          res.end(html);
+        }
+      });
+    }
   }
   else
   if(ext === 'json'){
