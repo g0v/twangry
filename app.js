@@ -8,12 +8,6 @@ var async = require('async');
 var wiki = require('./lib/wiki');
 var timeline = require('./lib/timeline');
 
-// temporary test for performance
-require('nodetime').profile({
-  accountKey: '137e3c7c701e3322cd82c5867500fd9b07d36608', 
-  appName: 'Node.js Application'
-});
-
 var server = http.createServer(function(req, res){
   // block error request first
   var path = url.parse(decodeURIComponent(req.url));
