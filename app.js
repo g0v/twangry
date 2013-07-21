@@ -79,7 +79,7 @@ var server = http.createServer(function(req, res){
   }
   else{
     var source = fs.readFileSync('./page.tpl', 'utf-8');
-    var html = source.replace('example_json.json', 'https://docs.google.com/spreadsheet/pub?key=0AuwTztKH2tKidGZ2cEdVY19PZEpzRWVJWWZOeUI1Y0E&output=html').replace('start_at_end: false', 'start_at_end: true').replace('{title}', '暴政事件表.tw <sup><a href="http://goo.gl/ZEvrk" target="_blank" style="font-size:12px;">增加事件</a></sup>');
+    var html = source.replace('example_json.json', 'https://docs.google.com/spreadsheet/pub?key=0AuwTztKH2tKidGZ2cEdVY19PZEpzRWVJWWZOeUI1Y0E&output=html').replace('start_at_end: false', 'start_at_end: true').replace('{title}', '怒政事件紀錄簿.tw <sup><a href="http://goo.gl/ZEvrk" target="_blank" style="font-size:12px;">增加事件</a></sup>');
     res.writeHead(200, {"Content-Type": "text/html"});
     res.end(html);
   }
