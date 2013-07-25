@@ -40,7 +40,7 @@
   <script type="text/javascript">
     var timeline_config = {
      width: "100%",
-     height: "80%",
+     height: "75%",
      source: 'example_json.json',
      hash_bookmark: true,
      start_zoom_adjust: -1,
@@ -51,6 +51,11 @@
     }
   </script>
   <script type="text/javascript" src="/compiled/js/storyjs-embed.js"></script>
-  <!-- END Timeline Embed-->
-  <a href="https://github.com/jimyhuang/nodeprotest"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+  <!-- END Timeline Embed -->
+
+  <!-- footer -->
+  <div id="footer" align="center">
+    本站內容來源為Wikipedia，其文字在<a href="http://zh.wikipedia.org/zh-tw/Wikipedia%3ACC-BY-SA-3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC">創用CC 姓名標示-相同方式分享 3.0 協議</a>之條款下授權使用
+  </div>
+  <!-- END footer -->
 </body>
