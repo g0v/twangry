@@ -13,7 +13,7 @@ What
  - 事件的範疇，限制在「讓人憤怒的政客、政策、政績、政治事件」。
  - 事件的來源**暫時**限定在 zh.wikipedia.org 的相關詞彙
 
-TODO
+Todo
 ----
 
 **首頁**
@@ -43,3 +43,8 @@ Libraries
   - public/css
  - [Angular.js](http://angularjs.org/)
   - [MIT License](https://github.com/angular/angular.js/blob/master/LICENSE)
+
+Reference
+---------
+ - [TW-History](https://github.com/g0v/TW-history)
+ - [kuansim](https://github.com/g0v/kuansim)
