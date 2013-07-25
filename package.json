@@ -10,7 +10,8 @@
     "request-json": "0.3.7",
     "cheerio": "0.12.0",
     "async": "0.2.9",
-    "flickrnode": "0.1.0"
+    "flickrnode": "0.1.0",
+    "ejs": "0.8.4"
   },
   "license": "GPL",
   "engines": {

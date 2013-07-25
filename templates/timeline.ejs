@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><!--
+<html lang="zh-tw"><!--
   	 
   	88888888888 d8b                        888 d8b                888888   d8888b  
   	    888     Y8P                        888 Y8P                   88b d88P  Y88b 
@@ -14,37 +14,41 @@
   	                                                            888P              
   	 -->
   <head>
-    <title>Timeline JS Example</title>
+    <title><%= header_title %></title>
     <meta charset="utf-8">
-    <meta name="description" content="TimelineJS example">
+    <meta name="description" content="<%= meta_desc %>">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <link href="/css/other.css" media="all" rel="stylesheet" type="text/css" />
-    <!-- HTML5 shim, for IE6-8 support of HTML elements--><!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!-- HTML5 shim, for IE6-8 support of HTML elements-->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
 </html>
 <body>
-  <!-- BEGIN Timeline Embed -->
   <div id="header">
     <div id="navbar">
       <ul>
         <li class="first">&laquo;<a href="/">回到總表</a></li>
       </ul>
     </div>
-    <h1>{title}</h1>
-    <p class="mission">那些年，我們一起憤<span style="color:red">怒</span>的政客、政策、政績 ...</p>
+    <h1><%= page_title %></h1>
+    <% if(mission.length > 0){ %>
+      <p class="mission"><%= mission %></p>
+    <% } %>
   </div>
+  <!-- BEGIN Timeline Embed -->
   <div id="timeline-embed"></div>
   <script type="text/javascript">
     var timeline_config = {
      width: "100%",
      height: "75%",
-     source: 'example_json.json',
+     source: '<%= timeline.source %>',
      hash_bookmark: true,
-     start_zoom_adjust: -1,
-     start_at_end: false,
+     start_zoom_adjust: <%= timeline.start_zoom_adjust %>,
+     start_at_end: <%= timeline.start_at_end %>,
      font: 'Merriweather-NewsCycle',
      lang: 'zh-tw',
      css: '/compiled/css/timeline.css'
