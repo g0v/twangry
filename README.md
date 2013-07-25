@@ -41,14 +41,11 @@ Todo
  - 當有怒氣破表時，首頁的爆氣效果...（請自行想像）
  - 視覺改善
 
-Libraries
----------------
+Related Libraries
+-----------------
  - [Timeline.js](http://timeline.verite.co/)
   - [Mozilla Public License Version 2.0](https://raw.github.com/VeriteCo/TimelineJS/master/LICENSE)
   - public/compiled
-  - public/css
- - [Angular.js](http://angularjs.org/)
-  - [MIT License](https://github.com/angular/angular.js/blob/master/LICENSE)
 
 Reference
 ---------

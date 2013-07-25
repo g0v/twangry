@@ -47,7 +47,7 @@
      start_at_end: false,
      font: 'Merriweather-NewsCycle',
      lang: 'zh-tw',
-     css: '/css/custom.css'
+     css: '/compiled/css/timeline.css'
     }
   </script>
   <script type="text/javascript" src="/compiled/js/storyjs-embed.js"></script>
