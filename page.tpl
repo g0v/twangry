@@ -30,10 +30,7 @@
   <div id="header">
     <div id="navbar">
       <ul>
-        <li class="first"><a href="/">回到總表</a></li>
-        <li><a href="http://zh.wikipedia.org/wiki/Template:%E5%8F%B0%E7%81%A3%E7%A4%BE%E6%9C%83%E9%81%8B%E5%8B%95" target="_blank">source: wikipedia</a></li>
-        <li><a href="http://www.coolloud.org.tw/" target="_blank">source: 苦勞網</a></li>
-        <li class="last"><a href="http://timeline.verite.co/" target="_blank">frontend: Timeline</a></li>
+        <li class="first">&laquo;<a href="/">回到總表</a></li>
       </ul>
     </div>
     <h1>{title}</h1>
