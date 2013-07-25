@@ -13,6 +13,11 @@ What
  - 事件的範疇，限制在「讓人憤怒的政客、政策、政績、政治事件」。
  - 事件的來源**暫時**限定在 zh.wikipedia.org 的相關詞彙
 
+Issue report
+------------
+ - 請用github的issue report- https://github.com/g0v/twangry/issues
+
+
 Todo
 ----
 
@@ -25,6 +30,7 @@ Todo
 **事件頁**
 
  - 以wikipedia 的資料為基礎，讓使用者可為其增加額為的媒體
+ - wiki parse需要處理wikipedia的reference
  - 定期更新wikipedia進度（需考量熱門和）
  - 讓使用者可驗證後，增加事件
   - 以email或簡訊認證後產生cookie為主，不需login，不綁任何social media
@@ -48,3 +54,5 @@ Reference
 ---------
  - [TW-History](https://github.com/g0v/TW-history)
  - [kuansim](https://github.com/g0v/kuansim)
+
+
