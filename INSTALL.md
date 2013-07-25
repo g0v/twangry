@@ -1,7 +1,7 @@
 1. Prepare Environment
 -------------------
-nodejs - tested on >= 0.10.x
-npm - texted on 1.2.x
+ - nodejs - tested on >= 0.10.x
+ - npm - texted on 1.2.x
 
 2. Clone Project
 ----------------
