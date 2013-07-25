@@ -37,7 +37,7 @@
       </ul>
     </div>
     <h1>{title}</h1>
-    <p class="mission">歷史事件時間軸</p>
+    <p class="mission">那些年，我們一起憤<span style="color:red">怒</span>的政客、政策、政績 ...</p>
   </div>
   <div id="timeline-embed"></div>
   <script type="text/javascript">
