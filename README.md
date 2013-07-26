@@ -13,10 +13,9 @@ What
  - 事件的範疇，限制在「讓人憤怒的政客、政策、政績、政治事件」。
  - 事件的來源**暫時**限定在 zh.wikipedia.org 的相關詞彙
 
-Issue report
-------------
+Bug report
+----------
  - 請用github的issue report- https://github.com/g0v/twangry/issues
-
 
 Todo
 ----
