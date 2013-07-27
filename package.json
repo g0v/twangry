@@ -6,12 +6,13 @@
     "type": "git",
     "url": "http://git.netivism.com.tw/jimmy/twtimeline.git"
   },
-  "dependencies" : {
+  "dependencies": {
     "request-json": "0.3.7",
     "cheerio": "0.12.0",
     "async": "0.2.9",
     "flickrnode": "0.1.0",
-    "ejs": "0.8.4"
+    "ejs": "0.8.4",
+    "request": "~2.25.0"
   },
   "license": "GPL",
   "engines": {
