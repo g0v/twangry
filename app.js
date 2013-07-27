@@ -1,8 +1,14 @@
 var http = require('http');
 var route = require('./lib/route');
+var port = 6666;
 
 var server = http.createServer(function(req, res){
-  route.run(req,res);
+  route.run(req, res, port);
+  req.on('error', function (err) {
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.write('404 Not Found\n');
+    res.end();
+  });
 });
 
-server.listen(6666);
+server.listen(port);
