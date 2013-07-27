@@ -17,28 +17,13 @@ Bug report
 ----------
  - 請用github的issue report- https://github.com/g0v/twangry/issues
 
-Todo
-----
+Todo/Feature/Suggest
+--------------------
+https://g0v.hackpad.com/nGRHg4knibC
 
-**首頁**
-
- - 改善首頁排版、呈現方式
- - 增加首頁篩選功能，包含依照時間起迄、Tag篩選、或關鍵字搜尋
- - 讓使用者可增加事件
-
-**事件頁**
-
- - 以wikipedia 的資料為基礎，讓使用者可為其增加額為的媒體
- - wiki parse需要處理wikipedia的reference
- - 定期更新wikipedia進度（需考量熱門和）
- - 讓使用者可驗證後，增加事件
-  - 以email或簡訊認證後產生cookie為主，不需login，不綁任何social media
-
-**未來**
-
- - 怒氣值：讓使用者可張貼Facebook Link(例如粉絲專頁)，為事件增加怒氣值
- - 當有怒氣破表時，首頁的爆氣效果...（請自行想像）
- - 視覺改善
+On going feature
+----------------
+https://github.com/g0v/twangry/issues/milestones
 
 Related Libraries
 -----------------

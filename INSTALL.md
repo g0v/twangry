@@ -13,7 +13,9 @@
 
 4. Run web server
 -----------------
-Add your web root directory to public/
+Add your web root directory to public/ . Read example at config/nginx.conf.
+
+Start your web server.
 > /etc/init.d/nginx start
 
 5. Run node
