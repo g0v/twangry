@@ -25,6 +25,8 @@
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/compiled/js/storyjs-embed.js"></script>
   </head>
 </html>
 <body>
@@ -37,27 +39,41 @@
         <li class="last"><a href="http://g0v.tw/" target="_blank">g0v.tw</a></li>
       </ul>
     </div>
-    <h1><%= page_title %></h1>
+    <h1 class="page-title"><%= page_title %></h1>
     <% if(mission.length > 0){ %>
       <p class="mission"><%= mission %></p>
     <% } %>
   </div>
   <!-- BEGIN Timeline Embed -->
-  <div id="timeline-embed"></div>
   <script type="text/javascript">
-    var timeline_config = {
-     width: "100%",
-     height: "75%",
-     source: '<%= timeline.source %>',
-     hash_bookmark: true,
-     start_zoom_adjust: <%= timeline.start_zoom_adjust %>,
-     start_at_end: <%= timeline.start_at_end %>,
-     font: 'Merriweather-NewsCycle',
-     lang: 'zh-tw',
-     css: '/compiled/css/timeline.css'
-    }
+  $(document).ready(function(){
+    createStoryJS({
+      embed_id: 'timeline-embed',
+      width: "100%",
+      height: "75%",
+      source: '<%= timeline.source %>',
+      hash_bookmark: true,
+      start_zoom_adjust: <%= timeline.start_zoom_adjust %>,
+      start_at_end: <%= timeline.start_at_end %>,
+      font: 'Merriweather-NewsCycle',
+      lang: 'zh-tw',
+      css: '/compiled/css/timeline.css'
+    });
+    $('.page-title').append('<sup><a href="'+document.URL.replace('angry.g0v.tw', 'zh.wikipedia.org')+'">read at Wikipedia</a></sup>');
+    $('a').live('click', function(){
+      var url = this.href.toLowerCase();
+      var pattern = /^(([^\/:]+?\.)*)([^\.:]{4,})((\.[a-z]{1,4})*)(:[0-9]{1,5})?$/;
+      var host = window.location.host.replace(pattern, '$3$4');
+      var subdomain = window.location.host.replace(pattern, '$1');
+      var subdomains = "([^/]*\\.)?";
+      var internal_link = new RegExp("^https?://" + subdomains + host, "i");
+      if (url.indexOf('http') == 0 && !url.match(internal_link)) {
+        $(this).attr('target', '_blank');
+      }
+    });
+  });
   </script>
-  <script type="text/javascript" src="/compiled/js/storyjs-embed.js"></script>
+  <div id="timeline-embed"></div>
   <!-- END Timeline Embed -->
 
   <!-- footer -->
