@@ -14,7 +14,6 @@ a:link, a:visited {
 }
 a:hover, a:active {
   color: #0090DF;
-  border-bottom: 1px dotted #999;
   text-decoration: none;
 }
 #header{
@@ -29,6 +28,14 @@ a:hover, a:active {
   line-height: 1.5em;
   font-weight: bold;
   color: #000;
+}
+#header h1.page-title sup a{
+  text-indent: -9999px;
+  background: url(images/external_link.png);
+  width:26px;
+  height:26px;
+  display:inline-block;
+  margin-left: 10px;
 }
 #navbar {
   font-size: 15px;

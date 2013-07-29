@@ -1,0 +1,41 @@
+{
+  "author": "jimyhuang",
+  "contributors": [
+    "pm5",
+    "chilijung"
+  ],
+  "status": "beta",
+  "name": "git-de43380",
+  "name_zh": "怒政事件紀錄簿",
+  "description": "Angry event made in Taiwan.",
+  "description_zh": "那些年，我們一起憤怒的政客、政策、政績 ...",
+  "homepage": "http://angry.g0v.tw/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/g0v/twangry"
+  },
+  "licenses": [
+    {
+      "type": "WTFPL"
+    }
+  ],
+  "keywords": [
+    "javascript",
+    "timelinejs"
+  ],
+  "audience": [
+    "public"
+  ],
+  "products": [
+    "website"
+  ],
+  "projects": [
+    "truth"
+  ],
+  "thumbnail": "",
+  "needs": [
+    "designer",
+    "wikipedia writer",
+    "writer"
+  ]
+}
