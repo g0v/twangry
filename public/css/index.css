@@ -38,13 +38,13 @@
 	width: 4px;
 }
 
-.timeline:hover{
+.timeline:hover {
 	cursor: pointer;
 	margin: 0 auto;
 }
 
 .rightCorner { 
-	background-image: url("/fb-timeline/images/right.png");
+	background-image: url("images/right.png");
 	display: block;
 	height: 15px;
 	margin-left: 408px;
@@ -56,7 +56,7 @@
 	position: absolute;
 }
 .leftCorner{
-	background-image: url("/fb-timeline/images/left.png");
+	background-image: url("images/left.png");
 	display: block;
 	height: 15px;
 	width: 13px;

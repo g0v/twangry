@@ -5,11 +5,12 @@
     <meta charset="utf-8">
     <meta name="description">
     <link rel="stylesheet" href="/css/index.css">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script src="/fb-timeline/jquery.masonry.min.js"></script>
+    <script src="/js/jquery.masonry.min.js"></script>
+    <script src="/js/index.js"></script>
   </head>
   <body>
-
     <div id="container">
       Timeline Navigator
       <div class="timeline_container">
@@ -17,60 +18,19 @@
         <div class="plus"></div>
         </div>
       </div>
-
+    <% for(var i=0; i<events.length; i++) { %>
       <div class="item">
         <div class="title">
-          九二共識
+          <%= events[i].headline %>
         </div>
         <div class="time">
-          19 十月 2008
+          <%= events[i].startDate %>
         </div>
         <div class="content">
-          九二共識是一個與海峽兩岸關係有關的政治術語，由中華民國行政院大陸委員會（以下簡稱「陸委會」）主委蘇起在2000年4月28日提出，概括台灣海峽兩岸政府在1992年對「一個中國」問題及其內涵進行討論所形成之見解及體認的名詞，用於取代此前台灣方面概括出來的「一個中國，各自表述」，隨後成為中國國民黨的政策。「海峽交流基金會」的文件則直到2008年5月26日馬英九就任中華民國總統後才首次出現此名詞。
+          <%- events[i].text %>
         </div>
-
       </div>
-      <div class="item">
-        <div class="title">
-          洪仲丘事件
-        </div>
-        <div class="time">
-          19 十月 2008
-        </div>
-        <div class="content">
-          洪仲丘事件，中華民國國防部方面稱為「六軍團裝甲五四二旅洪仲丘下士禁閉室悔過期間死亡案」，是指中華民國陸軍裝甲542旅旅部連義務役下士洪仲丘，於退伍前夕，因攜帶具有拍照功能之行動電話和MP3隨身碟違反資訊安全保密規定，依法應予以申誡一次至二次以上，卻被送往位於桃園縣楊梅市機步269旅高山頂營區的禁閉室「悔過」。在國防部軍醫局《中暑危險係數測定法》危險係數41且已達到紅色警戒之情況下，被施以激烈體能訓練而造成洪仲丘達到最嚴重之第五級中暑，最後引發DIC（即彌散性血管內凝血）而暴斃身亡。
-        </div>
-
-      </div>
-      <div class="item">
-        <div class="title">
-          毒澱粉事件
-        </div>
-        <div class="time">
-          19 十月 2008
-        </div>
-        <div class="content">
-          2013年毒澱粉事件，是2013年5月中發生在台灣的一系列食品安全事件之一。起因為食品安全主管單位檢驗發現有不肖業者使用未經核准之順丁烯二酸酐化製澱粉等添加物於常用食品，引起社會高度關注的事件。5月29日，行政院正式稱此為「違法食品添加物事件」之一。
-        </div>
-
-      </div>
-      <div class="item">
-        <div class="title">
-          廣大興28號事件
-        </div>
-        <div class="time">
-          19 十月 2008
-        </div>
-        <div class="content">
-          廣大興28號事件，又稱廣大興事件、廣大興案，是2013年5月9日在巴林坦海峽的中華民國（臺灣）及菲律賓兩國主張之專屬經濟海域重疊區域上，菲律賓海巡署東北呂宋島海巡區（CGD NELZN）暨漁業及水產資源局（BFAR）公務船（編號 MCS-3001）與臺灣屏東縣琉球鄉籍的漁船「廣大興28號」的衝突事件，造成廣大興28號船上漁民洪石成死亡。由於事後菲律賓政府對於該事件處理不當，造成中華民國與菲律賓之間的外交關係緊張。
-        </div>
-
-      </div>
-
+    <% } %>
     </div>
-
-    <script src="/compiled/js/index.js"></script>
-    
   </body>
-
 </html>
