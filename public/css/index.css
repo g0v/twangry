@@ -14,8 +14,9 @@
 }
 
 /***************************
- * timeline
  *
+ * timeline
+ * 
  **************************/
 
 .timeline_container{
@@ -69,4 +70,25 @@
 	height: 14px;
 	position: relative;
 	left: -6px;
+}
+
+/***************************
+ *
+ * timeline inner content
+ * 
+ **************************/
+
+
+.item>.title {
+	font-size: 20px;
+	padding: 10px;
+}
+
+.item>.time {
+	color: #CCC;
+	padding: 5px;
+}
+
+.item>.content {
+	padding: 10px;
 }
