@@ -10,23 +10,8 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="/js/jquery.masonry.min.js"></script>
     <script src="/js/index.js"></script>
-    <script>
-    function EventCtrl($scope, $http, $templateCache){
-      $scope.method = 'GET';
-      $scope.url = 'http://test.jimmyhub.net/index.json'; 
-      $http({method: $scope.method, url: $scope.url, cache: $templateCache}).
-        success(function(data, status) {
-          $scope.status = status;
-          $scope.events = data;
-        }).
-        error(function(data, status) {
-          $scope.data = data || "Request failed";
-          $scope.status = status;
-      });
-    }
-    </script>
   </head>
-  <body ng-app ng-controller="EventCtrl">
+  <body ng-app="index" ng-controller="EventCtrl">
     <form>搜尋：<input ng-model="query"></form>
     <div id="container" ng-show="(events|filter:query).length">
       <div class="timeline_container">
@@ -34,7 +19,7 @@
         <div class="plus"></div>
         </div>
       </div>
-      <div class="item" ng-repeat="event in events|filter:query">
+      <div class="item" ng-repeat="event in events|filter:query" post-repeat-masonry>
         <div class="title">
           {{event.headline}}
         </div>
