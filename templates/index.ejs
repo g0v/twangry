@@ -1,35 +1,63 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>index page</title>
+    <title><%= header_title %></title>
     <meta charset="utf-8">
     <meta name="description">
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/other.css">
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular-resource.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script src="/js/jquery.masonry.min.js"></script>
+    <!--local-->
+    <script src="/js/masonry.pkgd.min.js"></script>
     <script src="/js/index.js"></script>
   </head>
   <body ng-app="index" ng-controller="EventCtrl">
-    <form>搜尋：<input ng-model="query"></form>
+    <div id="wrapper">
+      <div id="header">
+        <div id="navbar">
+          <ul>
+            <% if(is_front === 0){ %>
+            <li class="first">&laquo;<a href="/">回到總表</a></li>
+            <% } %>
+            <li class="last"><a href="http://g0v.tw/" target="_blank">g0v.tw</a></li>
+          </ul>
+        </div>
+        <h1 class="page-title"><%= page_title %></h1>
+        <% if(mission.length > 0){ %>
+          <p class="mission"><%= mission %></p>
+        <% } %>
+      </div>
+      <div id="filter">
+        <div class="year">
+          <span class="query" ng-click="$parent.query = year" ng-repeat="year in years">{{year}}</span>
+        </div>
+        <div class="tag">
+          <span class="query" ng-click="$parent.query = tag" ng-repeat="tag in tags">{{tag}}</span>
+        </div>
+        <form>搜尋：<input ng-model="query"></form>
+      </div>
     <div id="container" ng-show="(events|filter:query).length">
       <div class="timeline_container">
         <div class="timeline">
         <div class="plus"></div>
         </div>
       </div>
-      <div class="item" ng-repeat="event in events|filter:query" post-repeat-masonry>
-        <div class="title">
-          {{event.headline}}
-        </div>
+      <div class="item clearfix" ng-repeat="event in events|filter:query|orderBy:'sort'" post-repeat-masonry>
+        <h2 class="title">
+          <a href="/wiki/{{event.headline}}">{{event.headline}}</a>
+        </h2>
         <div class="time">
-          {{event.startDate}}
+          {{event.startDate}} -  {{event.endDate}} 
         </div>
         <div class="content">
           {{event.text}}
         </div>
+        <div class="sort">
+          {{event.sort}}
+        </div>
       </div>
-    </div>
+    </div><!-- container -->
+    </div><!-- wrapper -->
   </body>
 </html>
