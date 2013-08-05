@@ -1,6 +1,7 @@
 html, body{
   padding: 0px;
   margin: 0px;
+  height: 100%;
 }
 body {
   font-family: 'Merriweather', '微軟正黑體', serif;
