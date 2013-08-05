@@ -35,7 +35,7 @@
         <div class="tag">
           <span class="query" ng-click="$parent.query = tag" ng-repeat="tag in tags">{{tag}}</span>
         </div>
-        <form>搜尋：<input ng-model="query"></form>
+        <form>搜尋：<input class="textfield" ng-model="query"></form>
       </div>
     <div id="container" ng-show="(events|filter:query).length">
       <div class="timeline_container">
@@ -48,13 +48,16 @@
           <a href="/wiki/{{event.headline}}">{{event.headline}}</a>
         </h2>
         <div class="time">
-          {{event.startDate}} -  {{event.endDate}} 
+          {{event.startDate}}-{{event.endDate}} 
         </div>
         <div class="content">
           {{event.text}}
         </div>
         <div class="sort">
           {{event.sort}}
+        </div>
+        <div class="tags">
+          <span class="tag" ng-click="$parent.$parent.query = tag" ng-repeat="tag in event.tag">{{tag}}</span>
         </div>
       </div>
     </div><!-- container -->

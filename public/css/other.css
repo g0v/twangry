@@ -82,13 +82,9 @@ html[xmlns] .clearfix {
 	height: 1%;
 }
 
-
-/***************************
- *
- * timeline
- * 
- **************************/
-
+/**
+ * front page specific
+ */
 .timeline_container{
 	width: 16px;
 	text-align: center;
@@ -113,7 +109,7 @@ html[xmlns] .clearfix {
 	margin: 0 auto;
 }
 
-.rightCorner { 
+.rightCorner{ 
 	background-image: url("images/right.png");
 	display: block;
 	height: 15px;
@@ -141,12 +137,6 @@ html[xmlns] .clearfix {
 	position: relative;
 	left: -6px;
 }
-
-/***************************
- *
- * timeline inner content
- * 
- **************************/
 .item {
 	width: 388px;
 	margin: 20px 10px 10px 10px;
@@ -155,12 +145,49 @@ html[xmlns] .clearfix {
 	padding: 10px;
 }
 .item h2 {
-  margin-top: 0;
+  margin: 0;
+}
+.item .time {
+  margin-bottom: 10px;
+  color: #333;
+}
+.item .tags {
+  line-height: 1.5em;
+}
+.item .tag{
+  margin-right: 10px;
+  padding: 2px 5px;
+  border-radius: 5px;
+  background: #EEE;
+}
+.item .tag:hover {
+  background: #000;
+  color: #FFF;
+  cursor: pointer;
+}
+#filter {
+  text-align: center;
+}
+#filter .year, #filter .tag{
+  line-height: 2.0em;
 }
 #filter .query {
   margin: 0 10px;
   cursor: pointer;
+  background: #EEE;
+  border-radius: 10px;
+  padding: 3px 10px;
 }
 #filter .query:hover {
   color: #0090DF;
 }
+/* animation */
+.item-enter {
+  -webkit-transition: 1s linear all; /* Chrome */
+  transition: 500ms linear all;
+  opacity: 0;
+}
+.item-enter.item-enter-active {
+  opacity: 1;
+}
+

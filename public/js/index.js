@@ -4,6 +4,13 @@ angular.module('index', [])
     scope.$watch("events", function (value) {
       var center = $(".timeline_container").offset().left;
       var $e = $(element);
+      var $c = $e.find('.content');
+      var $t = $e.find('.time');
+      if($t.text().match(/-[^0-9]/)){
+        var cut = $t.text().replace('-','');
+        $t.html(cut);
+      }
+      $c.readmore({maxHeight:60});
       $e.find('span.rightCorner').remove();
       $e.find('span.leftCorner').remove();
       var offset = $(element).offset();
@@ -11,7 +18,6 @@ angular.module('index', [])
         $e.prepend('<span class="rightCorner"></span>'); 
       }
       else {
-
         $e.prepend('<span class="leftCorner"></span>');
       }
     });
@@ -34,16 +40,9 @@ function EventCtrl($scope, $http, $templateCache, $filter){
   });
 }
 
-/*
-function runMasonry() { 
-  var $container = $('#container');
-  $container.find('span.rightCorner').remove();
-  $container.find('span.leftCorner').remove();
-  $container.masonry({itemSelector : '.item'});
-  $container.masonry('reloadItems');
-  $container.find('.item').each(function() {
-    var offset = $(this).offset();
-    console.log(offset);
+// jquery
+$(document).ready(function(){
+  $('form .textfield').click(function(){
+    this.select();
   });
-}
-*/
+});
