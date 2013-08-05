@@ -6,9 +6,9 @@
   ],
   "status": "beta",
   "name": "git-de43380",
-  "name_zh": "怒政事件紀錄簿",
+  "name_zh": "政誌",
   "description": "Angry event made in Taiwan.",
-  "description_zh": "那些年，我們一起憤怒的政客、政策、政績 ...",
+  "description_zh": "不忘政誌",
   "homepage": "http://angry.g0v.tw/",
   "repository": {
     "type": "git",
