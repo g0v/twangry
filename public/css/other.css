@@ -9,12 +9,16 @@ body {
   color: #666;
 }
 a:link, a:visited {
-  color: #000;
+  color: #0090DF;
   text-decoration: none;
 }
 a:hover, a:active {
   color: #0090DF;
   text-decoration: none;
+}
+h1,h2,h3,h4,h5,h6 {
+  margin: 0.5em 0;
+  padding: 0;
 }
 #header{
   text-align: center;
@@ -51,3 +55,139 @@ a:hover, a:active {
   display: inline-block;
   margin: 0 30px;
 }
+
+#wrapper {
+	width:860px; 
+	margin: 0 auto; 
+}
+#container {
+  position: relative;
+}
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+  float: left;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+.clearfix {
+	display: inline-block;
+}
+html[xmlns] .clearfix {
+	display: block;
+}
+* html .clearfix {
+	height: 1%;
+}
+
+/**
+ * front page specific
+ */
+.timeline_container{
+	width: 16px;
+	text-align: center;
+	margin: 0 auto;
+	cursor:pointer;
+	display: block;
+}
+.timeline{
+	margin: 0 auto;
+	background-color:#e08989;
+	display: block;
+	float: left;
+	height: 100%;
+	left: 428px;
+	margin-top: 10px;
+	position: absolute;
+	width: 4px;
+}
+
+.timeline:hover {
+	cursor: pointer;
+	margin: 0 auto;
+}
+
+.rightCorner{ 
+	background-image: url("images/right.png");
+	display: block;
+	height: 15px;
+	margin-left: 398px;
+	margin-top: 8px;
+	padding: 0;
+	vertical-align: top;
+	width: 13px;
+	z-index:2;
+	position: absolute;
+}
+.leftCorner{
+	background-image: url("images/left.png");
+	display: block;
+	height: 15px;
+	width: 13px;
+	margin-left: -23px;
+	margin-top: 8px;
+	position: absolute;
+	z-index:2;
+}
+.timeline div.plus{
+	width: 14px;
+	height: 14px;
+	position: relative;
+	left: -6px;
+}
+.item {
+	width: 388px;
+	margin: 20px 10px 10px 10px;
+	background-color:#ffffff;
+	border:solid 1px #B4BBCD;
+	padding: 10px;
+}
+.item h2 {
+  margin: 0;
+}
+.item .time {
+  margin-bottom: 10px;
+  color: #333;
+}
+.item .tags {
+  line-height: 1.5em;
+}
+.item .tag{
+  margin-right: 10px;
+  padding: 2px 5px;
+  border-radius: 5px;
+  background: #EEE;
+}
+.item .tag:hover {
+  background: #000;
+  color: #FFF;
+  cursor: pointer;
+}
+#filter {
+  text-align: center;
+}
+#filter .year, #filter .tag{
+  line-height: 2.0em;
+}
+#filter .query {
+  margin: 0 10px;
+  cursor: pointer;
+  background: #EEE;
+  border-radius: 10px;
+  padding: 3px 10px;
+}
+#filter .query:hover {
+  color: #0090DF;
+}
+/* animation */
+.item-enter {
+  -webkit-transition: 1s linear all; /* Chrome */
+  transition: 500ms linear all;
+  opacity: 0;
+}
+.item-enter.item-enter-active {
+  opacity: 1;
+}
+
