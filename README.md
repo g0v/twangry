@@ -1,6 +1,6 @@
 政誌
 ====
-http://angry.g0v.tw
+http://fact.g0v.tw
 
 Why
 ---

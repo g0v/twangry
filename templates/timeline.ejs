@@ -60,7 +60,7 @@
       css: '/compiled/css/timeline.css'
     });
     <% if(is_front === 0){ %>
-    $('.page-title').append('<sup><a href="'+document.URL.replace('angry.g0v.tw', 'zh.wikipedia.org')+'">read at Wikipedia</a></sup>');
+    $('.page-title').append('<sup><a href="'+document.URL.replace(window.location.host, 'zh.wikipedia.org')+'">read at Wikipedia</a></sup>');
     <% } %>
     $('a').live('click', function(){
       var url = this.href.toLowerCase();
