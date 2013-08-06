@@ -28,7 +28,7 @@ h1,h2,h3,h4,h5,h6 {
   margin: 0;
 }
 #header h1 {
-  font-size: 38px;
+  font-size: 32px;
   line-height: 1.5em;
   font-weight: bold;
   color: #000;
@@ -80,6 +80,9 @@ html[xmlns] .clearfix {
 }
 * html .clearfix {
 	height: 1%;
+}
+#footer {
+  font-size: 12px;
 }
 
 /**
