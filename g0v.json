@@ -10,6 +10,7 @@
   "description": "The fact of politics event made in Taiwan.",
   "description_zh": "一眼看出，我們的政府做(錯)過什麼事情",
   "homepage": "http://fact.g0v.tw/",
+  "document": "https://g0v.hackpad.com/nGRHg4knibC",
   "repository": {
     "type": "git",
     "url": "https://github.com/g0v/twangry"
@@ -32,7 +33,7 @@
   "projects": [
     "truth"
   ],
-  "thumbnail": "",
+  "thumbnail": "http://fact.g0v.tw/screenshot.png",
   "needs": [
     "designer",
     "wikipedia writer",
