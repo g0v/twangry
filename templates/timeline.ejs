@@ -20,7 +20,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <link href="/css/other.css?21" media="all" rel="stylesheet" type="text/css" />
+    <link href="/css/other.css?22" media="all" rel="stylesheet" type="text/css" />
     <!-- HTML5 shim, for IE6-8 support of HTML elements-->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -39,7 +39,7 @@
     createStoryJS({
       embed_id: 'timeline-embed',
       width: "100%",
-      height: "75%",
+      height: "85%",
       source: '<%= timeline.source %>',
       hash_bookmark: true,
       start_zoom_adjust: <%= timeline.start_zoom_adjust %>,
@@ -49,6 +49,14 @@
       css: '/compiled/css/timeline.css'
     });
     $('.page-title').append('<sup><a class="source" href="'+document.URL.replace(window.location.host, 'zh.wikipedia.org')+'">原始資料</a><span class="question" title="對本網頁有疑問?"><a href="/README.txt" target="_blank">?</a></span></sup>');
+    $('a.reload').click(function(){
+      $(this).css({width:'32px',height:'16px'});
+      $(this).css('background-image','url(/css/images/ajax-loader.gif)');
+      $.get(document.URL+'.json?nocache=1', function(){
+        window.location.reload(true);
+      });
+      return false;
+    });
     $('a').live('click', function(){
       var url = this.href.toLowerCase();
       var pattern = /^(([^\/:]+?\.)*)([^\.:]{4,})((\.[a-z]{1,4})*)(:[0-9]{1,5})?$/;
@@ -68,7 +76,7 @@
   <!-- footer -->
   <div id="footer" align="center">
     <div>本站內容來源為Wikipedia，其文字在<a href="http://zh.wikipedia.org/zh-tw/Wikipedia%3ACC-BY-SA-3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC">創用CC 姓名標示-相同方式分享 3.0 協議</a>之條款下授權使用</div>
-    <div>最後更新 - <%= mtime %> | <a href="http://g0v.tw">g0v</a> | <a href="/disclaimer.html" target="_blank">免責聲明</a> </div>
+    <div>最後更新 - <%= mtime %> <a href="" class="reload"></a> | <a href="http://g0v.tw">g0v</a> | <a href="/disclaimer.html" target="_blank">免責聲明</a> </div>
   </div>
   <!-- END footer -->
 <script>

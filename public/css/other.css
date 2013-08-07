@@ -90,6 +90,13 @@ html[xmlns] .clearfix {
   font-family: Arial;
   font-size: 12px;
 }
+#footer .reload {
+  background: url(images/reload.gif) no-repeat;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+}
 
 /**
  * Timeline specific
