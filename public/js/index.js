@@ -11,6 +11,7 @@ angular.module('index', [])
         $t.html(cut);
       }
       $c.readmore({maxHeight:60});
+      /* still buggy
       $e.find('span.rightCorner').remove();
       $e.find('span.leftCorner').remove();
       var offset = $(element).offset();
@@ -20,6 +21,7 @@ angular.module('index', [])
       else {
         $e.prepend('<span class="leftCorner"></span>');
       }
+      */
     });
   };
 });
