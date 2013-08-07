@@ -11,6 +11,7 @@
     "async": "0.2.9",
     "flickrnode": "0.1.0",
     "ejs": "0.8.4",
+    "director": "1.2.0",
     "request": "~2.25.0",
     "moment": "~2.1.0"
   },
