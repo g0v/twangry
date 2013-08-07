@@ -19,43 +19,48 @@ a:hover, a:active {
 h1,h2,h3,h4,h5,h6 {
   margin: 0.5em 0;
   padding: 0;
+  text-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
+  color:#555;
 }
 #header{
   text-align: center;
-  height: 20%;
+  height: 10%;
 }
 #header * {
   margin: 0;
 }
 #header h1 {
-  font-size: 32px;
+  font-size: 26px;
   line-height: 1.5em;
   font-weight: bold;
-  color: #000;
 }
-#header h1.page-title sup a{
-  text-indent: -9999px;
-  background: url(images/external_link.png);
-  width:26px;
-  height:26px;
-  display:inline-block;
+#header h1 a.home {
+  vertical-align: middle;
+  font-size: 12px;
+  padding-right: 10px;
+  text-shadow: 0px 0px;
+}
+#header h1.page-title sup{
   margin-left: 10px;
+  margin-left: 10px;
+  font-size: 13px;
+  vertical-align: 20px;
+  text-shadow: 0px 0px;
 }
-#navbar {
-  font-size: 15px;
-  text-align: center;
-  margin: 10px 0;
-}
-#navbar ul {
-  list-style-type: none;
-  margin: 0;
-}
-#navbar li {
-  list-style-type: none;
+#header h1.page-title sup .question{
+  margin-left: 5px;
+  font-size: 10px;
+  background: #aaa;
+  color: #FFF;
   display: inline-block;
-  margin: 0 30px;
+  height: 14px;
+  width: 14px;
+  border-radius: 10px;
+  line-height: 17px;
 }
-
+#header h1.page-title sup .question a{
+  color: #FFF;
+}
 #wrapper {
 	width:860px; 
 	margin: 0 auto; 
@@ -82,7 +87,30 @@ html[xmlns] .clearfix {
 	height: 1%;
 }
 #footer {
+  font-family: Arial;
   font-size: 12px;
+}
+
+/**
+ * Timeline specific
+ */
+#storyjs-timeline .timenav-tag-row-1 h3{ color:#8C92AD; }
+#storyjs-timeline .timenav-tag-row-2 h3{ color:#71BA9F; }
+#storyjs-timeline .timenav-tag-row-3 h3{ color:#CEE879; }
+#storyjs-timeline .timenav-tag-row-4 h3{ color:#FCBC53; }
+#storyjs-timeline .timenav-tag-row-5 h3{ color:#FF5254; }
+#storyjs-timeline .timenav-tag-row-6 h3{ color:#999; }
+
+#storyjs-timeline .vco-storyjs h3{
+  font-size: 22px;
+}
+#storyjs-timeline .vco-slider .slider-item .content .content-container .text .container h2.date{
+  line-height:0;
+  font-size: 0;
+}
+#storyjs-timeline .vco-slider .slider-item .content .content-container .text .container h2.date span.slide-tag{
+  float:right;
+  display: block;
 }
 
 /**
