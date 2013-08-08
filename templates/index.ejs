@@ -5,28 +5,29 @@
     <meta charset="utf-8">
     <meta name="description">
     <link rel="stylesheet" href="/css/other.css">
+    <link rel="stylesheet" href="/css/colorbox/colorbox.css" />
+
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular-resource.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <!--local-->
     <script src="/js/readmore.js"></script>
     <script src="/js/index.js"></script>
+    <script src="/js/colorbox/jquery.colorbox-min.js"></script>
+    <script>
+    $(document).ready(function(){
+      $("a.colorbox").colorbox({iframe: true,width:800,height:500});
+    });
+    </script>
   </head>
   <body ng-app="index" ng-controller="EventCtrl">
     <div id="wrapper">
       <div id="header">
         <div id="navbar">
-          <ul>
-            <% if(is_front === 0){ %>
-            <li class="first">&laquo;<a href="/">回到總表</a></li>
-            <% } %>
-            <li class="last"><a href="http://g0v.tw/" target="_blank">g0v.tw</a></li>
-          </ul>
+            <a href="http://g0v.tw/" target="_blank">g0v.tw</a> | 
+            <a class="colorbox" href="/gdsmw.html?doc=/README.txt" target="_blank">About</a>
         </div>
         <h1 class="page-title"><%= page_title %></h1>
-        <% if(mission.length > 0){ %>
-          <p class="mission"><%= mission %></p>
-        <% } %>
       </div>
       <div id="filter">
         <div class="year">
