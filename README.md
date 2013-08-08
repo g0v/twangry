@@ -45,7 +45,7 @@ How to Join us
 
 建議、新功能、討論
 ------------------
-  - 歡迎至[Hackpad討論板](https://github.com/g0v/twangry/issues?milestone=4&state=open)提供本站的各式建議，也可看到他人提出過的建議
+  - 歡迎至[Hackpad討論板](https://g0v.hackpad.com/nGRHg4knibC)提供本站的各式建議，也可看到他人提出過的建議
   - 本站原則上不處理未上討論板refine過後的feature request
 
 進度
