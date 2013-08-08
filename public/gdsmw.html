@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="http://bootswatch.com/cosmo/bootstrap.min.css" rel="stylesheet"></link>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  var query = unescape(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape('doc').replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+  $.get(query, function(data){
+    var converter = new Showdown.converter();
+    var html = converter.makeHtml(data);
+    $(html).appendTo("#md");
+  });
+});
+</script>
+</head>
+<body>
+<div id="md">
+</div>
+</body>
+</html>
