@@ -20,13 +20,13 @@ Why
 How to Join us
 -----------------
   - 首頁
-    - 本站首頁由人工編輯，目前徵求對台灣社會運動、公民運動、政策新聞熟悉的長期編輯，挑選維基百科條目於本網站首頁
+    - 首頁由人工編輯，目前徵求對台灣社會運動、公民運動、政策新聞熟悉的長期編輯，挑選維基百科條目於本網站首頁
+      - 請先參考Milestone[歷史事件補齊](https://github.com/g0v/twangry/issues?milestone=3&state=open)
       - 意者請至首頁[Google Doc](https://docs.google.com/spreadsheet/ccc?key=0AuwTztKH2tKidGZ2cEdVY19PZEpzRWVJWWZOeUI1Y0E#gid=0)
-      - 右上方點擊「共用」後，填寫「專長領域、欲挑選的條目類型」後，送出
+      - 右上方點擊「共用」後，填寫「專長領域、欲挑選的條目類型、github帳號」後，送出
       - 我們盡快幫你加入編輯的行列
-      - 請先參考專案進展[歷史事件補齊](https://github.com/g0v/twangry/issues?milestone=3&state=open)
 
-  - 本站事件時間軸，目前全數來自中文維基百科，自動處理中文年月日，並擷取前後片段
+  - 事件時間軸，目前全數來自中文維基百科，自動處理中文年月日，並擷取前後片段
     - 維基百科為一個經過眾人力量編輯的百科，若發現本站所列事件過程有所缺漏，建議以下列方式協助我們：
       - 比對維基百科條目，提供程式抓取之邏輯建議（而非編寫建議）。
       - 將缺漏之事件之實情更新至維基百科。編寫維基百科請尊重維基文化與正確性，請確實「附上來源」，切勿抒發己見與心情言論。
@@ -37,7 +37,11 @@ How to Join us
 
   - 程式碼
     - 日期比對演算程式，目前由regular expression進行字串解析而成，歡迎提供patch
-    - 請先參考專案進展[中文日期parser革新](https://github.com/g0v/twangry/issues?milestone=4&state=open)
+      - 請先參考Milestone[中文日期parser革新](https://github.com/g0v/twangry/issues?milestone=4&state=open)
+    - 首頁樣式，目前使用Angularjs修整中
+      - 請先參考Milestone[首頁改版](https://github.com/g0v/twangry/issues?milestone=1&state=open)
+    - 事件時間軸頁，目前由timelinejs打造
+      - 請先參考Milestone[事件頁面時間軸修整](https://github.com/g0v/twangry/issues?milestone=2&state=open)
 
 錯誤回報
 --------
@@ -46,7 +50,7 @@ How to Join us
 建議、新功能、討論
 ------------------
   - 歡迎至[Hackpad討論板](https://g0v.hackpad.com/nGRHg4knibC)提供本站的各式建議，也可看到他人提出過的建議
-  - 本站原則上不處理未上討論板refine過後的feature request
+  - 原則上不處理未上討論板refine過後的feature request
 
 進度
 ----
