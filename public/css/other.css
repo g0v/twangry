@@ -19,7 +19,7 @@ a:hover, a:active {
 h1,h2,h3,h4,h5,h6 {
   margin: 0.5em 0;
   padding: 0;
-  text-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
+  /*text-shadow: 1px 1px 5px rgba(150, 150, 150, 1);*/
   color:#555;
 }
 #header{
@@ -187,6 +187,7 @@ html[xmlns] .clearfix {
 	background-color:#ffffff;
 	border:solid 1px #B4BBCD;
 	padding: 10px;
+	line-height:130px;
 }
 .item h2 {
   margin: 0;
