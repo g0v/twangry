@@ -13,6 +13,7 @@ $(document).ready(function(){
     var converter = new Showdown.converter();
     var html = converter.makeHtml(data);
     $(html).appendTo("#md");
+    $("#md a").attr("target", "_blank");
   });
 });
 </script>
