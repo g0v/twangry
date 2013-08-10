@@ -97,6 +97,12 @@ html[xmlns] .clearfix {
   height: 10px;
   cursor: pointer;
 }
+.slider-item .fadeout {
+  color: #ccc;
+}
+.slider-item .container .fadeout:hover {
+  color: #777;
+}
 
 /**
  * Timeline specific
