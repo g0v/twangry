@@ -37,8 +37,9 @@ function grab(uri){
   });
 }
 
-/*
 grab('http://ttcat.net/gettags/?q=2012');
 grab('http://ttcat.net/gettags/?q=2011');
 grab('http://ttcat.net/gettags/?q=2010');
-*/
+grab('http://ttcat.net/gettags/?q=2009');
+grab('http://ttcat.net/gettags/?q=2008');
+grab('http://ttcat.net/gettags/?q=2007');
