@@ -10,7 +10,7 @@ angular.module('index', [])
         var cut = $t.text().replace('-','');
         $t.html(cut);
       }
-      $c.readmore({maxHeight:60});
+      $c.readmore({maxHeight:76});
       /* still buggy
       $e.find('span.rightCorner').remove();
       $e.find('span.leftCorner').remove();

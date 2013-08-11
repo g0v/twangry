@@ -187,7 +187,7 @@ html[xmlns] .clearfix {
 	background-color:#ffffff;
 	border:solid 1px #B4BBCD;
 	padding: 10px;
-	line-height:130px;
+	line-height:1.5em;
 }
 .item h2 {
   margin: 0;
