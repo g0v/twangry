@@ -20,15 +20,22 @@ h1,h2,h3,h4,h5,h6 {
   padding: 0;
   color:#555;
 }
-.index {
+.main {
 	width: 95%;
 	max-width: 69em;
 	margin: 0 auto;
 	padding: 0 1.875em 3.125em;
 }
-.index #header{
-  height: 140px;
-  position: relative;
+.index #header #logo {
+    position: absolute;
+    left: 9%;
+    top: 10px;
+}
+.index #header {
+    min-height: 130px;
+}
+.index #header #navbar {
+    margin-left: 26px;
 }
 .timeline #header {
   height: 10%;
@@ -37,7 +44,7 @@ h1,h2,h3,h4,h5,h6 {
 .timeline #logo {
   position: absolute;
   top: 0px;
-  left: 15%;
+  left: 10%;
 }
 #header h1.page-title {
   font-size: 26px;
@@ -56,10 +63,11 @@ h1,h2,h3,h4,h5,h6 {
   text-shadow: 0px 0px;
 }
 #header #navbar {
-  left: 15%;
-  margin-left: 100px;
+  left: 10%;
+  margin-left: 85px;
   z-index: 1000;
   position: absolute;
+  font-size: 10px;
 }
 #container {
   position: relative;
@@ -126,7 +134,7 @@ html[xmlns] .clearfix {
  */
 #filter {
   position: absolute;
-  left: 25%;
+  left: 30%;
   top: 15px;
 }
 #filter #year-line {

@@ -23,7 +23,7 @@
     });
     </script>
 	</head>
-	<body ng-app="index" ng-controller="EventCtrl">
+	<body class="index" ng-app="index" ng-controller="EventCtrl">
     <div id="wrapper">
     <div id="container" class="container" ng-show="(events|filter:query).length">
       <div id="header">
@@ -45,7 +45,7 @@
         </div>
         <div id="logo"><img src="/logo.png" title="<%= page_title %>"></div>
       </div>
-			<div class="index">
+			<div class="main">
 				<ul class="cbp_tmtimeline">
           <li class="item" ng-repeat="event in events|filter:query|orderBy:sort:reverse" ng-animate=" 'item' " post-repeat-masonry>
 						<time class="cbp_tmtime" datetime=""><span ng-if="event.endDate != ''">{{event.endDate}}</span> <span>{{event.startDate}}</span></time>
