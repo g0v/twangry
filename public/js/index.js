@@ -2,6 +2,7 @@ angular.module('index', [])
 .directive('postRepeatMasonry', function() {
   return function(scope, element, attrs) {
     scope.$watch("events", function (value) {
+      /* still buggy
       var center = $(".timeline_container").offset().left;
       var $e = $(element);
       var $c = $e.find('.content');
@@ -11,7 +12,6 @@ angular.module('index', [])
         $t.html(cut);
       }
       $c.readmore({maxHeight:76});
-      /* still buggy
       $e.find('span.rightCorner').remove();
       $e.find('span.leftCorner').remove();
       var offset = $(element).offset();
