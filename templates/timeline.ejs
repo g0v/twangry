@@ -1,20 +1,7 @@
 <!DOCTYPE html>
-<html lang="zh-tw"><!--
-  	 
-  	88888888888 d8b                        888 d8b                888888   d8888b  
-  	    888     Y8P                        888 Y8P                   88b d88P  Y88b 
-  	    888                                888                       888 Y88b
-  	    888     888 88888b d88b     d88b   888 888 88888b     d88b   888   Y888b
-  	    888     888 888  888  88b d8P  Y8b 888 888 888  88b d8P  Y8b 888      Y88b
-  	    888     888 888  888  888 88888888 888 888 888  888 88888888 888        888 
-  	    888     888 888  888  888 Y8b      888 888 888  888 Y8b      88P Y88b  d88P 
-  	    888     888 888  888  888   Y8888  888 888 888  888   Y8888  888   Y8888P
-  	                                                                d88P            
-  	                                                              d88P             
-  	                                                            888P              
-  	 -->
+<html lang="zh-tw">
   <head>
-    <title><%= header_title %></title>
+    <title><%= page_title %></title>
     <meta charset="utf-8">
     <meta name="description" content="<%= meta_desc %>">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -27,14 +14,19 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script type="text/javascript" src="/compiled/js/storyjs-embed.js"></script>
 
+    <script type="text/javascript" src="/compiled/js/storyjs-embed.js"></script>
     <script type="text/javascript" src="/js/colorbox/jquery.colorbox-min.js"></script>
   </head>
 </html>
-<body class="event">
+<body class="timeline">
   <div id="header">
-    <h1 class="page-title"><a href="/" class="home">&laquo; 首頁</a> <%= page_title %></h1>
+    <h1 class="page-title"><%= page_title %></h1>
+    <div id="navbar">
+        <a href="http://g0v.tw/" target="_blank">g0v.tw</a> | 
+        <a class="colorbox" href="/gdsmw.html?doc=/README.txt" target="_blank">About</a>
+    </div>
+    <div id="logo"><img height="100" src="/logo.png"></div>
   </div>
   <!-- BEGIN Timeline Embed -->
   <script type="text/javascript">
@@ -42,7 +34,7 @@
     createStoryJS({
       embed_id: 'timeline-embed',
       width: "100%",
-      height: "85%",
+      height: "80%",
       source: '<%= timeline.source %>',
       hash_bookmark: true,
       start_zoom_adjust: <%= timeline.start_zoom_adjust %>,
@@ -51,7 +43,7 @@
       lang: 'zh-tw',
       css: '/compiled/css/timeline.css'
     });
-    $('.page-title').append('<sup><a class="source" href="'+document.URL.replace(window.location.host, 'zh.wikipedia.org')+'">原始資料</a><span class="question" title="對本網頁有疑問?"><a class="colorbox" href="/gdsmw.html?doc=/README.txt" target="_blank">?</a></span></sup>');
+    $('.page-title').append('<sup><a class="source" href="'+document.URL.replace(window.location.host, 'zh.wikipedia.org')+'">資料來源</a></sup>');
     $("a.colorbox").colorbox({iframe:true,width:900,height:500});
     $('a.reload').click(function(){
       $(this).css({width:'32px',height:'16px'});
