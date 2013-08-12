@@ -28,14 +28,14 @@ h1,h2,h3,h4,h5,h6 {
 }
 .index #header #logo {
     position: absolute;
-    left: 9%;
+    left: 10%;
     top: 10px;
 }
 .index #header {
     min-height: 130px;
 }
 .index #header #navbar {
-    margin-left: 26px;
+    margin-left: 105px;
 }
 .timeline #header {
   height: 10%;
