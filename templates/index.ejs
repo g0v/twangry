@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/colorbox/colorbox.css" />
     <link rel="stylesheet" href="/css/font-awesome.min.css">
 		<link rel="stylesheet" href="/css/vtimeline.css" />
-    <link rel="stylesheet" href="/css/other.css?25">
+    <link rel="stylesheet" href="/css/other.css?26">
 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular-resource.min.js"></script>
@@ -25,7 +25,7 @@
 	</head>
 	<body class="index" ng-app="index" ng-controller="EventCtrl">
     <div id="wrapper">
-    <div id="container" class="container" ng-show="(events|filter:query).length">
+    <div id="container" class="container">
       <div id="header">
         <div id="filter">
           <div class="year">
@@ -45,7 +45,7 @@
         </div>
         <div id="logo"><a href="/"><img src="/logo.png" title="<%= page_title %>"></a></div>
       </div>
-			<div class="main">
+			<div class="main" ng-show="(events|filter:query).length">
 				<ul class="cbp_tmtimeline">
           <li class="item" ng-repeat="event in events|filter:query|orderBy:sort:reverse" ng-animate=" 'item' ">
 						<time class="cbp_tmtime" datetime=""><span ng-if="event.endDate != ''">{{event.endDate}}</span> <span>{{event.startDate}}</span></time>

@@ -143,6 +143,8 @@ html[xmlns] .clearfix {
 }
 #filter .year, #filter .tag{
   line-height: 2.0em;
+  max-height: 40px;
+  overflow: hidden;
 }
 #filter .year span {
   margin: 0 3px;
@@ -158,6 +160,10 @@ html[xmlns] .clearfix {
 }
 #filter .query:hover {
   color: #0090DF;
+}
+#no-result {
+  text-align: center;
+  margin: 50px auto;
 }
 /* animation */
 .item-enter, 
