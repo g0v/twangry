@@ -100,16 +100,15 @@ html[xmlns] .clearfix {
   height: 10px;
   cursor: pointer;
 }
-.slider-item .fadeout {
-  color: #ccc;
-}
-.slider-item .container .fadeout:hover {
-  color: #777;
-}
-
 /**
  * Timeline specific
  */
+#storyjs-timeline {
+  font-family: '\5FAE\8F6F\96C5\9ED1','微軟正黑體', 'Lato', Calibri, Arial, sans-serif !important;
+}
+#storyjs-timeline.vco-storyjs .vco-feature p {
+  color: #000;
+}
 #storyjs-timeline .timenav-tag-row-1 h3{ color:#8C92AD; }
 #storyjs-timeline .timenav-tag-row-2 h3{ color:#71BA9F; }
 #storyjs-timeline .timenav-tag-row-3 h3{ color:#CEE879; }
@@ -128,6 +127,19 @@ html[xmlns] .clearfix {
   float:right;
   display: block;
 }
+.slider-item .fadeout {
+  color: #ccc;
+  text-shadow: 0px 0px 2px #999;
+}
+.slider-item .fadeout a {
+  color: #ccc;
+}
+.slider-item .container .fadeout:hover,
+.slider-item .container .fadeout a:hover {
+  color: #777;
+  text-shadow: 0px 0px 0px;
+}
+
 
 /**
  * front page specific
