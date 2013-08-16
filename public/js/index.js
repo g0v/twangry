@@ -1,29 +1,15 @@
 angular.module('index', [])
-.directive('postRepeatMasonry', function() {
-  return function(scope, element, attrs) {
-    scope.$watch("events", function (value) {
-      /* still buggy
-      var center = $(".timeline_container").offset().left;
-      var $e = $(element);
-      var $c = $e.find('.content');
-      var $t = $e.find('.time');
-      if($t.text().match(/-[^0-9]/)){
-        var cut = $t.text().replace('-','');
-        $t.html(cut);
+.directive('onFinishRender', function($timeout) {
+  return {
+    restrict: 'A',
+    link: function (scope, element, attr) {
+      if (scope.$last === true) {
+        $timeout(function () {
+          scope.$emit('ngRepeatFinished');
+        });
       }
-      $c.readmore({maxHeight:76});
-      $e.find('span.rightCorner').remove();
-      $e.find('span.leftCorner').remove();
-      var offset = $(element).offset();
-      if(offset.left < center){
-        $e.prepend('<span class="rightCorner"></span>'); 
-      }
-      else {
-        $e.prepend('<span class="leftCorner"></span>');
-      }
-      */
-    });
-  };
+    }
+  }
 });
 
 function EventCtrl($scope, $http, $templateCache, $filter){
@@ -39,6 +25,10 @@ function EventCtrl($scope, $http, $templateCache, $filter){
     error(function(data, status) {
       $scope.data = data || "Request failed";
       $scope.status = status;
+  });
+  $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent){
+    $("#spinner").hide();
+    $("ul.cbp_tmtimeline").show();
   });
 }
 

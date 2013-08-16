@@ -177,36 +177,7 @@ html[xmlns] .clearfix {
   text-align: center;
   margin: 50px auto;
 }
-/* animation */
-.item-enter, 
-.item-leave { 
-    -webkit-transition: 600ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -moz-transition: 600ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -ms-transition: 600ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -o-transition: 600ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    transition: 600ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    position: relative;
-    display: block;
-} 
- 
-.item-leave.item-leave-active,
-.item-enter {
-    -webkit-transform: rotateX(-180deg) translatez(30px);
-    -moz-transform: rotateX(-180deg) translatez(30px);
-    -ms-transform: rotateX(-180deg) translatez(30px);
-    -o-transform: rotateX(-180deg) translatez(30px);
-    transform: rotateX(-180deg) translatez(30px);
-    opacity: 0;
-    height: 0px;
-}        
- 
-.item-enter.item-enter-active,
-.item-leave {
-    -webkit-transform: rotateX(0deg) translatez(30px);
-    -moz-transform: rotateX(0deg) translatez(30px);
-    -ms-transform: rotateX(0deg) translatez(30px);
-    -o-transform: rotateX(0deg) translatez(30px);
-    transform: rotateX(0deg) translatez(30px);
-    opacity: 1;
-    height: 350px;
+ul.cbp_tmtimeline {
+  display: none;
 }
+/* animation */
