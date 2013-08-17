@@ -36,17 +36,18 @@
           <div class="tag">
             <span class="query" ng-click="$parent.query = tag" ng-show="tag != ''" ng-repeat="tag in tags">{{tag}}</span>
           </div>
-          <form>搜尋：<input class="textfield" ng-model="query"></form>
+          <form>一共有{{(events|filter:query).length}}則 <input class="textfield" ng-model="query" placeholder="輸入文字以篩選事件"> 相關的事件</form>
         </div>
         <div id="navbar">
             <a href="http://g0v.tw/" target="_blank">g0v.tw</a> | 
             <a class="colorbox" href="/gdsmw.html?doc=/README.txt" target="_blank">About</a>
         </div>
-        <div id="logo"><a href="/"><img src="/logo.png" title="<%= page_title %>"></a></div>
+        <div id="logo"><a href="/"><img src="/logo.png" title="<%= page_title %>" border="0"></a></div>
       </div>
 			<div class="main" ng-show="(events|filter:query).length">
+        <div align="center" id="spinner"><span class="icon-spinner icon-4x"></span></div>
 				<ul class="cbp_tmtimeline">
-          <li class="item" ng-repeat="event in events|filter:query|orderBy:sort:reverse" ng-animate=" 'item' ">
+          <li class="item" ng-repeat="event in events|filter:query|orderBy:sort:reverse" ng-animate=" 'item' " on-finish-render>
 						<time class="cbp_tmtime" datetime=""><span ng-if="event.endDate != ''">{{event.endDate}}</span> <span>{{event.startDate}}</span></time>
 						<div class="cbp_tmicon icon-chevron-left"></div>
 						<div class="cbp_tmlabel">
