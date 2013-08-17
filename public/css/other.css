@@ -131,6 +131,11 @@ html[xmlns] .clearfix {
   color: #ccc;
   text-shadow: 0px 0px 2px #999;
 }
+.slider-item .fadeout .highlighted,
+.slider-item .fadeout .highlighted a {
+  color: #000;
+  text-shadow: none;
+}
 .slider-item .fadeout a {
   color: #ccc;
 }
