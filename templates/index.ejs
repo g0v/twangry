@@ -49,7 +49,7 @@
 				<ul class="cbp_tmtimeline">
           <li class="item" ng-repeat="event in events|filter:query|orderBy:sort:reverse" ng-animate=" 'item' " on-finish-render>
 						<time class="cbp_tmtime" datetime=""><span ng-if="event.endDate != ''">{{event.endDate}}</span> <span>{{event.startDate}}</span></time>
-						<div class="cbp_tmicon icon-chevron-left"></div>
+						<div class="cbp_tmicon icon-plus-sign"></div>
 						<div class="cbp_tmlabel">
               <div class="icon-tags" ng-show="event.tag != ''"><span class="tag" ng-click="$parent.$parent.query = tag" ng-repeat="tag in event.tag">{{tag}}</span></div>
               <h2><a href="/wiki/{{event.headline}}">{{event.headline}}<span class="icon-double-angle-right"></span></a></h2>

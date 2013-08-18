@@ -134,21 +134,21 @@ body, html { font-size: 100%; padding: 0; margin: 0;}
 /* The icons */
 .cbp_tmtimeline > li .cbp_tmicon {
   width: 40px;
-  height: 27px;
+  height: 40px;
   speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
-  font-size: 2.7em;
-  line-height: 28px;
+  font-size: 1.2em;
+  line-height: 40px;
   -webkit-font-smoothing: antialiased;
   position: absolute;
-  color: #000;
-  background: #FFF;
+  color: #FFF;
+  background: rgba(0, 0, 0, 0);
   text-align: center;
   left: 20%;
-  margin: 0 0 0 -32px;
+  margin: 0 0 0 -25px;
 }
 
 /* Example Media Queries */
