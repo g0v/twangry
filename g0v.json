@@ -34,6 +34,9 @@
     "truth"
   ],
   "thumbnail": "http://fact.g0v.tw/screenshot.png",
+  "scripts": {
+    "prepublish": "node tools/prepublish"
+  },
   "needs": [
     "designer",
     "wikipedia writer",

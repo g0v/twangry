@@ -21,4 +21,5 @@ Start your web server.
 5. Run node
 -----------------
 > cd 
+> node tools/prepublish
 > node app.js
