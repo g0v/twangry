@@ -2,7 +2,11 @@
   "author": "jimmyhuang",
   "contributors": [
     "pm5",
-    "chilijung"
+    "chilijung",
+    "onlinemad",
+    "FumiMiyabe",
+    "JimCCC",
+    "WeitingTseng"
   ],
   "status": "beta",
   "name": "twangry",
@@ -34,6 +38,9 @@
     "truth"
   ],
   "thumbnail": "http://fact.g0v.tw/screenshot.png",
+  "scripts": {
+    "prepublish": "node tools/prepublish"
+  },
   "needs": [
     "designer",
     "wikipedia writer",
