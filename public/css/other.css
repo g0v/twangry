@@ -169,11 +169,11 @@ html[xmlns] .clearfix {
   padding: 3px;
 }
 #filter .tag .query {
-  margin: 0 10px;
+  margin: 0 3px;
   cursor: pointer;
   background: #EEE;
   border-radius: 10px;
-  padding: 3px 10px;
+  padding: 3px 3px;
 }
 #filter .query:hover {
   color: #0090DF;
