@@ -48,7 +48,7 @@
         <div align="center" id="spinner"><span class="icon-spinner icon-4x"></span></div>
 				<ul class="cbp_tmtimeline">
           <li class="item" ng-repeat="event in events|filter:query|orderBy:'sort':true" ng-animate=" 'item' " on-finish-render>
-						<time class="cbp_tmtime" datetime=""><span ng-if="event.endDate != ''">{{event.endDate}}</span> <span>{{event.startDate}}</span></time>
+						<time class="cbp_tmtime" datetime=""><span ng-show="event.endDate != ''">{{event.endDate}}</span> <span>{{event.startDate}}</span></time>
 						<div class="cbp_tmicon icon-plus-sign"></div>
 						<div class="cbp_tmlabel collapsed">
               <div class="icon-tags" ng-show="event.tag != ''"><span class="tag" ng-click="$parent.$parent.query = tag" ng-repeat="tag in event.tag">{{tag}}</span></div>

@@ -29,6 +29,7 @@ function EventCtrl($scope, $http, $templateCache, $filter){
   $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent){
     $("#spinner").hide();
     $("ul.cbp_tmtimeline").show();
+    $('.cbp_tmtime').find('span:visible:eq(1)').addClass('last-child');
     $(".cbp_tmlabel").click(function(){
       var $a = $(this).find("h2").find("a");
       var href = $a.attr('href');

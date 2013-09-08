@@ -42,28 +42,20 @@ body, html { font-size: 100%; padding: 0; margin: 0;}
 	text-align: right;
 }
 
-.cbp_tmtimeline > li .cbp_tmtime span:last-child {
-	font-size: 0.9em;
-	color: #bbb;
-}
-
 .cbp_tmtimeline > li .cbp_tmtime span {
 	display: block;
 	text-align: right;
 }
 
-.cbp_tmtimeline > li .cbp_tmtime span:last-child {
+.cbp_tmtimeline > li .cbp_tmtime .last-child {
 	font-size: 1.5em;
 	color: #bbb;
 }
-.cbp_tmtimeline > li .cbp_tmtime span:nth-child(2):before {
+.cbp_tmtimeline > li .cbp_tmtime .last-child:before {
   content: '~ ';
 }
-.cbp_tmtimeline > li .cbp_tmtime span:first-child {
+.cbp_tmtimeline > li .cbp_tmtime span {
 	font-size: 1.8em;
-	color: #777;
-}
-.cbp_tmtimeline > li:nth-child(odd) .cbp_tmtime span:first-child {
 	color: #777;
 }
 
