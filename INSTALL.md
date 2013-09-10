@@ -25,6 +25,7 @@ Start your web server.
 > node app.js
 
 For Windows
+
 1. Prepare Environment
 -------------------
 > install nodejs for windows, http://nodejs.org/download/
