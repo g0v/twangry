@@ -21,5 +21,33 @@ Start your web server.
 5. Run node
 -----------------
 > cd 
+
 > node tools/prepublish
+
 > node app.js
+
+For Windows
+=============
+
+1. Prepare Environment
+-------------------
+> install nodejs for windows, http://nodejs.org/download/
+
+2. Clone Project
+----------------
+> install github for windows, http://windows.github.com/.
+
+> git clone https://github.com/jimyhuang/twangry.git
+
+3. Install thirty partys
+------------------------
+> launch Node.js command prompt
+
+> npm install
+
+4. Run node
+-----------------
+> node app.js
+
+> run http://localhost:8080/
+
