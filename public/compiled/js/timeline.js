@@ -6999,7 +6999,7 @@ if(typeof VMM != 'undefined' && typeof VMM.Timeline == 'undefined') {
 			nav: {
 				start_page: 		false,
 				interval_width: 	200,
-				density: 			4,
+				density: 			5,
 				minor_width: 		0,
 				minor_left:			0,
 				constraint: {
@@ -7013,7 +7013,7 @@ if(typeof VMM != 'undefined' && typeof VMM.Timeline == 'undefined') {
 				},
 				multiplier: {
 					current: 		6,
-					min: 			.001,
+					min: 			.05,
 					max: 			50
 				},
 				rows: 				[1, 1, 1],
@@ -8984,7 +8984,6 @@ if(typeof VMM.Timeline != 'undefined' && typeof VMM.Timeline.TimeNav == 'undefin
 				interval_major				=		interval_calc.age;
 				interval_macro				=		interval_calc.century;
 			} else 
-			*/
 			if (timespan.centuries			>		data.length / config.nav.density) {
 				interval					=		interval_calc.century;
 				interval_major				=		interval_calc.millenium;
@@ -8997,7 +8996,9 @@ if(typeof VMM.Timeline != 'undefined' && typeof VMM.Timeline.TimeNav == 'undefin
 				interval					=		interval_calc.year;
 				interval_major				=		interval_calc.decade;
 				interval_macro				=		interval_calc.month;
-			} else if (timespan.months		>		data.length / config.nav.density) {
+			} else
+			*/
+      if (timespan.months		>		data.length / config.nav.density) {
 				interval					=		interval_calc.month;
 				interval_major				=		interval_calc.year;
 				interval_macro				=		interval_calc.day;
