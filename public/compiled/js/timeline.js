@@ -7013,7 +7013,7 @@ if(typeof VMM != 'undefined' && typeof VMM.Timeline == 'undefined') {
 				},
 				multiplier: {
 					current: 		6,
-					min: 			.1,
+					min: 			.001,
 					max: 			50
 				},
 				rows: 				[1, 1, 1],
@@ -7808,6 +7808,12 @@ if(typeof VMM.Timeline != 'undefined' && typeof VMM.Timeline.TimeNav == 'undefin
 			
 			$dragslide.cancelSlide();
 			if (config.nav.multiplier.current > config.nav.multiplier.min) {
+				if (config.nav.multiplier.current <= 0.01) {
+					config.nav.multiplier.current = config.nav.multiplier.current - .0025;
+				} else 
+				if (config.nav.multiplier.current <= 0.1) {
+					config.nav.multiplier.current = config.nav.multiplier.current - .025;
+				} else 
 				if (config.nav.multiplier.current <= 1) {
 					config.nav.multiplier.current = config.nav.multiplier.current - .25;
 				} else {
