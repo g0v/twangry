@@ -49,8 +49,8 @@
     $('a.reload').click(function(){
       $(this).css({width:'32px',height:'16px'});
       $(this).css('background-image','url(/css/images/ajax-loader.gif)');
-      $.get(document.URL+'.json?nocache=1', function(){
-        window.location.reload(true);
+      $.get(document.URL.replace(/#.*$/,'')+'.json?nocache=1', function(e){
+        location.reload();
       });
       return false;
     });
