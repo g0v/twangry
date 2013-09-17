@@ -36,7 +36,7 @@
           <div class="tag">
             <span class="query" ng-click="$parent.query = tag" ng-show="tag != ''" ng-repeat="tag in tags">{{tag}}</span>
           </div>
-          <form>一共有{{(events|filter:query).length}}則 <input class="textfield" ng-model="query" placeholder="輸入文字以篩選事件"> 相關的事件</form>
+          <form ng-submit="QueryFilter()">一共有{{filterLength}}則 <input class="textfield" ng-model="filter" placeholder="輸入文字以篩選事件"> 相關的事件</form>
         </div>
         <div id="navbar">
             <a href="http://g0v.tw/" target="_blank">g0v.tw</a> | 
@@ -44,10 +44,10 @@
         </div>
         <div id="logo"><a href="/"><img src="/logo.png" title="<%= page_title %>" border="0"></a></div>
       </div>
-			<div class="main" ng-show="(events|filter:query).length">
+			<div class="main" ng-show="(filterEvents|filter:filterByTag).length">
         <div align="center" id="spinner"><span class="icon-spinner icon-4x"></span></div>
 				<ul class="cbp_tmtimeline">
-          <li class="item" ng-repeat="event in events|filter:query|orderBy:'sort':true" ng-animate=" 'item' " on-finish-render>
+          <li class="item" ng-repeat="event in filterEvents|filter:filterByTag|orderBy:'sort':true" ng-animate=" 'item' " on-finish-render>
 						<time class="cbp_tmtime" datetime=""><span ng-show="event.endDate != ''">{{event.endDate}}</span> <span>{{event.startDate}}</span></time>
 						<div class="cbp_tmicon icon-plus-sign"></div>
 						<div class="cbp_tmlabel collapsed">
@@ -59,7 +59,7 @@
           </li>
 				</ul>
       </div><!--main-->
-      <div id="no-result" ng-show="(events|filter:query).length === 0">
+      <div id="no-result" ng-show="(filterEvents|filter:filterByTag).length === 0">
         目前沒有這筆資料，但是你可以看一下「<a href="/wiki/{{query}}">{{query}}</a>」的時間軸。
       </div>
     </div><!-- container -->
