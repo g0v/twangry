@@ -34,9 +34,9 @@
             </span>
           </div>
           <div class="tag">
-            <span class="query" ng-click="$parent.query = tag" ng-show="tag != ''" ng-repeat="tag in tags">{{tag}}</span>
+            <span class="query" ng-click="QueryFilter(tag)" ng-show="tag != ''" ng-repeat="tag in tags">{{tag}}</span>
           </div>
-          <form ng-submit="QueryFilter()">一共有{{filterLength}}則 <input class="textfield" ng-model="filter" placeholder="輸入文字以篩選事件"> 相關的事件</form>
+          <form ng-submit="QueryFilter(filter)">一共有{{filterLength}}則 <input class="textfield" ng-model="filter" placeholder="輸入文字以篩選事件"> 相關的事件</form>
         </div>
         <div id="navbar">
             <a href="http://g0v.tw/" target="_blank">g0v.tw</a> | 

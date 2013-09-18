@@ -30,7 +30,7 @@ function EventCtrl($scope, $http, $templateCache, $filter){
       $scope.data = data || "Request failed";
       $scope.status = status;
   });
-  $scope.QueryFilter = function()
+  $scope.QueryFilter = function($filter)
   {
 	  if($scope.filter=='')
 	  {
@@ -40,7 +40,6 @@ function EventCtrl($scope, $http, $templateCache, $filter){
 	  else
 	  {
 		  $matchcount=0;
-		  $filter=$scope.filter;
 		  $scope.filterEvents=[];
 		  for(i=0;i<$scope.events.length;i++)
 		  {
