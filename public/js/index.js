@@ -15,7 +15,6 @@ angular.module('index', [])
 function EventCtrl($scope, $http, $templateCache, $filter){
   $scope.method = 'GET';
   $scope.url = '/index.json'; 
-  $scope.filter=$filter;
   $http({method: $scope.method, url: $scope.url, cache: $templateCache}).
     success(function(data, status) {
       $scope.status = status;
@@ -32,7 +31,7 @@ function EventCtrl($scope, $http, $templateCache, $filter){
   });
   $scope.QueryFilter = function($filter)
   {
-	  if($scope.filter=='')
+	  if($filter=='' || typeof($filter) == "undefined" )
 	  {
 		  $scope.filterLength=$scope.events.length; 
 		  $scope.filterEvents=$scope.events;
