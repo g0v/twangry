@@ -1,0 +1,36 @@
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <title><%= page_title %></title>
+    <meta name="description" content="<%= meta_desc %>">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <link rel="stylesheet" href="/css/colorbox/colorbox.css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/readable/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/css/vtimeline.css?2" />
+    <link rel="stylesheet" href="/css/other.css?28">
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/colorbox/jquery.colorbox-min.js"></script>
+  <% if(template === 'index') { %>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular-resource.min.js"></script>
+    <script type="text/javascript" src="/js/index.js?3"></script>
+  <% } %>
+    <script>
+    $(document).ready(function(){
+      $("a.colorbox").colorbox({iframe: true,width:900,height:500});
+    });
+    </script>
+
+
+  <% if(template === 'timeline') { %>
+    <!-- HTML5 shim, for IE6-8 support of HTML elements-->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="/compiled/js/storyjs-embed.js"></script>
+  <% } %>

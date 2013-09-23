@@ -1,49 +1,17 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-    <title><%= header_title %></title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <link rel="stylesheet" href="/css/colorbox/colorbox.css" />
-    <link rel="stylesheet" href="/css/font-awesome.min.css">
-		<link rel="stylesheet" href="/css/vtimeline.css?2" />
-    <link rel="stylesheet" href="/css/other.css?28">
-
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular-resource.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <!--local-->
-    <script src="/js/index.js?3"></script>
-    <script src="/js/colorbox/jquery.colorbox-min.js"></script>
+    <% include head %>
     <script>
     $(document).ready(function(){
       $("a.colorbox").colorbox({iframe: true,width:900,height:500});
     });
     </script>
 	</head>
-	<body class="index" ng-app="index" ng-controller="EventCtrl">
-    <div id="wrapper">
+	<body class="<%= template %>" ng-app="index" ng-controller="EventCtrl">
+  <% include header %>
+  <div id="wrapper">
     <div id="container" class="container">
-      <div id="header">
-        <div id="filter">
-          <div class="year">
-            <div id="year-line"></div>
-            <span ng-click="$parent.query = year" ng-repeat="year in years">
-              <span>{{year}}</span>
-            </span>
-          </div>
-          <div class="tag">
-            <span class="query" ng-click="QueryFilter(tag)" ng-show="tag != ''" ng-repeat="tag in tags">{{tag}}</span>
-          </div>
-          <form ng-submit="QueryFilter(filter)">一共有{{filterLength}}則 <input class="textfield" ng-model="filter" placeholder="輸入文字以篩選事件"> 相關的事件</form>
-        </div>
-        <div id="navbar">
-            <a href="http://g0v.tw/" target="_blank">g0v.tw</a> | 
-            <a class="colorbox" href="/gdsmw.html?doc=/README.txt" target="_blank">About</a>
-        </div>
-        <div id="logo"><a href="/"><img src="/logo.png" title="<%= page_title %>" border="0"></a></div>
-      </div>
 			<div class="main" ng-show="(filterEvents|filter:filterByTag).length">
         <div align="center" id="spinner"><span class="icon-spinner icon-4x"></span></div>
 				<ul class="cbp_tmtimeline">
@@ -59,7 +27,7 @@
           </li>
 				</ul>
       </div><!--main-->
-      <div id="no-result" ng-show="(filterEvents|filter:filterByTag).length === 0">
+      <div id="no-result" ng-show="(filterEvents|filter:filterByTag).length">
         目前沒有這筆資料，但是你可以看一下「<a href="/wiki/{{query}}">{{query}}</a>」的時間軸。
       </div>
     </div><!-- container -->

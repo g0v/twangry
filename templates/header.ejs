@@ -1,0 +1,41 @@
+    <div class="navbar navbar-default navbar-fixed-top" id="header">
+      <div class="container">
+        <div class="navbar-header">
+          <div class="navbar-brand"><a href="/"><img src="/logo.png" id="logo"></a></div>
+          <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#filter">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        
+        <div id="filter" class="navbar-collapse collapse">
+        <% if(template === 'timeline') { %>
+          <ul class="nav navbar-nav"><li><a class="page-title"><%= page_title %></a></li></ul>
+        <% } %>
+        <% if(template === 'index') { %>
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="years">年份<span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="years">
+                <li ng-click="$parent.query = year" ng-repeat="year in years">{{year}}</li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="tags">Tag<span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="tags">
+                <li ng-click="QueryFilter(tag)" ng-show="tag != ''" ng-repeat="tag in tags">{{tag}}</li>
+              </ul>
+            </li>
+          </ul>
+          <form class="navbar-form navbar-left" ng-submit="QueryFilter(filter)">
+            <input class="form-control col-lg-8" ng-model="filter" placeholder="輸入文字以篩選事件"> 
+          </form>
+        <% } %>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://g0v.tw/" target="_blank">g0v.tw</a></li>
+            <li><a class="colorbox" href="/gdsmw.html?doc=/README.txt" target="_blank">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>

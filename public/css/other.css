@@ -1,10 +1,12 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
 html, body{
   padding: 0px;
   margin: 0px;
   height: 100%;
 }
 body {
-  font-family: '\5FAE\8F6F\96C5\9ED1','微軟正黑體', 'Lato', Calibri, Arial, sans-serif;
+  font-family: Lato, '\5FAE\8F6F\96C5\9ED1','微軟正黑體', Calibri, Arial, sans-serif !important;
   color: #777;
 }
 a {
@@ -16,61 +18,26 @@ a:hover {
 }
 
 h1,h2,h3,h4,h5,h6 {
+  font-family: Lato, '\5FAE\8F6F\96C5\9ED1','微軟正黑體', Calibri, Arial, sans-serif !important;
   margin: 0.5em 0;
   padding: 0;
   color:#555;
 }
+h1 { font-size: 39px;}
+h2 { font-size: 29px;}
+h3 { font-size: 18px;}
+h4 { font-size: 16px;}
+h5 { font-size: 15px;}
+h6 { font-size: 13px;}
 .main {
 	width: 95%;
 	max-width: 69em;
 	margin: 0 auto;
 	padding: 0 1.875em 3.125em;
 }
-.index #header #logo {
-    position: absolute;
-    left: 10%;
-    top: 10px;
-}
-.index #header {
-    min-height: 130px;
-}
-.index #header #navbar {
-    margin-left: 105px;
-}
-.timeline #header {
-  height: 10%;
-  min-height: 100px;
-}
-.timeline #logo {
-  position: absolute;
-  top: 0px;
-  left: 10%;
-}
-#header h1.page-title {
-  font-size: 26px;
-  line-height: 1.5em;
-  font-weight: bold;
-  position: absolute;
-  top: 10px;
-  z-index: 0;
-  left: 30%;
-}
-#header h1.page-title sup{
-  margin-left: 10px;
-  margin-left: 10px;
-  font-size: 13px;
-  vertical-align: 20px;
-  text-shadow: 0px 0px;
-}
-#header #navbar {
-  left: 10%;
-  margin-left: 85px;
-  z-index: 1000;
-  position: absolute;
-  font-size: 10px;
-}
-#container {
-  position: relative;
+#wrapper {
+  height: 100%;
+  margin-top: 57px;
 }
 .clearfix:after {
 	content: ".";
@@ -103,6 +70,13 @@ html[xmlns] .clearfix {
 /**
  * Timeline specific
  */
+.timeline .page-title {
+  font-size: 22px;
+  padding: 15px;
+}
+.timeline .page-title sup {
+  padding-left: 10px;
+}
 #storyjs-timeline {
   font-family: '\5FAE\8F6F\96C5\9ED1','微軟正黑體', 'Lato', Calibri, Arial, sans-serif !important;
 }
@@ -148,40 +122,54 @@ html[xmlns] .clearfix {
 /**
  * front page specific
  */
-#filter {
-  position: absolute;
-  left: 30%;
-  top: 15px;
-}
-#filter #year-line {
-  border-top: 1px solid #777;
-  margin: 0 32px;
-}
-#filter .year, #filter .tag{
-  line-height: 2.0em;
-  max-height: 40px;
-  overflow: hidden;
-}
-#filter .year span {
-  margin: 0 3px;
-  cursor: pointer;
-  padding: 3px;
-}
-#filter .tag .query {
-  margin: 0 3px;
-  cursor: pointer;
-  background: #EEE;
-  border-radius: 10px;
-  padding: 3px 3px;
-}
-#filter .query:hover {
-  color: #0090DF;
-}
 #no-result {
   text-align: center;
   margin: 50px auto;
 }
 ul.cbp_tmtimeline {
   display: none;
+}
+
+/**
+ * header
+ */
+.dropdown-menu>li:hover, .dropdown-menu>li:focus {
+  color: #FFF;
+  text-decoration: none;
+  background-color: #428BCA;
+}
+.dropdown-menu>li {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.428571429;
+  color: #333;
+  white-space: nowrap;
+}
+@media screen and (min-width: 800px) {
+  #logo {
+    display: inline-block;
+    max-height: 80px;
+    width: auto;
+  }
+  .navbar-brand {
+    padding-top: 5px;
+    max-height: 40px;
+    overflow: visible;
+  }
+}
+@media screen and (max-width: 799px) {
+  #logo {
+    display: inline-block; 
+    max-height: 40px;
+    width: auto;
+  }
+  .navbar-brand {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    max-height: 40px;
+    overflow: visible;
+  }
 }
 /* animation */
