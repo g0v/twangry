@@ -22,43 +22,37 @@ function EventCtrl($scope, $http, $templateCache, $filter){
       $scope.events = data.date;
       $scope.tags = data.tags;
       $scope.years = data.years;
-	  $scope.filterLength=$scope.events.length; 
-	  $scope.filterEvents=$scope.events;
-	  
+    $scope.filterLength=$scope.events.length; 
+    $scope.filterEvents=$scope.events;
+    
     }).
     error(function(data, status) {
       $scope.data = data || "Request failed";
       $scope.status = status;
   });
-  $scope.QueryFilter = function($filter)
-  {
-	  if($scope.filter=='')
-	  {
-		  $scope.filterLength=$scope.events.length; 
-		  $scope.filterEvents=$scope.events;
-	  }
-	  else
-	  {
-		  $matchcount=0;
-		  $scope.filterEvents=[];
-		  for(i=0;i<$scope.events.length;i++)
-		  {
-			  for(j=0;j<$scope.events[i].tag.length;j++)
-			  {
-				  if($filter == $scope.events[i].tag[j])
-				  {
-				    $matchcount=$matchcount+1;
-					$scope.filterEvents.push($scope.events[i]);
-			      }		
-			  }
-		 
-		  }
-		  $scope.filterLength=$matchcount;
-	  }
+  $scope.QueryFilter = function($filter) {
+    if($scope.filter=='') {
+      $scope.filterLength=$scope.events.length; 
+      $scope.filterEvents=$scope.events;
+    }
+    else {
+      $matchcount=0;
+      $scope.filterEvents=[];
+      for(i=0;i<$scope.events.length;i++) {
+        if($scope.events[i].tag.length){
+          for(j=0;j<$scope.events[i].tag.length;j++) {
+            if($filter == $scope.events[i].tag[j]) {
+              $matchcount=$matchcount+1;
+              $scope.filterEvents.push($scope.events[i]);
+            }
+          }
+        }
+      }
+      $scope.filterLength=$matchcount;
+    }
   }
-  $scope.filterByTag = function()
-  {
-	  return $scope.filterEvents;  	  
+  $scope.filterByTag = function() {
+    return $scope.filterEvents;
   }
   $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent){
     $("#spinner").hide();
@@ -99,7 +93,6 @@ function EventCtrl($scope, $http, $templateCache, $filter){
         $(this).removeClass("icon-plus-sign");
         $next.removeClass('collapsed');
       }
-	  
     });
   });
 }
