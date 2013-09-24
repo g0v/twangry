@@ -1,15 +1,24 @@
-angular.module('index', []).directive('onFinishRender', function($timeout) {
-    return {
-      restrict: 'A',
-      link: function(scope, element, attr) {
-        if (scope.$last === true) {
-        $timeout(function() {
-          scope.$emit('ngRepeatFinished');
-          });
-        }
+angular.module('index', [])
+.directive('onFinishRender', function($timeout) {
+  return {
+    restrict: 'A',
+    link: function(scope, element, attr) {
+      if (scope.$last === true) {
+      $timeout(function() {
+        scope.$emit('ngRepeatFinished');
+        });
       }
     }
+  }
+})
+.directive('onKeyup', function() {
+  return function(scope, element, attr) {
+    element.bind("keyup", function() {
+      scope.$apply(attr.onKeyup);
+    });
+  };
 });
+;
 
 function EventCtrl($scope, $http, $templateCache, $filter) {
   $scope.method = 'GET';
