@@ -21,7 +21,13 @@
       css: '/compiled/css/timeline.css',
       js: '/compiled/js/timeline.js'
     });
-    $('.page-title').append('<sup><a class="source" href="'+document.URL.replace(window.location.host, 'zh.wikipedia.org')+'">資料來源</a></sup>');
+    <%
+    source_html = '';
+    for (var i=0; i<wiki_sources.length; ++i) {
+        source_html += '<a class="source" href="http://zh.wikipedia.org/wiki/'+wiki_sources[i]+'">['+(i+1)+']</a>';
+    }
+    %>
+    $('.page-title').append('<sup><%- source_html %></sup>');
     $("a.colorbox").colorbox({iframe:true,width:900,height:500});
     $('a.reload').click(function(){
       $(this).css({width:'32px',height:'16px'});
