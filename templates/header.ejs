@@ -18,13 +18,13 @@
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="years">年份<span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="years">
-                <li ng-click="$parent.query = year" ng-repeat="year in years">{{year}}</li>
+                <li ng-click="YearFilter(year)" ng-repeat="year in years">{{year}}</li>
               </ul>
             </li>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="tags">Tag<span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="tags">
-                <li ng-click="QueryFilter(tag)" ng-show="tag != ''" ng-repeat="tag in tags">{{tag}}</li>
+                <li ng-click="TagFilter(tag)" ng-show="tag != ''" ng-repeat="tag in tags">{{tag}}</li>
               </ul>
             </li>
           </ul>

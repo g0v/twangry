@@ -39,13 +39,28 @@ function EventCtrl($scope, $http, $templateCache, $filter) {
     }
     else {
       $matchcount = 0;
-      $scope.filterEvents = [];
       for (i = 0; i < $scope.events.length; i++) {
         for (j = 0; j < $scope.events[i].tag.length; j++) {
           if ($scope.events[i].tag[j].match($filter)) {
             $matchcount = $matchcount + 1;
             $scope.filterEvents.push($scope.events[i]);
           }
+        }
+      }
+      $scope.filterLength = $matchcount;
+    }
+  }
+  $scope.YearFilter = function($filter) {
+    $scope.filterEvents = [];
+    if ($filter == '' || typeof($filter) == "undefined") {
+      $scope.filterLength = $scope.events.length;
+      $scope.filterEvents = $scope.events;
+    }
+    else {
+      $matchcount = 0;
+      for (i = 0; i < $scope.events.length; i++) {
+        if($scope.events[i].startDate.match($filter) || $scope.events[i].endDate.match($filter)){
+          $scope.filterEvents.push($scope.events[i]);
         }
       }
       $scope.filterLength = $matchcount;
@@ -59,7 +74,6 @@ function EventCtrl($scope, $http, $templateCache, $filter) {
     }
     else {
       $matchcount = 0;
-      $scope.filterEvents = [];
       for (i = 0; i < $scope.events.length; i++) {
         if($scope.events[i].headline.match($filter) || $scope.events[i].text.match($filter)){
           $scope.filterEvents.push($scope.events[i]);
