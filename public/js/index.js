@@ -42,7 +42,7 @@ function EventCtrl($scope, $http, $templateCache, $filter) {
 			$scope.filterEvents = [];
 			for (i = 0; i < $scope.events.length; i++) {
 				for (j = 0; j < $scope.events[i].tag.length; j++) {
-					if ($filter == $scope.events[i].tag[j]) {
+					if ($scope.events[i].tag[j].match($filter)) {
 						$matchcount = $matchcount + 1;
 						$scope.filterEvents.push($scope.events[i]);
 					}

@@ -29,7 +29,7 @@
             </li>
           </ul>
           <form class="navbar-form navbar-left" ng-submit="QueryFilter(filter)">
-            <input class="form-control col-lg-8" ng-model="filter" placeholder="輸入文字以篩選事件"> 
+            <input class="form-control col-lg-8" ng-keyup="QueryFilter(filter)" ng-model="filter" placeholder="輸入文字以篩選事件"> 
           </form>
         <% } %>
           <ul class="nav navbar-nav navbar-right">
