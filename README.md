@@ -33,7 +33,7 @@ How to Join us
       - 參考[維基百科不是什麼](http://zh.wikipedia.org/zh-tw/Wikipedia:%E7%BB%B4%E5%9F%BA%E7%99%BE%E7%A7%91%E4%B8%8D%E6%98%AF%E4%BB%80%E4%B9%88)
       - 參考[維基百科編寫方針與指引](https://zh.wikipedia.org/wiki/Wikipedia:%E6%96%B9%E9%87%9D%E8%88%87%E6%8C%87%E5%BC%95)
       - 參考[中文年月日正確格式](http://zh.wikipedia.org/wiki/Wikipedia:%E6%A0%BC%E5%BC%8F%E6%89%8B%E5%86%8C/%E6%97%A5%E6%9C%9F%E5%92%8C%E6%95%B0%E5%AD%97#.E5.B9.B4.E6.9C.88.E6.97.A5)
-      - 餐考[列明引用來源](http://zh.wikipedia.org/wiki/Wikipedia:%E5%88%97%E6%98%8E%E6%9D%A5%E6%BA%90)
+      - 參考[列明引用來源](http://zh.wikipedia.org/wiki/Wikipedia:%E5%88%97%E6%98%8E%E6%9D%A5%E6%BA%90)
 
   - 程式碼
     - 日期比對演算程式，目前由regular expression進行字串解析而成，歡迎提供patch
