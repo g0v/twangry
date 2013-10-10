@@ -29,11 +29,12 @@
             </li>
           </ul>
           <form class="navbar-form navbar-left" ng-submit="QueryFilter(filter)">
-            <input class="form-control col-lg-8" on-keyup="QueryFilter(filter)" ng-model="filter" placeholder="輸入文字以篩選事件"> 
+            <input class="form-control col-lg-8" on-keyup="QueryFilter(filter)" ng-model="filter" placeholder="輸入文字以篩選事件" data-step="1" data-intro="輸入「零時政府」看看。"> 
           </form>
         <% } %>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="http://g0v.tw/" target="_blank">g0v.tw</a></li>
+            <li><a id="startButton" class="btn btn-large btn-success" href="javascript:void(0);">使用教學</a></li>
             <li><a class="colorbox" href="/gdsmw.html?doc=/README.txt" target="_blank">About</a></li>
           </ul>
         </div>

@@ -7,6 +7,7 @@
       $("a.colorbox").colorbox({iframe: true,width:900,height:500});
     });
     </script>
+    <link href="/css/introjs.css" rel="stylesheet">
 	</head>
 	<body class="<%= template %>" ng-app="index" ng-controller="EventCtrl">
   <% include header %>
@@ -41,5 +42,18 @@
     ga('create', 'UA-41326468-1', 'g0v.tw');
     ga('send', 'pageview');
   </script>
+    <script type="text/javascript" ng-init="">
+        elem = document.getElementsByClassName('cbp_tmlabel')[0];
+        elem.setAttribute('data-step', 2);
+        elem.setAttribute('data-intro', '這裡可以展開。');
+    </script>
+    <script type="text/javascript" src="/js/intro.js"></script>
+    <script type="text/javascript">
+      document.getElementById('startButton').onclick = function() {
+        introJs().setOption('doneLabel', 'Next page').start().oncomplete(function() {
+          //window.location.href = 'second.html?multipage=true';
+        });
+      };
+    </script>
 	</body>
 </html>
