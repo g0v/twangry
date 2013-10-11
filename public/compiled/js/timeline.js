@@ -8992,13 +8992,13 @@ if(typeof VMM.Timeline != 'undefined' && typeof VMM.Timeline.TimeNav == 'undefin
 				interval					=		interval_calc.decade;
 				interval_major				=		interval_calc.century;
 				interval_macro				=		interval_calc.year;
-			} else if (timespan.years		>		data.length / config.nav.density) {	
+			} else
+			*/
+      if (timespan.years		>		data.length / config.nav.density) {	
 				interval					=		interval_calc.year;
 				interval_major				=		interval_calc.decade;
 				interval_macro				=		interval_calc.month;
-			} else
-			*/
-      if (timespan.months		>		data.length / config.nav.density) {
+			} else if (timespan.months		>		data.length / config.nav.density) {
 				interval					=		interval_calc.month;
 				interval_major				=		interval_calc.year;
 				interval_macro				=		interval_calc.day;
