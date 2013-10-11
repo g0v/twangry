@@ -21,12 +21,16 @@
                 <li ng-click="YearFilter(year)" ng-repeat="year in years">{{year}}</li>
               </ul>
             </li>
+            <% nav.forEach(function(n){ %>
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="tags">Tag<span class="caret"></span></a>
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="tags"><%= Object.keys(n) %><span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="tags">
-                <li ng-click="TagFilter(tag)" ng-show="tag != ''" ng-repeat="tag in tags">{{tag}}</li>
+                <% n[Object.keys(n)].forEach(function(nn){ %>
+                  <li ng-click="TagFilter(tag)"><%= nn %></li>
+                <% }) %>
               </ul>
             </li>
+            <% }) %>
           </ul>
           <form class="navbar-form navbar-left" ng-submit="QueryFilter(filter)">
             <input class="form-control col-lg-8" on-keyup="QueryFilter(filter)" ng-model="filter" placeholder="輸入文字以篩選事件"> 
