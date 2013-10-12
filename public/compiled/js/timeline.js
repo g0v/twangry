@@ -4313,6 +4313,7 @@ if(typeof VMM != 'undefined' && typeof VMM.ExternalAPI == 'undefined') {
 			create: function(m) {
 				trace("WEB THUMB CREATE");
 				
+        /*
 				var thumb_url	= "http://free.pagepeeker.com/v2/thumbs.php?";
 					url			= m.id.replace("http://", "");//.split("/")[0];
 					
@@ -4321,6 +4322,15 @@ if(typeof VMM != 'undefined' && typeof VMM.ExternalAPI == 'undefined') {
 				
 				// Thumb
 				VMM.attachElement("#" + m.uid + "_thumb", "<img src='" + thumb_url + "size=t&url=" + url + "'>");
+        */
+				var thumb_url	= "http://i.jimmyhub.net/shot/";
+					url	= m.id.replace("http://", "");//.split("/")[0];
+					
+				// Main Image
+				VMM.attachElement("#" + m.uid, "<a href='" + m.id + "' target='_blank'><img src='" + thumb_url + url + "'></a>");
+				
+				// Thumb
+				VMM.attachElement("#" + m.uid + "_thumb", "<img src='" + thumb_url + url + "_t'>");
 			},
 			
 			pushQue: function() {
