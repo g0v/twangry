@@ -35,6 +35,16 @@ h6 { font-size: 13px;}
 	margin: 0 auto;
 	padding: 0 1.875em 3.125em;
 }
+body.index .nav > li > a {
+  padding:10px 4px;
+}
+body.index #filter .navbar-form{
+  padding: 10px 3px;
+}
+body.index #filter input.form-control {
+  max-width: 80px;
+  padding: 8px 2px;
+}
 #wrapper {
   height: 100%;
   margin-top: 57px;
