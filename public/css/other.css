@@ -44,14 +44,18 @@ body.index #filter .navbar-form{
 .nav .navbar-right{
   font-size: 12px;
 }
-#header .navbar-right li a{
-  padding:10px 2px;
-  font-size: 10px;
+#header .navbar-right > li > a{
+  padding:10px;
+  font-size: 15px;
 }
 body.index #filter input.form-control {
-  max-width: 150px;
+  max-width: 100px;
   width: auto;
   padding: 8px 2px;
+  font-size: 13px;
+}
+#header .facebook-like {
+  padding: 10px 0;
 }
 #wrapper {
   height: 100%;
@@ -172,6 +176,9 @@ ul.cbp_tmtimeline {
   #header .nav > li > a {
     padding:10px 3px;
     font-size: 13px;
+  }
+  .fork-github {
+    display: none;
   }
 }
 @media screen and (min-width: 800px) {
