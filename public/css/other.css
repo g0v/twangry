@@ -36,13 +36,21 @@ h6 { font-size: 13px;}
 	padding: 0 1.875em 3.125em;
 }
 body.index .nav > li > a {
-  padding:10px 4px;
+  padding:10px 5px;
 }
 body.index #filter .navbar-form{
-  padding: 10px 3px;
+  padding: 3px;
+}
+.nav .navbar-right{
+  font-size: 12px;
+}
+#header .navbar-right li a{
+  padding:10px 2px;
+  font-size: 10px;
 }
 body.index #filter input.form-control {
-  max-width: 80px;
+  max-width: 150px;
+  width: auto;
   padding: 8px 2px;
 }
 #wrapper {
@@ -157,6 +165,15 @@ ul.cbp_tmtimeline {
   color: #333;
   white-space: nowrap;
 }
+@media screen and (max-width: 1000px) {
+  #header .navbar-form {
+    display:none;
+  }
+  #header .nav > li > a {
+    padding:10px 3px;
+    font-size: 13px;
+  }
+}
 @media screen and (min-width: 800px) {
   #logo {
     display: inline-block;
@@ -183,3 +200,4 @@ ul.cbp_tmtimeline {
   }
 }
 /* animation */
+

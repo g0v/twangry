@@ -45,7 +45,7 @@ body, html { font-size: 100%; padding: 0; margin: 0;}
 }
 
 .cbp_tmtimeline > li .cbp_tmtime .last-child {
-	font-size: 1.5em;
+	font-size: 1.2em;
 	color: #bbb;
 }
 .cbp_tmtimeline > li .cbp_tmtime .last-child:before {
@@ -156,8 +156,20 @@ body, html { font-size: 100%; padding: 0; margin: 0;}
 @media screen and (max-width: 65.375em) {
 
 	.cbp_tmtimeline > li .cbp_tmtime span:last-child {
-		font-size: 1.5em;
+		font-size: 1.2em;
 	}
+}
+
+@media screen and (max-width: 1000px) {
+  .cbp_tmtimeline > li .cbp_tmlabel .icon-tags{
+    float:none;
+    font-size: 10px;
+    line-height: 40px;
+    background: transparent;
+  }
+  .cbp_tmtimeline > li .cbp_tmtime span {
+    font-size: 1.2em;
+  }
 }
 
 @media screen and (max-width: 47.2em) {
