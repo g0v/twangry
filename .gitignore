@@ -12,4 +12,4 @@ lib-cov
 logs
 npm-debug.log
 node_modules
-cache
+public/cache/wiki
