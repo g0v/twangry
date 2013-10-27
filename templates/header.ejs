@@ -1,3 +1,12 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/zh_TW/all.js#xfbml=1&appId=113809385333711";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<a class="fork-github" href="https://github.com/g0v/twangry"><img style="position: fixed; top: 58px; right: 0; border: 0; z-index:999;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub" target="_blank"></a>
     <div class="navbar navbar-default navbar-fixed-top" id="header">
       <div class="container">
         <div class="navbar-header">
@@ -11,7 +20,9 @@
         
         <div id="filter" class="navbar-collapse collapse">
         <% if(template === 'timeline') { %>
-          <ul class="nav navbar-nav"><li><a class="page-title"><%= page_title %></a></li></ul>
+          <ul class="nav navbar-nav">
+            <li><a class="page-title"><%= page_title %></a></li>
+          </ul>
         <% } %>
         <% if(template === 'index') { %>
           <ul class="nav navbar-nav">
@@ -33,13 +44,48 @@
             <% }) %>
           </ul>
           <form class="navbar-form navbar-left" ng-submit="QueryFilter(filter)">
-            <input class="form-control col-lg-8" on-keyup="QueryFilter(filter)" ng-model="filter" placeholder="輸入文字以篩選事件"> 
+            <input class="form-control col-lg-8" on-keyup="QueryFilter(filter)" ng-model="filter" placeholder="打字篩選事件"> 
           </form>
         <% } %>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="http://g0v.tw/" target="_blank">g0v.tw</a></li>
-            <li><a class="colorbox" href="/gdsmw.html?doc=/README.txt" target="_blank">About</a></li>
+            <% if(template === 'timeline') { %>
+              <li>
+                <a class="colorbox-inline" href="#" rel="embed" target="_blank" title="嵌入碼"><span class="icon-code"></span></a>
+              </li>
+            <% } %>
+<!--
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="icon-share-sign"></span></a>
+              <ul class="dropdown-menu">
+                <li><a class="facebook" href="" target="_blank"></a></li>
+                <li><a class="twitter" href="" target="_blank"></a></li>
+              </ul>
+            </li>
+-->
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="icon-question-sign"></span></a>
+              <ul class="dropdown-menu">
+                <li><a class="colorbox" href="/gdsmw.html?doc=/README.txt" target="_blank">關於政誌</a></li>
+                <li><a href="http://g0v.tw/" target="_blank">關於g0v.tw</a></li>
+              </ul>
+            </li>
+            <li class="facebook-like"><div class="fb-like" data-href="http://fact.g0v.tw/" data-width="The pixel width of the plugin" data-height="The pixel height of the plugin" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div></li>
           </ul>
         </div>
       </div>
     </div>
+  <% if(template === 'timeline') { %>
+    <div class="hidden-element" style="display:none;">
+      <div id="embed">
+        <h2>拷貝下方輸入框文字嵌入自己的Blog</h2>
+        <input onclick="this.select()" title="複製此嵌入碼外嵌至自己的Blog" readonly="readonly" type="text" id="embed-code" value="&lt;iframe width=&quot;600&quot; height=&quot;420&quot; frameborder=&quot;0&quot; src=&quot;[src]&quot; scrolling=&quot;no&quot; allowfullscreen&gt;&lt;/iframe&gt;" size="60" maxlength="256" class="form-text"><br />
+      </div>
+      <script>
+      $(document).ready(function(){
+        var u = document.URL.replace(/#.*/,'');
+        var i = $("#embed > input").val();
+        $("#embed > input").val(i.replace('[src]', u));
+      });
+      </script>
+    </div>
+  <% } %>

@@ -23,6 +23,11 @@
     <script>
     $(document).ready(function(){
       $("a.colorbox").colorbox({iframe: true,width:900,height:500});
+      $("a.colorbox-inline").colorbox({width:"600px", inline:true, href:function(){
+        var elementID = $(this).attr('rel');
+        $('#'+elementID).show();
+        return '#'+elementID;
+      }}); 
     });
     </script>
 
