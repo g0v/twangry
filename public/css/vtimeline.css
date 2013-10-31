@@ -80,14 +80,24 @@ body, html { font-size: 100%; padding: 0; margin: 0;}
   cursor:pointer;
   font-family: '\5FAE\8F6F\96C5\9ED1','微軟正黑體', 'Lato', Calibri, Arial, sans-serif;
 }
+
 .cbp_tmtimeline > li .cbp_tmlabel .tag:hover {
   background: #000;
   color: #FFF;
 }
-.cbp_tmtimeline > li .cbp_tmlabel p.content {
-  display: none;
+
+.cbp_tmtimeline .content {
   line-height: 1.6em;
   margin:0;
+  transition: opacity 1s;
+  max-height: 0px;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.cbp_tmtimeline .open .content {
+  max-height: 100000px;
+  opacity: 1;
 	border-top: 1px solid rgba(127,127,127,0.4);
 }
 
@@ -150,6 +160,27 @@ body, html { font-size: 100%; padding: 0; margin: 0;}
   left: 20%;
   margin: 0 0 0 -25px;
   cursor: pointer;
+}
+
+.cbp_tmtimeline > li .icon-plus-sign,
+.cbp_tmtimeline > li .icon-minus-sign {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.cbp_tmtimeline > li .icon-minus-sign {
+  left: 200%;
+}
+
+.cbp_tmtimeline > li.open .icon-plus-sign {
+  left: 200%;
+}
+
+.cbp_tmtimeline > li.open .icon-minus-sign {
+  left: 0;
 }
 
 /* Example Media Queries */
