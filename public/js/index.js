@@ -23,6 +23,7 @@ angular.module('index', [])
 function EventCtrl($scope, $http, $templateCache, $filter) {
   $scope.method = 'GET';
   $scope.url = '/index.json';
+
   $http({
     method: $scope.method,
     url: $scope.url,
@@ -40,6 +41,7 @@ function EventCtrl($scope, $http, $templateCache, $filter) {
     $scope.data = data || "Request failed";
     $scope.status = status;
   });
+
   $scope.TagFilter = function($filter) {
     $scope.filterEvents = [];
     if ($filter == '' || typeof($filter) == "undefined") {
@@ -59,6 +61,7 @@ function EventCtrl($scope, $http, $templateCache, $filter) {
       $scope.filterLength = $matchcount;
     }
   }
+
   $scope.YearFilter = function($filter) {
     $scope.filterEvents = [];
     if ($filter == '' || typeof($filter) == "undefined") {
@@ -75,6 +78,7 @@ function EventCtrl($scope, $http, $templateCache, $filter) {
       $scope.filterLength = $matchcount;
     }
   }
+
   $scope.QueryFilter = function($filter) {
     $scope.filterEvents = [];
     if ($filter == '' || typeof($filter) == "undefined") {
@@ -91,50 +95,48 @@ function EventCtrl($scope, $http, $templateCache, $filter) {
       $scope.filterLength = $matchcount;
     }
   }
+
   $scope.filterByTag = function() {
     return $scope.filterEvents;
   }
+
+  var closeItem = function ($elem) {
+    $elem.removeClass('open');
+  };
+
+  var openItem = function ($elem) {
+    closeItem($elem.siblings('.open'));
+    $elem.addClass('open');
+  };
+
+  var openDelayTimer;
+
+  $scope.tmlabelMouseEnter = function (e) {
+    clearTimeout(openDelayTimer);
+    openDelayTimer = setTimeout(function () {
+      openItem($(e.currentTarget).parent('li'));
+    }, 200);
+  };
+
+  $scope.tmlabelClick = function (e) {
+    var $this = $(e.currentTarget);
+    var $a = $this.find('h2 a');
+    window.location = $a.attr('href');
+  };
+
+  $scope.plusSignClick = function (e) {
+    clearTimeout(openDelayTimer);
+    openItem($(e.currentTarget).parents('li'));
+  };
+
+  $scope.minusSignClick = function (e) {
+    closeItem($(e.currentTarget).parents('li'));
+  };
+
   $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
     $("#spinner").hide();
     $("ul.cbp_tmtimeline").show();
     $('.cbp_tmtime').find('span:visible:eq(1)').addClass('last-child');
-    $(".cbp_tmlabel").click(function() {
-      var $a = $(this).find("h2").find("a");
-      var href = $a.attr('href');
-      window.location = href;
-    });
-    $(".cbp_tmlabel.collapsed").hover(function() {
-      var $p = $(this).find("p.content:hidden");
-      $p.show();
-      var $icon = $(this).prev();
-      $icon.removeClass("icon-plus-sign");
-      $icon.addClass("icon-minus-sign");
-    },
-    function() {
-      if ($(this).hasClass('collapsed')) {
-        var $p = $(this).find("p.content");
-        $p.hide();
-        var $icon = $(this).prev();
-        $icon.removeClass("icon-minus-sign");
-        $icon.addClass("icon-plus-sign");
-      }
-    });
-    $(".cbp_tmicon").click(function() {
-      var $next = $(this).next();
-      var $p = $next.find("p.content");
-      if ($(this).hasClass('icon-minus-sign')) {
-      $p.slideUp();
-      $(this).addClass("icon-plus-sign");
-      $(this).removeClass("icon-minus-sign");
-      $next.addClass('collapsed');
-      }
-      else {
-      $p.slideDown();
-      $(this).addClass("icon-minus-sign");
-      $(this).removeClass("icon-plus-sign");
-      $next.removeClass('collapsed');
-      }
-    });
   });
 }
 
