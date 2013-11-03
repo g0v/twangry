@@ -130,7 +130,6 @@ html[xmlns] .clearfix {
 .slider-item .fadeout .highlighted a {
   color: #000;
   text-shadow: none;
-  border-bottom: 2px dotted #333;
 }
 .slider-item .fadeout a {
   color: #aaa;
