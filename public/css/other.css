@@ -105,12 +105,12 @@ html[xmlns] .clearfix {
 #storyjs-timeline.vco-storyjs .vco-feature p {
   color: #000;
 }
-#storyjs-timeline .timenav-tag-row-1 h3{ color:#8C92AD; }
-#storyjs-timeline .timenav-tag-row-2 h3{ color:#71BA9F; }
-#storyjs-timeline .timenav-tag-row-3 h3{ color:#CEE879; }
-#storyjs-timeline .timenav-tag-row-4 h3{ color:#FCBC53; }
-#storyjs-timeline .timenav-tag-row-5 h3{ color:#FF5254; }
-#storyjs-timeline .timenav-tag-row-6 h3{ color:#999; }
+#storyjs .timenav-tag-row-1 h3{ color:#8C92AD; }
+#storyjs .timenav-tag-row-2 h3{ color:#71BA9F; }
+#storyjs .timenav-tag-row-3 h3{ color:#CEE879; }
+#storyjs .timenav-tag-row-4 h3{ color:#FCBC53; }
+#storyjs .timenav-tag-row-5 h3{ color:#FF5254; }
+#storyjs .timenav-tag-row-6 h3{ color:#999; }
 
 #storyjs-timeline .vco-storyjs h3{
   font-size: 22px;
