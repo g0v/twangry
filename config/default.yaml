@@ -1,0 +1,17 @@
+page:
+  logo: 'http://fact.g0v.tw/logo.png'
+  sitename: '政誌'
+  mission: '勿忘政治'
+
+index:
+  _source: 'https://spreadsheets.google.com/feeds/list/0AuwTztKH2tKidGZ2cEdVY19PZEpzRWVJWWZOeUI1Y0E/od6/public/values?alt=json' # google spreadsheet json page
+
+category:
+  _source: 'https://spreadsheets.google.com/feeds/list/0AuwTztKH2tKidGZ2cEdVY19PZEpzRWVJWWZOeUI1Y0E/od7/public/values?alt=json' # google spreadsheet json page
+
+wikipedia:
+  _scheme: 'http://'
+  _domain: 'zh.wikipedia.org' # can be other languages
+  _api: 'w/api.php?action={action}&prop={prop}&format=json&titles=' # api for render others
+  _render: 'w/index.php?&action=render&variant=zh-tw&title=' # page render main url
+  _minLength: 50 # page render main url

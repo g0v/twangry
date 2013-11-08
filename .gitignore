@@ -9,6 +9,7 @@ lib-cov
 *.gz
 *.swp
 
+config/runtime.json
 logs
 npm-debug.log
 node_modules
