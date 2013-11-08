@@ -1,6 +1,7 @@
 var http = require('http');
+var config = require('config');
 var route = require('./lib/route');
-var port = 8080;
+var port = config.port;
 
 var server = http.createServer(function(req, res){
   route.watch(req);
