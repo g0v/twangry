@@ -13,4 +13,4 @@ config/runtime.json
 logs
 npm-debug.log
 node_modules
-public/cache/wiki
+public/cache
