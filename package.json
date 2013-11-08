@@ -23,6 +23,7 @@
     "npm": "1.2.x"
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "predeploy": "./prepublish"
   }
 }
