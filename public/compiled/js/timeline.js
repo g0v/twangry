@@ -9184,24 +9184,26 @@ if(typeof VMM.Timeline != 'undefined' && typeof VMM.Timeline.TimeNav == 'undefin
 				}
 				
 			}*/
-			for (k=0;k<config.nav.rows.current.length;k++)
-			{
-			    var tag_element = VMM.appendAndGetElement($timebackground, "<div>", "timenav-tag");
-			    VMM.Lib.addClass(tag_element, "timenav-tag-row-" + (k+1));
-			    if (tags.length > 3) {
-				VMM.Lib.addClass(tag_element, "timenav-tag-size-half");
-			    } else {
-				VMM.Lib.addClass(tag_element, "timenav-tag-size-full");
-			    }
-			    var tagWrapper = VMM.appendAndGetElement(tag_element, "<div>", "timenav-wrapper");
-			    var tagColmn1 = VMM.appendAndGetElement(tagWrapper, "<div>", "timenav-tag-colmn");
-			    VMM.appendElement(tagColmn1, "<h3>" + tags[k] + "</h3>");
-			    var nextIndex=k+config.nav.rows.current.length;
-			    if((nextIndex < tags.length))
-			    {
-			    	VMM.appendElement(tagWrapper, "<div><h3>" + tags[nextIndex] + "</h3></div>");
-			    }	 	   			
-			}
+      if(tags.length){
+        var total_tag_row = tags.length < config.nav.rows.current.length ? tags.length : config.nav.rows.current.length;
+        for (k=0;k < total_tag_row; k++) {
+            var tag_element = VMM.appendAndGetElement($timebackground, "<div>", "timenav-tag");
+            VMM.Lib.addClass(tag_element, "timenav-tag-row-" + (k+1));
+            if (tags.length > 3) {
+          VMM.Lib.addClass(tag_element, "timenav-tag-size-half");
+            } else {
+          VMM.Lib.addClass(tag_element, "timenav-tag-size-full");
+            }
+            var tagWrapper = VMM.appendAndGetElement(tag_element, "<div>", "timenav-wrapper");
+            var tagColmn1 = VMM.appendAndGetElement(tagWrapper, "<div>", "timenav-tag-colmn");
+            VMM.appendElement(tagColmn1, "<h3>" + tags[k] + "</h3>");
+            var nextIndex=k+config.nav.rows.current.length;
+            if((nextIndex < tags.length))
+            {
+              VMM.appendElement(tagWrapper, "<div><h3>" + tags[nextIndex] + "</h3></div>");
+            }	 	   			
+        }
+      }
 			// RESIZE FLAGS IF NEEDED
 			if (tags.length > 3) {
 				for(l = 0; l < markers.length; l++) {
