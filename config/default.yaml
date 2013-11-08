@@ -15,3 +15,5 @@ wikipedia:
   _api: 'w/api.php?action={action}&prop={prop}&format=json&titles=' # api for render others
   _render: 'w/index.php?&action=render&variant=zh-tw&title=' # page render main url
   _minLength: 50 # page render main url
+
+port: 8080
