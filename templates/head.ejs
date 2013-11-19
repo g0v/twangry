@@ -5,7 +5,10 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-
+  <% if(template === 'timeline') { %>
+    <meta property="og:description" content="<%= ogdescription %>" />
+    <meta property="og:image" content="<%= ogimage %>" />
+  <% } %>
     <link rel="stylesheet" href="/css/colorbox/colorbox.css" />
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/readable/bootstrap.min.css">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
