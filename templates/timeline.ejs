@@ -48,6 +48,17 @@
         $(this).attr('target', '_blank');
       }
     });
+    // analytics event tracking https://developers.google.com/analytics/devguides/collection/analyticsjs/events
+    $('.nav-next').live('click', function() {
+      ga('send', 'event', 'nav', 'click', 'fact-tl-next');
+      var p = window.location.href.replace(window.location.origin, '');
+      ga('send', 'pageview', {'page': p, 'title': document.title});
+    });
+    $('.nav-previous').live('click', function() {
+      ga('send', 'event', 'nav', 'click', 'fact-tl-previous');
+      var p = window.location.href.replace(window.location.origin, '');
+      ga('send', 'pageview', {'page': p, 'title': document.title});
+    });
   });
   </script>
   <div id="wrapper">
