@@ -3846,7 +3846,7 @@ if(typeof VMM != 'undefined' && typeof VMM.ExternalAPI == 'undefined') {
 			create: function(m) {
 				var mediaElem = ""; 
 				if (m.id.match(/docs.google.com/i)) {
-					mediaElem	=	"<iframe class='doc' frameborder='0' width='100%' height='100%' src='" + m.id + "&amp;embedded=true'></iframe>";
+					mediaElem	=	"<iframe class='doc' frameborder='0' width='100%' height='100%' src='" + m.id + "'></iframe>";
 				} else {
 					mediaElem	=	"<iframe class='doc' frameborder='0' width='100%' height='100%' src='" + "http://docs.google.com/viewer?url=" + m.id + "&amp;embedded=true'></iframe>";
 				}
