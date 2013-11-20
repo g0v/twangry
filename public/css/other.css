@@ -126,6 +126,9 @@ html[xmlns] .clearfix {
 .slider-item .fadeout {
   color: #aaa;
 }
+.slider-item .media-container img {
+  max-height: 300px;
+}
 .slider-item .fadeout .highlighted,
 .slider-item .fadeout .highlighted a {
   color: #000;
