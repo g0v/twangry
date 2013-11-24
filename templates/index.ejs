@@ -24,7 +24,10 @@
 						<time class="cbp_tmtime" datetime=""><span ng-show="event.endDate != ''">{{event.endDate}}</span> <span>{{event.startDate}}</span></time>
             <div class="cbp_tmicon"><i class="icon-plus-sign" ng-click="plusSignClick($event)"></i><i class="icon-minus-sign" ng-click="minusSignClick($event)"></i></div>
 						<div class="cbp_tmlabel" ng-mouseenter="tmlabelMouseEnter($event)">
-              <div class="icon-tags" ng-show="event.tag != ''"><a data-toggle="modal" href="#myModal" class="openSubscribe">訂閱</a><span class="tag" ng-click="$parent.$parent.query = tag" ng-repeat="tag in event.tag">{{tag}}</span></div>
+              <div class="event-right">
+                <div><a data-toggle="modal" href="#myModal" class="openSubscribe">訂閱</a> <span class="icon-envelope"></span></div>
+                <div ng-show="event.tag != ''"><span class="tag" ng-click="$parent.$parent.query = tag" ng-repeat="tag in event.tag">{{tag}}</span> <span class="icon-tags"></span></div>
+              </div>  
               <h2><a href="/wiki/{{event.headline}}">{{event.headline}}<span class="icon-double-angle-right"></span></a></h2>
               <p class="content" ng-hide>{{event.text}}</p>
 						</div>

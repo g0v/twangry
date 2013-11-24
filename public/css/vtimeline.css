@@ -69,16 +69,16 @@ body, html { font-size: 100%; padding: 0; margin: 0;}
 	border-radius: 5px;
   cursor: pointer;
 }
-.cbp_tmtimeline > li .cbp_tmlabel .icon-tags{
+.cbp_tmtimeline > li .cbp_tmlabel .event-right{
+  margin-top: -10px;
+  text-align: right;
   float:right;
+  font-size: 15px;
+  font-family: '\5FAE\8F6F\96C5\9ED1','微軟正黑體', 'Lato', Calibri, Arial, sans-serif;
 }
 .cbp_tmtimeline > li .cbp_tmlabel .tag{
-  padding: 3px 5px;
-  border-radius: 5px;
-  background: #FFF;
   margin-left: 8px;
   cursor:pointer;
-  font-family: '\5FAE\8F6F\96C5\9ED1','微軟正黑體', 'Lato', Calibri, Arial, sans-serif;
 }
 
 .cbp_tmtimeline > li .cbp_tmlabel .tag:hover {
@@ -192,11 +192,15 @@ body, html { font-size: 100%; padding: 0; margin: 0;}
 }
 
 @media screen and (max-width: 1000px) {
-  .cbp_tmtimeline > li .cbp_tmlabel .icon-tags{
+  .cbp_tmtimeline > li .cbp_tmlabel .event-right{
     float:none;
     font-size: 10px;
     line-height: 40px;
     background: transparent;
+    text-align: left;
+  }
+  .cbp_tmtimeline > li .cbp_tmlabel .event-right div{
+    display: inline;
   }
   .cbp_tmtimeline > li .cbp_tmtime span {
     font-size: 1.2em;
@@ -259,10 +263,14 @@ body, html { font-size: 100%; padding: 0; margin: 0;}
 	.cbp_tmtimeline > li .cbp_tmicon {
     display:none;
 	}	
-  .cbp_tmtimeline > li .cbp_tmlabel .icon-tags{
+  .cbp_tmtimeline > li .cbp_tmlabel .event-right{
     float:none;
     font-size: 10px;
     line-height: 40px;
+    text-align: left;
+  }
+  .cbp_tmtimeline > li .cbp_tmlabel .event-right div{
+    display:inline;
   }
   .cbp_tmtimeline > li .cbp_tmlabel h2 { 
     font-size: 22px;
