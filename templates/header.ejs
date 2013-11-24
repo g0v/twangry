@@ -37,7 +37,7 @@
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="tags"><%= Object.keys(n) %><span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="tags">
                 <% n[Object.keys(n)].forEach(function(nn){ %>
-                  <li ng-click="TagFilter(tag)"><%= nn %></li>
+                <li ng-click="TagFilter('<%= nn %>')"><%= nn %></li>
                 <% }) %>
               </ul>
             </li>
