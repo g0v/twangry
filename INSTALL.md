@@ -22,7 +22,15 @@ Start your web server.
 -----------------
 > cd 
 
-> node tools/prepublish
+> node prepublish
+
+If you get error 
+
+```
+[Error: 140735215821584:error:0607907F:digital envelope routines:EVP_PKEY_get1_RSA:expecting an rsa key:../deps/openssl/openssl/crypto/evp/p_lib.c:288:]
+```
+
+The reason for the error is your node version is out of date.  Use nvm to update your node to `0.10.x` version.
 
 > node app.js
 
