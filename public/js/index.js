@@ -1,4 +1,4 @@
-angular.module('index', [])
+angular.module('index', ['firebase'])
 .directive('onFinishRender', function($timeout) {
   return {
     restrict: 'A',
@@ -20,10 +20,10 @@ angular.module('index', [])
 });
 ;
 
-function EventCtrl($scope, $http, $templateCache, $filter) {
+function EventCtrl($scope, $http, $templateCache, $filter, angularFire) {
   $scope.method = 'GET';
   $scope.url = '/index.json';
-
+ 
   $http({
     method: $scope.method,
     url: $scope.url,
@@ -132,13 +132,73 @@ function EventCtrl($scope, $http, $templateCache, $filter) {
   $scope.minusSignClick = function (e) {
     closeItem($(e.currentTarget).parents('li'));
   };
-
+  
+  $scope.addEmail = function (e) {
+	  var eventtitle=$('#bookId').text();
+	  //console.log(encodeURIComponent(eventtitle));
+	  var encodeTitle=encodeURIComponent(eventtitle);
+	  var emailAddress=String($scope.email);
+	  //console.log(emailAddress);
+	  
+	  if(emailAddress!='undefined'){
+		  //query value
+		  var firebaseQuery='https://twangrytest.firebaseio.com/subscribe/'+encodeTitle;
+		  var ref= new Firebase(firebaseQuery);
+		  ref.once('value', function(snapshot) {
+		    if(snapshot.val()==null) {
+				//console.log("It doesn't exist, need to create");
+			
+				ref.set({title:encodeTitle, email:emailAddress}, function(error) {
+	              if (error) {
+	    			 //console.log('Data could not be add.' + error);	
+					 ref.off();	 
+	  		   	  } else {
+	       		     //console.log('Data added successfully.');
+					 ref.off();	 
+	       	   	  }
+			    });
+			
+			}
+			else{
+				//console.log("exist email address include:",snapshot.child('email').val());
+				var newEmailValue=snapshot.child('email').val()+','+emailAddress;
+				ref.set({title:encodeTitle, email:newEmailValue}, function(error) {
+	              if (error) {
+	    			 //console.log('Data could not be updated.' + error);	
+					 ref.off();	 
+	  		   	  } else {
+	       		     //console.log('Data update successfully.');
+					 ref.off();	 
+	       	   	  }
+			    });
+				/*
+				//may need to change transaction later 
+				var oldvalue=snapshot.child('email').val();
+				ref.transaction( function(oldvalue) {
+				  var newEmailValue=oldvalue+','+emailAddress;
+				  var newValue={title:encodeTitle,email:newEmailValue};
+				  console.log("email address update from %s to %s",oldvalue, newEmailValue);
+				  return newValue;
+				}, function(error, committed, snapshot) {
+				  console.log('Was there an error? ' + error);
+				  console.log('Did we commit the transaction? ' + committed);
+				  console.log('The final value is: ' + snapshot.child('email').val());
+				  ref.off();
+				});
+				*/
+			}	
+		  });
+	  }
+  };
+   
   $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
     $("#spinner").hide();
     $("ul.cbp_tmtimeline").show();
     $('.cbp_tmtime').find('span:visible:eq(1)').addClass('last-child');
   });
+  
 }
+
 
 // jquery
 $(document).ready(function() {
@@ -154,3 +214,12 @@ scrollTop: 0
       });
     });
 
+	$(document).on("click", ".openSubscribe", function () {
+	     var $myBookId = $(this).parents('div');
+		 var $a = $myBookId.find('h2 a');
+	     var title=String($a.attr('href'));
+		 if(title.indexOf('/')>= 0)
+		   title=title.split("/").pop();
+		 console.log(title);
+		 $(".modal-header h2").text(title);  
+	});

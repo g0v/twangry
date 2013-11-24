@@ -9,10 +9,20 @@ request(config.index._source, function (error, response, data) {
   if (!error) {
     // cached
     index.get_json(data);
+    console.log('Successfully get JSON');
+  } else {
+  	console.log('Getting JSON error');
+  	console.log(error);
   }
+
 });
 request(config.category._source, function (error, response, data) {
   if (!error) {
     category.request_json();
+    console.log('Successfully request JSON');
+  } else {
+  	console.log('Request JSON error');
+  	console.log(error);
   }
+
 });
