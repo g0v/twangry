@@ -8,6 +8,7 @@ lib-cov
 *.pid
 *.gz
 *.swp
+*.orig
 
 config/runtime.json
 logs
