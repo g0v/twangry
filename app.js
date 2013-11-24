@@ -14,3 +14,4 @@ var server = http.createServer(function(req, res){
 });
 
 server.listen(port);
+console.log('server is working on port ' + port);
