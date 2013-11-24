@@ -12,10 +12,15 @@ npm install
 ```
 3. Config
 ---------
-Edit config/default.yaml, setup google doc path and port.
-You can leave default setting to use event listsing from fact.g0v.tw.
-Or you can build your own timeline in google document.
-Default port at 8080, please make sure not other service running 8080.
+Edit config/default.yaml, setup google sheet path and port.
+- You can leave default setting to use event listsing from fact.g0v.tw. Or you can build your own timeline in google document.
+- [Example google sheet](https://docs.google.com/spreadsheet/pub?key=0AuwTztKH2tKidERkVm5nLWVsWEdrd0liTjBmeTZ1LXc&gid=0)
+  - to turn this sheet into json, follow steps below
+  - json of 1st sheet in a document
+    - replace https://spreadsheets.google.com/feeds/list/{{your-google-sheet-key}}/od6/public/values?alt=json
+    - to https://spreadsheets.google.com/feeds/list/0AuwTztKH2tKidERkVm5nLWVsWEdrd0liTjBmeTZ1LXc/od6/public/values?alt=json
+  - json of 2nd sheet in a document:
+    - change "od6" to "od7" of first json url
 
 4. Build index.json and category.json
 -------------------------------------
@@ -29,6 +34,12 @@ node prepublish
 ```
 npm start
 ```
+Then you can visit your site at http://localhost:8080/
+
+6. Use reverse proxy
+--------------------
+If you need example, may read config/nginx.conf
+
 
 Installation for Windows
 =============
