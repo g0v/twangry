@@ -26,7 +26,7 @@
 						<div class="cbp_tmlabel" ng-mouseenter="tmlabelMouseEnter($event)">
               <div class="event-right">
                 <div><a data-toggle="modal" href="#myModal" class="openSubscribe">訂閱</a> <span class="icon-envelope"></span></div>
-                <div ng-show="event.tag != ''"><span class="tag" ng-click="$parent.$parent.query = tag" ng-repeat="tag in event.tag">{{tag}}</span> <span class="icon-tags"></span></div>
+                <div ng-show="event.tag != ''"><span class="tag" ng-click="$parent.$parent.TagFilter(tag)" ng-repeat="tag in event.tag">{{tag}}</span> <span class="icon-tags"></span></div>
               </div>  
               <h2><a href="/wiki/{{event.headline}}">{{event.headline}}<span class="icon-double-angle-right"></span></a></h2>
               <p class="content" ng-hide>{{event.text}}</p>
