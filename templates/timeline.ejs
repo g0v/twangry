@@ -59,6 +59,13 @@
       var p = window.location.href.replace(window.location.origin, '');
       ga('send', 'pageview', {'page': p, 'title': document.title});
     });
+    $(document).keyup(function (e){
+      if(e.keyCode == 39){
+        ga('send', 'event', 'nav', 'click', 'fact-tl-right');
+        var p = window.location.href.replace(window.location.origin, '');
+        ga('send', 'pageview', {'page': p, 'title': document.title});
+      }
+    });
   });
   </script>
   <div id="wrapper">
