@@ -26,7 +26,7 @@ Edit config/default.yaml, setup google sheet path and port.
 -------------------------------------
 Execute script to build json base on config/default.yaml
 ```
-node prepublish
+npm test
 ```
 
 5. start node
