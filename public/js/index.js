@@ -134,43 +134,52 @@ function EventCtrl($scope, $http, $templateCache, $filter, angularFire) {
   };
   
   $scope.addEmail = function (e) {
-	  var eventtitle=$('#bookId').text();
-	  //console.log(encodeURIComponent(eventtitle));
-	  var encodeTitle=encodeURIComponent(eventtitle);
-	  var emailAddress=String($scope.email);
-	  //console.log(emailAddress);
-	  
-	  if(emailAddress!='undefined'){
-		  //query value
-		  var firebaseQuery='https://twangrytest.firebaseio.com/subscribe/'+encodeTitle;
-		  var ref= new Firebase(firebaseQuery);
-		  ref.once('value', function(snapshot) {
-		    if(snapshot.val()==null) {
-				//console.log("It doesn't exist, need to create");
-			
-				ref.set({title:encodeTitle, email:emailAddress}, function(error) {
-	              if (error) {
-	    			 //console.log('Data could not be add.' + error);	
-					 ref.off();	 
-	  		   	  } else {
-	       		     //console.log('Data added successfully.');
-					 ref.off();	 
-	       	   	  }
-			    });
-			
-			}
-			else{
-				//console.log("exist email address include:",snapshot.child('email').val());
-				var newEmailValue=snapshot.child('email').val()+','+emailAddress;
-				ref.set({title:encodeTitle, email:newEmailValue}, function(error) {
-	              if (error) {
-	    			 //console.log('Data could not be updated.' + error);	
-					 ref.off();	 
-	  		   	  } else {
-	       		     //console.log('Data update successfully.');
-					 ref.off();	 
-	       	   	  }
-			    });
+	var eventtitle=$('#bookId').text();
+	var encodeTitle=encodeURIComponent(eventtitle);
+	var emailAddress=String($scope.email);
+	
+	if(emailAddress!='undefined'){
+      //query value
+	  var firebaseQuery='https://twangrytest.firebaseio.com/subscribe/'+encodeTitle;
+	  var ref= new Firebase(firebaseQuery);
+	  ref.once('value', function(snapshot) {
+	    if(snapshot.val()==null) {	
+		  ref.set({title:encodeTitle, email:emailAddress, revision:0}, function(error) {
+	        if (error) {
+			  ref.off();	 
+	  		} 
+			else {
+	  		  var targeturl='/updateWikiRev/'+encodeTitle;
+	  	   	  $http({
+	  	   	    method: 'GET',
+	  	   	    url: targeturl,
+	  	   		data: encodeTitle,
+	  	   	    cache: $templateCache
+	  	   	  }).
+	  	   	  success(function(data, status) {
+				console.log("updateWikiRev success");  
+	  	   	  }).
+	  	   	  error(function(data, status) {
+	  	   	    console.log("updateWikiRev error");
+	  	   	  });			 
+			  ref.off();	 		 
+	       	}
+		  });
+		}
+		else{
+		  var isMatched=snapshot.child('email').val().match(emailAddress);
+		  if(isMatched==null){
+		    var newEmailValue=snapshot.child('email').val()+','+emailAddress;
+			var rev=snapshot.child('revision').val();
+			ref.set({title:encodeTitle, email:newEmailValue, revision:rev}, function(error) {
+		      if(error) {	
+			    ref.off();	 
+		  	  } 
+			  else {	     
+				ref.off();	 
+		      }
+			});
+		  }
 				/*
 				//may need to change transaction later 
 				var oldvalue=snapshot.child('email').val();
@@ -186,10 +195,29 @@ function EventCtrl($scope, $http, $templateCache, $filter, angularFire) {
 				  ref.off();
 				});
 				*/
-			}	
-		  });
-	  }
+	    }	
+	  }); 
+    }
   };
+  
+  $scope.UpdateSubscribe = function (e) {
+    var eventtitle=$('#bookId').text();
+	var encodeTitle=JSON.stringify(encodeURIComponent(eventtitle));
+	var targeturl='/updateSubscribe/'+encodeTitle;
+	  
+	$http({
+	  method: 'GET',
+	  url: targeturl,
+	  data: encodeTitle,
+	  cache: $templateCache
+	}).
+	success(function(data, status) {
+	  console.log("updateSubscribe success"); 
+	}).
+	error(function(data, status) {
+	  console.log("updateSubscribe error");
+	});		  
+  }
    
   $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
     $("#spinner").hide();
