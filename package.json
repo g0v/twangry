@@ -25,6 +25,6 @@
   },
   "scripts": {
     "start": "node app.js",
-    "predeploy": "./prepublish"
+    "test": "node prepublish"
   }
 }
