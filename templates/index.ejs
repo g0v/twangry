@@ -25,13 +25,31 @@
             <div class="cbp_tmicon"><i class="icon-plus-sign" ng-click="plusSignClick($event)"></i><i class="icon-minus-sign" ng-click="minusSignClick($event)"></i></div>
 						<div class="cbp_tmlabel" ng-mouseenter="tmlabelMouseEnter($event)">
               <div class="event-right">
-                <div><a data-toggle="modal" href="#myModal" class="openSubscribe">訂閱</a> <span class="icon-envelope"></span></div>
+                <div><a data-toggle="modal" href="#myModal-{{$index}}" class="openSubscribe">訂閱</a> <span class="icon-envelope"></span></div>
                 <div ng-show="event.tag != ''"><span class="tag" ng-click="$parent.$parent.TagFilter(tag)" ng-repeat="tag in event.tag">{{tag}}</span> <span class="icon-tags"></span></div>
               </div>  
               <h2><a href="/wiki/{{event.headline}}">{{event.headline}}<span class="icon-double-angle-right"></span></a></h2>
               <p class="content" ng-hide>{{event.text}}</p>
 						</div>
             <div class="sort" ng-hide="event.sort">{{event.sort}}</div>
+            <div class="modal" id="myModal-{{$index}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h2 id="bookId">{{event.headline}}</h2>
+                  </div>
+                  <div class="modal-body">
+                    <h3>如果你想要訂閱這個事件, 請輸入你的email address</h3>
+                    <form ng-submit="addEmail()">
+                      <input type="text" ng-model="email" placeholder="EmailAddress:">
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-small" data-dismiss="modal" ng-click="addEmail()">訂閱</button>
+                  </div>
+                </div><!-- /.content-->
+              </div><!-- /.dialog-->
+            </div><!-- /.modal -->
           </li>
 				</ul>
 
@@ -42,25 +60,6 @@
     </div><!-- container -->
     <div id="to-top" class="icon-angle-up icon-4x"></div>
     </div><!-- wrapper-->
-    <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  	  <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-     	    <h2 id="bookId"></h2>
-          </div>
-          <div class="modal-body">
-            <h3>如果你想要訂閱這個事件, 請輸入你的email address</h3>
-      	    <form ng-submit="addEmail()">
-        	  <input type="text" ng-model="email" placeholder="EmailAddress:">
-      		</form>
-     	  </div>
-		  <div class="modal-footer">
-		    <button class="btn btn-small" data-dismiss="modal" ng-click="UpdateSubscribe()">update</button>
-			<button class="btn btn-small" data-dismiss="modal" ng-click="addEmail()">close</button>
-		  </div>
-        </div><!-- /.content-->
-	  </div><!-- /.dialog-->
-    </div><!-- /.modal -->
   
   <script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -230,24 +230,16 @@ function EventCtrl($scope, $http, $templateCache, $filter, angularFire) {
 
 // jquery
 $(document).ready(function() {
-    $('form .textfield').click(function() {
-      this.select();
-      });
-    $("#to-top").click(function() {
-      var $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
-      $body.animate({
-scrollTop: 0
-},
-600);
-      });
-    });
+  $('form .textfield').click(function() {
+    this.select();
+  });
+  $("#to-top").click(function() {
+    var $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
+    $body.animate({
+      scrollTop: 0
+    },
+    600);
+  });
+});
 
-	$(document).on("click", ".openSubscribe", function () {
-	     var $myBookId = $(this).parents('div');
-		 var $a = $myBookId.find('h2 a');
-	     var title=String($a.attr('href'));
-		 if(title.indexOf('/')>= 0)
-		   title=title.split("/").pop();
-		 console.log(title);
-		 $(".modal-header h2").text(title);  
-	});
+
