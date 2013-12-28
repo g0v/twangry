@@ -123,14 +123,17 @@ html[xmlns] .clearfix {
   float:right;
   display: block;
 }
-.slider-item .fadeout {
+.slider-item .container .before,
+.slider-item .container .after
+{
   color: #aaa;
+  display: inline;
 }
 .slider-item .media-container img {
   max-height: 300px;
 }
-.slider-item .fadeout .highlighted,
-.slider-item .fadeout .highlighted a {
+.slider-item .highlighted,
+.slider-item .highlighted a {
   color: #000;
   text-shadow: none;
 }
@@ -141,7 +144,6 @@ html[xmlns] .clearfix {
 .slider-item .container .fadeout:hover a {
   color: #777;
 }
-
 
 /**
  * front page specific
