@@ -210,3 +210,8 @@ ul.cbp_tmtimeline {
 }
 /* animation */
 
+/* angular */
+input.ng-invalid,
+input.ng-invalid-email {
+  border: 1px solid #E54642;
+}

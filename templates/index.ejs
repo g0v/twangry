@@ -32,20 +32,22 @@
               <p class="content" ng-hide>{{event.text}}</p>
 						</div>
             <div class="sort" ng-hide="event.sort">{{event.sort}}</div>
-            <div class="modal" id="myModal-{{$index}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal" id="myModal-{{$index}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-controller="SubscribeCtrl">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h2 id="bookId">{{event.headline}}</h2>
+                    <h2>{{event.headline}}</h2>
                   </div>
                   <div class="modal-body">
                     <h3>如果你想要訂閱這個事件, 請輸入你的email address</h3>
-                    <form ng-submit="addEmail()">
-                      <input type="text" ng-model="email" placeholder="EmailAddress:">
+                    <form ng-submit="addEmail()" name="subsform{{$index}}">
+                      <input type="email" name="email{{$index}}" ng-model="email" placeholder="請填寫Email" required>
+                      <span class="error" ng-show="subsform{{$index}}.$error.required">必填</span>
+                      <span class="error" ng-show="subsform{{$index}}.$error.email">請輸入正確的Email</span>
                     </form>
                   </div>
                   <div class="modal-footer">
-                    <button class="btn btn-small" data-dismiss="modal" ng-click="addEmail()">訂閱</button>
+                    <button class="btn btn-small" data-dismiss="modal" ng-disabled="subsform{{$index}}.$error.email" ng-click="addEmail(event)">訂閱</button>
                   </div>
                 </div><!-- /.content-->
               </div><!-- /.dialog-->

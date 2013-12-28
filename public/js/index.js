@@ -133,98 +133,85 @@ function EventCtrl($scope, $http, $templateCache, $filter, angularFire) {
     closeItem($(e.currentTarget).parents('li'));
   };
   
-  $scope.addEmail = function (e) {
-	var eventtitle=$('#bookId').text();
-	var encodeTitle=encodeURIComponent(eventtitle);
-	var emailAddress=String($scope.email);
-	
-	if(emailAddress!='undefined'){
-      //query value
-	  var firebaseQuery='https://twangrytest.firebaseio.com/subscribe/'+encodeTitle;
-	  var ref= new Firebase(firebaseQuery);
-	  ref.once('value', function(snapshot) {
-	    if(snapshot.val()==null) {	
-		  ref.set({title:encodeTitle, email:emailAddress, revision:0}, function(error) {
-	        if (error) {
-			  ref.off();	 
-	  		} 
-			else {
-	  		  var targeturl='/updateWikiRev/'+encodeTitle;
-	  	   	  $http({
-	  	   	    method: 'GET',
-	  	   	    url: targeturl,
-	  	   		data: encodeTitle,
-	  	   	    cache: $templateCache
-	  	   	  }).
-	  	   	  success(function(data, status) {
-				console.log("updateWikiRev success");  
-	  	   	  }).
-	  	   	  error(function(data, status) {
-	  	   	    console.log("updateWikiRev error");
-	  	   	  });			 
-			  ref.off();	 		 
-	       	}
-		  });
-		}
-		else{
-		  var isMatched=snapshot.child('email').val().match(emailAddress);
-		  if(isMatched==null){
-		    var newEmailValue=snapshot.child('email').val()+','+emailAddress;
-			var rev=snapshot.child('revision').val();
-			ref.set({title:encodeTitle, email:newEmailValue, revision:rev}, function(error) {
-		      if(error) {	
-			    ref.off();	 
-		  	  } 
-			  else {	     
-				ref.off();	 
-		      }
-			});
-		  }
-				/*
-				//may need to change transaction later 
-				var oldvalue=snapshot.child('email').val();
-				ref.transaction( function(oldvalue) {
-				  var newEmailValue=oldvalue+','+emailAddress;
-				  var newValue={title:encodeTitle,email:newEmailValue};
-				  console.log("email address update from %s to %s",oldvalue, newEmailValue);
-				  return newValue;
-				}, function(error, committed, snapshot) {
-				  console.log('Was there an error? ' + error);
-				  console.log('Did we commit the transaction? ' + committed);
-				  console.log('The final value is: ' + snapshot.child('email').val());
-				  ref.off();
-				});
-				*/
-	    }	
-	  }); 
-    }
-  };
-  
-  $scope.UpdateSubscribe = function (e) {
-    var eventtitle=$('#bookId').text();
-	var encodeTitle=JSON.stringify(encodeURIComponent(eventtitle));
-	var targeturl='/updateSubscribe/'+encodeTitle;
-	  
-	$http({
-	  method: 'GET',
-	  url: targeturl,
-	  data: encodeTitle,
-	  cache: $templateCache
-	}).
-	success(function(data, status) {
-	  console.log("updateSubscribe success"); 
-	}).
-	error(function(data, status) {
-	  console.log("updateSubscribe error");
-	});		  
-  }
-   
   $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
     $("#spinner").hide();
     $("ul.cbp_tmtimeline").show();
     $('.cbp_tmtime').find('span:visible:eq(1)').addClass('last-child');
   });
+}
+
+function SubscribeCtrl($scope, $http, $templateCache, $filter, angularFire){
+  $scope.addEmail = function (event) {
+    if(typeof($scope.email) !== 'undefined' && typeof(event.headline) !== 'undefined'){
+      var encodeTitle = encodeURIComponent(event.headline);
+      var emailAddress = $scope.email;
+      //query value
+      var firebaseQuery='https://twangrytest.firebaseio.com/subscribe/'+encodeTitle;
+      var fb = new Firebase(firebaseQuery);
+      fb.once('value', function(snapshot) {
+        // doesn't have this entry
+        if(snapshot.val() == null) {
+          fb.set({title:encodeTitle, email:emailAddress, revision:0}, function(error) {
+            if (error) {
+              fb.off();
+            } 
+            else {
+            // after update firebase, obtain wikipedia revision number for further usage
+              var targeturl='/updateWikiRev/'+encodeTitle;
+              $http({
+                method: 'GET',
+                url: targeturl,
+                data: encodeTitle,
+                cache: $templateCache
+              })
+              .success(function(data, status) {
+                console.log("updateWikiRev success");  
+              })
+              .error(function(data, status) {
+                console.log("updateWikiRev error");
+              });			 
+              fb.off();
+            }
+          });
+        }
+        else{
+          // already have entry, just add email
+          var isMatched = snapshot.child('email').val().match(emailAddress);
+          if(isMatched == null){
+            var newEmailValue = snapshot.child('email').val()+','+emailAddress;
+            var rev = snapshot.child('revision').val();
+            fb.set({title:encodeTitle, email:newEmailValue, revision:rev}, function(error) {
+              if(error){
+                fb.off();
+              }
+              else {
+                fb.off();
+              }
+            });
+          }
+        }
+      }); 
+    }
+  };
   
+  $scope.UpdateSubscribe = function (e) {
+    var eventtitle=$('#bookId').text();
+    var encodeTitle=JSON.stringify(encodeURIComponent(eventtitle));
+    var targeturl='/updateSubscribe/'+encodeTitle;
+      
+    $http({
+      method: 'GET',
+      url: targeturl,
+      data: encodeTitle,
+      cache: $templateCache
+    }).
+    success(function(data, status) {
+      console.log("updateSubscribe success"); 
+    }).
+    error(function(data, status) {
+      console.log("updateSubscribe error");
+    });		  
+  }
 }
 
 
