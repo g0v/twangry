@@ -37,7 +37,7 @@
       });
       return false;
     });
-    $('a').live('click', function(){
+    $(document).on('click', 'a', function(){
       var url = this.href.toLowerCase();
       var pattern = /^(([^\/:]+?\.)*)([^\.:]{4,})((\.[a-z]{1,4})*)(:[0-9]{1,5})?$/;
       var host = window.location.host.replace(pattern, '$3$4');
@@ -49,12 +49,12 @@
       }
     });
     // analytics event tracking https://developers.google.com/analytics/devguides/collection/analyticsjs/events
-    $('.nav-next').live('click', function() {
+    $(document).on('click', '.nav-next', function() {
       ga('send', 'event', 'nav', 'click', 'fact-tl-next');
       var p = window.location.href.replace(window.location.origin, '');
       ga('send', 'pageview', {'page': p, 'title': document.title});
     });
-    $('.nav-previous').live('click', function() {
+    $(document).live('click', '.nav-previous', function() {
       ga('send', 'event', 'nav', 'click', 'fact-tl-previous');
       var p = window.location.href.replace(window.location.origin, '');
       ga('send', 'pageview', {'page': p, 'title': document.title});
@@ -66,12 +66,32 @@
         ga('send', 'pageview', {'page': p, 'title': document.title});
       }
     });
-    $('.more-before').live('click', function(){
-      $(this).prev().toggle();
+    $(document).on('mouseover', '.highlight', function(){
+      var p = $(this).parents('.container');
+      var $before = $(this).parent().children('.before');
+      var $after = $(this).parent().children('.after');
+      if($before.is(':hidden')){
+        $before.addClass('tip');
+        var bt = $(this).offset().top - p.offset().top - $before.height() - 10;
+        $before.css('top', bt+'px');
+      }
+      if($after.is(':hidden')){
+        $after.addClass('tip').css('top', (p.height())+'px');
+      }
+    });
+    $(document).on('mouseout', '.highlight', function(){
+      var $before = $(this).parent().children('.before');
+      var $after = $(this).parent().children('.after');
+      $before.removeClass('tip');
+      $after.removeClass('tip');
+    });
+    $(document).on('click', '.more-before', function(){
+      $(this).prev().show();
       $(this).hide();
     });
-    $('.more-after').live('click', function(){
-      $(this).next().toggle();
+    $(document).on('click', '.more-after', function(){
+      $(this).next().show();
+      $(this).parents('.container').css('overflow-y', 'auto');
       $(this).hide();
     });
   });
