@@ -123,26 +123,42 @@ html[xmlns] .clearfix {
   float:right;
   display: block;
 }
+.vco-storyjs .vco-feature .slider-item .container h3 {
+  margin-bottom: 0;
+}
+.slider-item .container .breadcrumb {
+  font-size: 11px;
+  display: block;
+  padding: 4px 15px;
+  margin-bottom: 5px;
+}
+.slider-item .container .more-before,
+.slider-item .container .more-after {
+  background: url(images/more.png) no-repeat;
+  padding: 0 15px;
+  cursor: pointer;
+}
 .slider-item .container .before,
-.slider-item .container .after
-{
+.slider-item .container .after {
+  color: #999;
+  display: none;
+}
+.slider-item .container .before a,
+.slider-item .container .after a {
   color: #aaa;
+}
+.slider-item .container .before.expanded,
+.slider-item .container .after.expanded
+{
+  color: #777;
   display: inline;
 }
 .slider-item .media-container img {
   max-height: 300px;
 }
-.slider-item .highlighted,
-.slider-item .highlighted a {
+.slider-item .container .highlight,
+.slider-item .container .highlight a {
   color: #000;
-  text-shadow: none;
-}
-.slider-item .fadeout a {
-  color: #aaa;
-}
-.slider-item .container .fadeout:hover,
-.slider-item .container .fadeout:hover a {
-  color: #777;
 }
 
 /**

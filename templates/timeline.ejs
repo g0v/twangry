@@ -66,6 +66,14 @@
         ga('send', 'pageview', {'page': p, 'title': document.title});
       }
     });
+    $('.more-before').live('click', function(){
+      $(this).prev().toggle();
+      $(this).hide();
+    });
+    $('.more-after').live('click', function(){
+      $(this).next().toggle();
+      $(this).hide();
+    });
   });
   </script>
   <div id="wrapper">
