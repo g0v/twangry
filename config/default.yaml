@@ -18,3 +18,4 @@ wikipedia:
   _minLength: 40 # page render main url
 
 port: 8080
+debug: false
