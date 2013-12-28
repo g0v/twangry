@@ -137,9 +137,13 @@ html[xmlns] .clearfix {
 }
 .slider-item .container .more-before,
 .slider-item .container .more-after {
-  background: url(images/more.png) no-repeat;
   padding: 0 15px;
   cursor: pointer;
+  color: #08C;
+}
+.slider-item .container .more-before:hover,
+.slider-item .container .more-after:hover {
+  color: #005580;
 }
 .slider-item .container .before,
 .slider-item .container .after {
