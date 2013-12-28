@@ -126,6 +126,9 @@ html[xmlns] .clearfix {
 .vco-storyjs .vco-feature .slider-item .container h3 {
   margin-bottom: 0;
 }
+.slider-item .container {
+  position: relative;
+}
 .slider-item .container .breadcrumb {
   font-size: 11px;
   display: block;
@@ -142,6 +145,22 @@ html[xmlns] .clearfix {
 .slider-item .container .after {
   color: #999;
   display: none;
+}
+.slider-item .container .before.tip,
+.slider-item .container .after.tip {
+  position: absolute;
+  display: block;
+  z-index: 999;
+  color: #333;
+  background: #FCFCFC;
+  border: 1px solid #EEE;
+  border-radius: 5px;
+  padding: 5px;
+  opacity: 0.9;
+}
+.slider-item .container .before.tip a,
+.slider-item .container .after.tip a{
+  color: #333;
 }
 .slider-item .container .before a,
 .slider-item .container .after a {
