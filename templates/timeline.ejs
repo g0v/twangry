@@ -24,7 +24,7 @@
     <%
     source_html = '';
     for (var i=0; i<wiki_sources.length; ++i) {
-        source_html += '<a class="source" href="http://zh.wikipedia.org/wiki/'+wiki_sources[i]+'">['+(i+1)+']</a>';
+        source_html += '<a class="source" href="http://zh.wikipedia.org/wiki/'+wiki_sources[i]+'">[編輯內容]</a>';
     }
     %>
     $('.page-title').append('<sup><%- source_html %></sup>');
