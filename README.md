@@ -1,72 +1,39 @@
-政誌
-====
-http://fact.g0v.tw
+關於政誌
+========
 
-What
-----
-  - 本站是一個以*時間*為基礎，紀錄事件的導覽網站。
-  - 本站首頁內容來自人工編輯，文字來源為公眾授權之文字。
-  - 本站內容頁面來自維基百科條目。
+如何將事件加進政誌首頁？
+-----------------------
+1. [搜尋中文維基百科](http://goo.gl/0GduFY)，看是否已經有對應的條目
+2. 若已經有維基百科條目，直接編輯維基百科內容
+3. 確認條目已經有內容後，你可以[請政誌編輯者加上條目](https://github.com/g0v/twangry/issues/new)，或要求[編輯政誌首頁權限](https://docs.google.com/spreadsheet/ccc?key=0AuwTztKH2tKidGZ2cEdVY19PZEpzRWVJWWZOeUI1Y0E&usp=sharing)
 
-Why
----
-  - 主要目標
-    - 希望能夠一眼看出，我們的政府作(錯)過什麼事情。
+有政誌上的事件內容不大對勁，我應該如何處理？
+--------------------------------------------
+1. 每個事件上方有「編輯內容」，連結至對應的維基百科條目。
+2. 在維基百科中，你可以選擇要編輯的段落，直接在段落標題旁按下編輯。
+3. 編輯條目內容，需要具體的事實或內容來源標注，請尊重維基百科的規範，附上實際來源，在政誌中也會以畫面自動截圖呈現。
+4. 確認維基百科內容更新後，可至政誌的事件時間軸最下方，按下「![更新](http://fact.g0v.tw/css/images/reload.gif)」符號，政誌頁面會自動更新至最新的維基百科版本
 
-  - 次要目標：
-    - 振興wikipedia的條目「正確性」（截至目前為止，極度依賴wikipedia的資料）
-    - 將台灣的公民運動以及政治事件，做一個~~中性~~時間表
 
-How to Join us
------------------
-  - 首頁
-    - 首頁由人工編輯，目前徵求對台灣社會運動、公民運動、政策新聞熟悉的長期編輯，挑選維基百科條目於本網站首頁
-      - 請先參考Milestone[歷史事件補齊](https://github.com/g0v/twangry/issues?milestone=3&state=open)
-      - 意者請至首頁[Google Doc](https://docs.google.com/spreadsheet/ccc?key=0AuwTztKH2tKidGZ2cEdVY19PZEpzRWVJWWZOeUI1Y0E#gid=0)
-      - 右上方點擊「共用」後，填寫「專長領域、欲挑選的條目類型、github帳號」後，送出
-      - 我們盡快幫你加入編輯的行列
+發現內容時間有錯，應該如何處理？
+-------------------------------
+政誌應用程式自動判斷時間，但仍然有機會找錯年份，此時我們需要你的指正，若你能直接改正就更棒了，我們建議：
+1. 幫忙核對是否原始資料在維基百科有誤，若有錯誤，直接編輯該段落，改正日期時間即可。
+2. 若原始資料是正確的，但政誌錯誤，請張貼錯誤連結至[Github](https://github.com/g0v/twangry/issues/new)，標示正確的日期，讓我們趕緊處理！
 
-  - 事件時間軸，目前全數來自中文維基百科，自動處理中文年月日，並擷取前後片段
-    - 維基百科為一個經過眾人力量編輯的百科，若發現本站所列事件過程有所缺漏，建議以下列方式協助我們：
-      - 比對維基百科條目，提供程式抓取之邏輯建議（而非編寫建議）。
-      - 將缺漏之事件之實情更新至維基百科。編寫維基百科請尊重維基文化與正確性，請確實「附上來源」，切勿抒發己見與心情言論。
-      - 參考[維基百科不是什麼](http://zh.wikipedia.org/zh-tw/Wikipedia:%E7%BB%B4%E5%9F%BA%E7%99%BE%E7%A7%91%E4%B8%8D%E6%98%AF%E4%BB%80%E4%B9%88)
-      - 參考[維基百科編寫方針與指引](https://zh.wikipedia.org/wiki/Wikipedia:%E6%96%B9%E9%87%9D%E8%88%87%E6%8C%87%E5%BC%95)
-      - 參考[中文年月日正確格式](http://zh.wikipedia.org/wiki/Wikipedia:%E6%A0%BC%E5%BC%8F%E6%89%8B%E5%86%8C/%E6%97%A5%E6%9C%9F%E5%92%8C%E6%95%B0%E5%AD%97#.E5.B9.B4.E6.9C.88.E6.97.A5)
-      - 參考[列明引用來源](http://zh.wikipedia.org/wiki/Wikipedia:%E5%88%97%E6%98%8E%E6%9D%A5%E6%BA%90)
-
-  - 程式碼
-    - 日期比對演算程式，目前由regular expression進行字串解析而成，歡迎提供patch
-      - 請先參考Milestone[中文日期parser革新](https://github.com/g0v/twangry/issues?milestone=4&state=open)
-    - 首頁樣式，目前使用Angularjs修整中
-      - 請先參考Milestone[首頁改版](https://github.com/g0v/twangry/issues?milestone=1&state=open)
-    - 事件時間軸頁，目前由timelinejs打造
-      - 請先參考Milestone[事件頁面時間軸修整](https://github.com/g0v/twangry/issues?milestone=2&state=open)
-
-錯誤回報
---------
+程式錯誤回報
+------------
   - 請用github的[issue report](https://github.com/g0v/twangry/issues)
 
-建議、新功能、討論
-------------------
-  - 歡迎至[Hackpad討論板](https://g0v.hackpad.com/nGRHg4knibC)提供本站的各式建議，也可看到他人提出過的建議
-  - 原則上不處理未上討論板refine過後的feature request
+API
+---
+- 首頁事件列表JSON: http://fact.g0v.tw/index.json
+- 單一事件表JSON: http://fact.g0v.tw/wiki/條目名稱.json
+- 任何中文維基百科時間軸JSON: 
+  - [達利](http://fact.g0v.tw/wiki/%E9%81%94%E5%88%A9): http://fact.g0v.tw/wiki/%E9%81%94%E5%88%A9.json
+  - [戴安娜王妃](http://fact.g0v.tw/wiki/%E6%88%B4%E5%AE%89%E5%A8%9C%E7%8E%8B%E5%A6%83): http://fact.g0v.tw/wiki/%E6%88%B4%E5%AE%89%E5%A8%9C%E7%8E%8B%E5%A6%83.json
+  - [李登輝](http://fact.g0v.tw/wiki/%E6%9D%8E%E7%99%BB%E8%BC%9D): http://fact.g0v.tw/wiki/%E6%9D%8E%E7%99%BB%E8%BC%9D.json
 
-進度
-----
-  - https://github.com/g0v/twangry/issues/milestones
-
-Related Libraries
------------------
-  - [Timeline.js](http://timeline.verite.co/)
-    - [Mozilla Public License Version 2.0](https://raw.github.com/VeriteCo/TimelineJS/master/LICENSE)
-  - [Angular.js](http://angularjs.org/)
-    - [The MIT License](https://github.com/angular/angular.js/blob/master/LICENSE)
-
-g0v相關專案
------------
-  - [TW-History](https://github.com/g0v/TW-history)
-  - [kuansim](https://github.com/g0v/kuansim)
 
 免責聲明
 --------
