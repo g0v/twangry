@@ -24,7 +24,7 @@
     <%
     source_html = '';
     for (var i=0; i<wiki_sources.length; ++i) {
-        source_html += '<a class="source" href="http://zh.wikipedia.org/wiki/'+wiki_sources[i]+'">[編輯內容]</a>';
+      source_html += '<a class="source" href="http://zh.wikipedia.org/wiki/'+wiki_sources[i]+'">[來源'+(i+1)+']</a>';
     }
     %>
     $('.page-title').append('<sup><%- source_html %></sup>');
@@ -102,7 +102,9 @@
 
   <!-- footer -->
   <div id="footer" align="center">
-    <div>本站內容來源為Wikipedia，其文字在<a href="http://zh.wikipedia.org/zh-tw/Wikipedia%3ACC-BY-SA-3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC">創用CC 姓名標示-相同方式分享 3.0 協議</a>之條款下授權使用</div>
+    <% if(wiki_sources.length == 1){ %>
+      <div>本站內容<a href="http://zh.wikipedia.org/wiki/<%= wiki_sources[0] %>" id="source">來源為Wikipedia</a>，其文字在<a href="http://zh.wikipedia.org/zh-tw/Wikipedia%3ACC-BY-SA-3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC">創用CC 姓名標示-相同方式分享 3.0 協議</a>之條款下授權使用</div>
+    <% } %>
     <div>最後更新 - <%= mtime %> <a href="" class="reload"></a> | <a href="http://g0v.tw">g0v</a> | <a href="/gdsmw.html?doc=/disclaimer.html" target="_blank">免責聲明</a> </div>
   </div>
   <!-- END footer -->
