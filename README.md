@@ -6,7 +6,7 @@
 1. [搜尋中文維基百科](http://goo.gl/0GduFY)，看是否已經有對應的條目
 2. 若已經有維基百科條目，直接編輯維基百科內容
 3. 確認條目已經有內容後，你可以[請政誌編輯者加上條目](https://github.com/g0v/twangry/issues/new)。
-4. 直接加入我們：要求編輯政誌首頁權限，請先至[g0v-general討論群組「大家來自介吧」標題回覆簡單自我介紹](https://groups.google.com/forum/#!topic/g0v-general/bp6nZlNTXls)，再煩請將介紹連結貼於要求[共用政誌首頁編輯權限](https://docs.google.com/spreadsheet/ccc?key=0AuwTztKH2tKidGZ2cEdVY19PZEpzRWVJWWZOeUI1Y0E&usp=sharing)
+4. 直接加入我們：要求編輯政誌首頁權限，請先至[g0v-general討論群組「大家來自介吧」標題做簡單自我介紹](https://groups.google.com/forum/#!topic/g0v-general/bp6nZlNTXls)，再將介紹連結貼於要求[共用政誌首頁編輯權限](https://docs.google.com/spreadsheet/ccc?key=0AuwTztKH2tKidGZ2cEdVY19PZEpzRWVJWWZOeUI1Y0E&usp=sharing)，我們將迅速開放
 
 有政誌上的事件內容不大對勁，我應該如何處理？
 --------------------------------------------
