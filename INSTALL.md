@@ -57,4 +57,42 @@ FAQ
 [Error: 140735215821584:error:0607907F:digital envelope routines:EVP_PKEY_get1_RSA:expecting an rsa key:../deps/openssl/openssl/crypto/evp/p_lib.c:288:]
 ```
 update node to 0.10.x
+===
 
+以下為中文版安裝手續
+------------------------------------
+
+Winsdows環境安裝:
+
+1. 首先安裝nodejs Windows版,可在此下載:http://nodejs.org/download/
+
+2. 安裝完nodejs後,在<所有程式>裡的<Node.js>裡面選取<Node.js command prompt>,啟動可執行nodejs指令的控制台.
+
+3. 在可執行nodejs指令的控制台中,前往存放twangry的資料夾下.
+   (方法: 在控制台中鍵入cd twangry/ ,如此一來便可進入到twangry的資料夾中.)
+
+4. 在twangry資料夾下鍵入
+   npm install
+   如此一來系統會找到twangry資料夾下的package.json檔案,並依照此檔案裡面所設置的去做安裝.
+   關於package.json檔案裡面詳細的參數設定,請參考:http://wiki.commonjs.org/wiki/Packages/1.1
+
+5. 接著在twangry資料夾下鍵入
+   npm test
+   爾後系統會依照config/default.yaml檔案的設置參數,去編譯出index.json與category.json檔案.
+   
+6. 接著鍵入
+   npm start
+   然後到瀏覽器裡面輸入http://localhost:8080/後,就可以看到政誌在本地電腦上運作了.
+   
+   
+此外,預設值是參照零時政府網站(http://fact.g0v.tw)上的時間軸,不過你也可以依照下面幾個步驟打造自己的時間軸.
+1. 首先使用此googlesheet作為示範的時間軸.(https://docs.google.com/spreadsheet/pub?key=0AuwTztKH2tKidERkVm5nLWVsWEdrd0liTjBmeTZ1LXc&gid=0)
+
+2. 接著打開config/default.yaml
+   將index與category的source改成以下的網址:
+   -index的改成https://spreadsheets.google.com/feeds/list/0AuwTztKH2tKidERkVm5nLWVsWEdrd0liTjBmeTZ1LXc/od6/public/values?alt=json
+   -category的改成https://spreadsheets.google.com/feeds/list/0AuwTztKH2tKidERkVm5nLWVsWEdrd0liTjBmeTZ1LXc/od7/public/values?alt=json
+   
+   以上設置是將示範時間軸網址中的<pub?key>字串後到<&gid=0>之間的一串數字,複製到<../list/>與</od6/public/values?alt=json>之間而已
+   
+   
