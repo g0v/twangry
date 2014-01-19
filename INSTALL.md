@@ -102,6 +102,16 @@ Winsdows環境安裝:
    - category的改成:
      https://spreadsheets.google.com/feeds/list/0AuwTztKH2tKidERkVm5nLWVsWEdrd0liTjBmeTZ1LXc/od7/public/values?alt=json
    
-   以上設置是將想抽換的時間軸網址中的<pub?key>字串後到<&gid=0>之間的一串數字,複製到<../list/>與</od6/public/values?alt=json>之間而已
+- 接著鍵入
+```
+  npm test
+```
+  重新產生編譯後的index.json與category.json檔案.
+
+- 接著鍵入
+```
+   npm start
+```
+   即可
    
    
