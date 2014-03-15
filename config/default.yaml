@@ -13,8 +13,8 @@ category:
 wikipedia:
   _scheme: 'http://'
   _domain: 'zh.wikipedia.org' # can be other languages
-  _api: 'w/api.php?action={action}&prop={prop}&format=json&titles=' # api for render others
-  _render: 'w/index.php?&action=render&variant=zh-tw&title=' # page render main url
+  _render: 'w/index.php?&action=render&variant=zh-tw&title=' # page render main url, will append title
+  _api: 'w/api.php?action={action}&prop={prop}&format=json&titles=' # api for render other page, return json format
   _minLength: 40 # page render main url
 
 port: 8080
