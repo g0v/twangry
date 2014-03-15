@@ -13,18 +13,27 @@
     <link rel="stylesheet" href="/css/colorbox/colorbox.css" />
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/readable/bootstrap.min.css">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
+  <% if(template === 'vote') { %>
+		<link rel="stylesheet" href="/css/vote.css?4" />
+  <% }else{ %>
 		<link rel="stylesheet" href="/css/vtimeline.css?4" />
     <link rel="stylesheet" href="/css/other.css?32">
+  <% } %>
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/colorbox/jquery.colorbox-min.js"></script>
-  <% if(template === 'index') { %>
+  <% if(template === 'index' || template === 'vote') { %>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-resource.min.js"></script>
   	<script type="text/javascript" src="//cdn.firebase.com/v0/firebase.js"></script>
 	  <script type="text/javascript" src='//cdn.firebase.com/libs/angularfire/0.3.0/angularfire.min.js'></script>
+  <% } %>
+  <% if(template === 'index') { %>
     <script type="text/javascript" src="/js/index.js?3"></script>
+  <% } %>
+  <% if(template === 'vote') { %>
+    <script type="text/javascript" src="/js/vote.js?3"></script>
   <% } %>
     <script>
     $(document).ready(function(){

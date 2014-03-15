@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <% include head %>
+    <script>
+    $(document).ready(function(){
+      $("a.colorbox").colorbox({iframe: true,width:900,height:500});
+      // analytics event tracking https://developers.google.com/analytics/devguides/collection/analyticsjs/events
+      $(document).on('click', '.navbar-nav li', function() {
+        ga('send', 'event', 'nav', 'click', 'fact-idx-filter');
+      });
+    });
+    </script>
+	</head>
+	<body class="<%= template %>" ng-app="index" ng-controller="EventCtrl">
+  <% include header %>
+  <div id="wrapper">
+    <div id="container" class="container">
+      <div class="desc">
+        <h2><%= year %>年最______票選活動</h2>
+        還記得<%= year %>年發生了什麼大事件？參與這個活動
+      </div>
+			<div class="main" ng-show="(filterEvents|filter:filterByYear).length">
+        <div align="center" id="spinner"><span class="icon-spinner icon-4x"></span></div>
+
+				<ul class="cbp_tmtimeline">
+          <li class="item" ng-repeat="event in filterEvents|orderBy:'sort':false" ng-animate=" 'item' " on-finish-render>
+						<time class="cbp_tmtime" datetime=""><span>{{event.startDate}}</span><span ng-show="event.endDate != ''">{{event.endDate}}</span> </time>
+            <div class="cbp_tmicon"><i class="icon-plus-sign" ng-click="plusSignClick($event)"></i><i class="icon-minus-sign" ng-click="minusSignClick($event)"></i></div>
+						<div class="cbp_tmlabel" ng-mouseenter="tmlabelMouseEnter($event)">
+              <div class="event-right">
+                <div><select>
+                <option value="_none">-- 請選擇 --</option>
+                <option value="1">最匪夷所思</option>
+                <option value="2">最拖戲</option>
+                <option value="3">最霧裡看花</option>
+                <option value="4">最噴飯</option>
+                <option value="5">最想翻桌</option>
+                <option value="6">最曲折離奇</option>
+                <option value="7">最需要被愛</option>
+                <option value="8">最瞎</option>
+                </select></div>
+              </div>  
+              <h2><a href="/wiki/{{event.headline}}" target="_blank">{{event.headline}}<span class="icon-double-angle-right"></span></a></h2>
+						</div>
+            <div class="sort" ng-hide="event.sort">{{event.sort}}</div>
+          </li>
+				</ul>
+
+      </div><!--main-->
+      <div id="no-result" ng-show="(filterEvents|filter:filterByTag).length == 0">
+        目前沒有這筆資料，但是你可以看一下「<a href="/wiki/{{filter}}">{{filter}}</a>」的時間軸。
+      </div>
+    </div><!-- container -->
+    <div id="to-top" class="icon-angle-up icon-4x"></div>
+    </div><!-- wrapper-->
+  
+  <script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-41326468-1', 'g0v.tw');
+    ga('send', 'pageview');
+  </script>
+	</body>
+</html>
