@@ -93,7 +93,7 @@ Winsdows環境安裝:
    
 客製化自己的時間軸
 -------------------
-- 首先使用此googlesheet作為想抽換的時間軸.
+- 首先使用此googlesheet((自製的範例Sheet)作為想抽換的時間軸.
 (https://docs.google.com/spreadsheet/pub?key=0AuwTztKH2tKidERkVm5nLWVsWEdrd0liTjBmeTZ1LXc&gid=0)
 
 - 接著打開config/default.yaml將index與category的source改成以下的網址:
