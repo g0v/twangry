@@ -9448,6 +9448,10 @@ if (typeof VMM.Timeline !== 'undefined' && typeof VMM.Timeline.DataObj == 'undef
 					var getjsondata, key, worksheet, url, timeout, tries = 0;
 					
 					key	= VMM.Util.getUrlVars(raw)["key"];
+          if(!key){
+            var thegoogle = raw.replace(/https?:\/\//, '').split('/');
+            key = thegoogle[3];
+          }
 					worksheet = VMM.Util.getUrlVars(raw)["worksheet"];
 					if (typeof worksheet == "undefined") worksheet = "od6";
 					

@@ -183,6 +183,11 @@ html[xmlns] .clearfix {
 .slider-item .container .highlight a {
   color: #000;
 }
+.slider-item .container span.quote {
+  display: block;
+  margin: 20px 0 0 10px;
+  font-style: italic;
+}
 
 /**
  * front page specific
@@ -256,3 +261,5 @@ input.ng-invalid,
 input.ng-invalid-email {
   border: 1px solid #E54642;
 }
+
+
