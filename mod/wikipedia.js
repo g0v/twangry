@@ -1,14 +1,17 @@
 var request = require('request');
 var cheerio = require('cheerio');
-var config = require('config');
+var nconf = require('nconf');
 var fs = require('fs');
 var url = require('url');
-var timeline = require('./timeline');
-var dateparser = require('./zhdateparser');
+
+// library
+var timeline = require(nconf.get('base')+'/lib/timeline');
+var dateparser = require(nconf.get('base')+'/lib/'+nconf.get('parser'));
 
 function Wiki(key) {
-  for (var attr in config.wikipedia) {
-    this[attr] = config.wikipedia[attr];
+  for (var attr in nconf.get('wikipedia')) {
+    var ww = nconf.get('wikipedia');
+    this[attr] = ww[attr];
   }
   this.key = key;
   this.base_url = this._scheme + this._domain +'/';
@@ -16,7 +19,7 @@ function Wiki(key) {
 }
 
 Wiki.prototype.request = function(callback){
-  if(config.debug){
+  if(nconf.get('debug')){
     console.log("debug mode - only load data on public/cache/debug.html");
     var data = fs.readFileSync('public/cache/debug.html', 'utf-8');
     this.parseDom(cheerio.load(data), callback);

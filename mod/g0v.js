@@ -1,7 +1,9 @@
-
-var timeline = require('./timeline');
+var nconf = require('nconf');
 var moment = require('moment');
 var request = require('request');
+
+// library
+var timeline = require(nconf.get('base')+'/lib/timeline');
 
 function G0VChronology(key) {
   if (key === 'chronology') {

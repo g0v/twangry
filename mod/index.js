@@ -1,15 +1,38 @@
 var request = require('request');
 var moment = require('moment');
-var config = require('config');
-var timeline = require('./timeline');
+var nconf = require('nconf');
+
+
+var timeline = require(nconf.get('base')+'/lib/timeline');
 var fs = require('fs');
 
 function index() {
   this.timeline = timeline();
-  this.spreadsheet_uri = config.index._source;
+  this.spreadsheet_uri = nconf.get('index:source');
 }
 
-index.prototype.get_json = function (data) {
+/**
+ * Page route of this module
+ */
+index.route = function(r){
+  /*
+  if(this.req.url.match(/\?_escaped_fragment_/)){
+    render_seo(this.req, this.res);
+    return;
+  }
+  */
+  var nav = fs.readFileSync('pub/cache/category.json', 'utf-8');
+  r.put('nav', JSON.parse(nav));
+  r.put('page_title', nconf.get('page:sitename') + ' | ' + nconf.get('page:mission'));
+  r.put('ogdescription', nconf.get('page:mission'));
+  r.put('ogimage', nconf.get('page:logo'));
+  r.put('is_front', 1);
+  r.put('url', 'http://'+r.req.headers.host+r.req.url);
+  r.deliver('index');
+}
+
+
+index.get_json = function (data) {
    this.parseFront(data);
    var events = this.timeline.json.timeline;
    var json = JSON.stringify(events);
@@ -17,7 +40,7 @@ index.prototype.get_json = function (data) {
    return json;
 }
 
-index.prototype.request_json = function (route, res) {
+index.request_json = function (route, res) {
   var idx = this;
   request(this.spreadsheet_uri, function (error, response, data) {
     if(!error){
@@ -26,7 +49,7 @@ index.prototype.request_json = function (route, res) {
   });
 }
 
-index.prototype.parseFront = function(data){
+index.parseFront = function(data){
   this.timeline = timeline();
   var json = JSON.parse(data).feed.entry;
   var years = {};
@@ -86,4 +109,4 @@ index.prototype.parseFront = function(data){
   thisindex.timeline.set('years', sorted_years);
   thisindex.timeline.set('wikiArticles', wikiArticles);
 }
-module.exports = new index;
+module.exports = index;
