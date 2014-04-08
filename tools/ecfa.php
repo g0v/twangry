@@ -1,5 +1,5 @@
 <?php
-$c = file_get_contents('http://ecfa.speaking.tw/json.php?max=1000');
+$c = file_get_contents('http://ecfa.speaking.tw/json.php?max=500');
 $j = json_decode($c);
 $date = $tmp = array();
 $key = null;
