@@ -8,12 +8,10 @@ nconf.argv();
 nconf.env();
 nconf.file({ file: 'conf/'+nconf.get('NODE_ENV')+'.json' });
 
-var Route = require(nconf.get('base')+'/lib/route');
+var route = require(nconf.get('base')+'/lib/route');
 
 var server = http.createServer(function(req, res){
-  var route = new Route(req, res);
-  route.run();
-  route = null; // release memory?
+  route.run(req, res);
   req.on('error', function (err) {
     console.log(err);
   });

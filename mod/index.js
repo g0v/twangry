@@ -14,7 +14,7 @@ function index() {
 /**
  * Page route of this module
  */
-index.route = function(r){
+index.route = function(tpl){
   /*
   if(this.req.url.match(/\?_escaped_fragment_/)){
     render_seo(this.req, this.res);
@@ -22,13 +22,11 @@ index.route = function(r){
   }
   */
   var nav = fs.readFileSync('pub/cache/category.json', 'utf-8');
-  r.put('nav', JSON.parse(nav));
-  r.put('page_title', nconf.get('page:sitename') + ' | ' + nconf.get('page:mission'));
-  r.put('ogdescription', nconf.get('page:mission'));
-  r.put('ogimage', nconf.get('page:logo'));
-  r.put('is_front', 1);
-  r.put('url', 'http://'+r.req.headers.host+r.req.url);
-  r.deliver('index');
+  tpl.put('nav', JSON.parse(nav));
+  tpl.put('page_title', nconf.get('page:sitename') + ' | ' + nconf.get('page:mission'));
+  tpl.put('ogdescription', nconf.get('page:mission'));
+  tpl.put('ogimage', nconf.get('page:logo'));
+  tpl.put('is_front', 1);
 }
 
 
