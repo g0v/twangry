@@ -2,10 +2,13 @@ var request = require('request');
 var moment = require('moment');
 var nconf = require('nconf');
 
-
+// local library
 var timeline = require(nconf.get('base')+'/lib/timeline');
 var fs = require('fs');
 
+/**
+ * Constructor
+ */
 function index() {
   this.timeline = timeline();
   this.spreadsheet_uri = nconf.get('index:source');
@@ -15,18 +18,12 @@ function index() {
  * Page route of this module
  */
 index.route = function(tpl){
-  /*
-  if(this.req.url.match(/\?_escaped_fragment_/)){
-    render_seo(this.req, this.res);
-    return;
-  }
-  */
   var nav = fs.readFileSync('pub/cache/category.json', 'utf-8');
-  tpl.put('nav', JSON.parse(nav));
-  tpl.put('page_title', nconf.get('page:sitename') + ' | ' + nconf.get('page:mission'));
-  tpl.put('ogdescription', nconf.get('page:mission'));
-  tpl.put('ogimage', nconf.get('page:logo'));
-  tpl.put('is_front', 1);
+  tpl.set('nav', JSON.parse(nav));
+  tpl.set('page_title', nconf.get('page:sitename') + ' | ' + nconf.get('page:mission'));
+  tpl.set('ogdescription', nconf.get('page:mission'));
+  tpl.set('ogimage', nconf.get('page:logo'));
+  tpl.set('is_front', 1);
 }
 
 

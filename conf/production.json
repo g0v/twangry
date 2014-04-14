@@ -12,11 +12,11 @@
     "source": "https://spreadsheets.google.com/feeds/list/0AuwTztKH2tKidGZ2cEdVY19PZEpzRWVJWWZOeUI1Y0E/od7/public/values?alt=json"
   },
   "wikipedia": {
-    "_scheme": "http://",
-    "_domain": "zh.wikipedia.org",
-    "_render": "w/index.php?&action=render&variant=zh-tw&title=",
-    "_api": "w/api.php?action={action}&prop={prop}&format=json&titles=",
-    "_minLength": 40
+    "scheme": "http://",
+    "domain": "zh.wikipedia.org",
+    "render": "w/index.php?action=render&variant=zh-tw&title=",
+    "api": "w/api.php?action={action}&prop={prop}&format=json&titles=",
+    "min_length": 40
   },
   "base": "/home/nodejs/node/test_twangry",
   "parser": "zhdateparser",
