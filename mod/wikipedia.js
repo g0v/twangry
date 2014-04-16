@@ -8,7 +8,7 @@ var async = require('async');
 // local library
 var Timeline = require(nconf.get('base')+'/lib/timeline');
 var utils = require(nconf.get('base')+'/lib/utils');
-var dateparser = require(nconf.get('base')+'/lib/'+nconf.get('parser'));
+var Dateparser = require(nconf.get('base')+'/lib/'+nconf.get('parser'));
 
 // obj
 var wikipedia = {};
@@ -312,29 +312,13 @@ wikipedia.parseHTML = function(html, key, timeline, callback){
     return src.substr(0, l).replace('/thumb', '');
   }
 
-  var parse_thumb = function($){
-    $('.thumbinner').each(function(){
-      // clear
-      $(this).find('.magnify').remove();
-
-      // image
-      var src = $(this).find('img').attr('src');
-      src = wikipedia.imageOrigin(src);
-      src = 'http:'+src;
-      var asset = timeline.asset(src, '', '');
-
-      // text
-      var caption = $(this).children('.thumbcaption');
-      parse_chinese_date(caption, caption.text(), asset);
-      $(this).remove();
-    });
-  }
-
-  var parse_chinese_date = function($, text, asset){
-    var html = text ? '<div>'+text+'</div>' : $.html();
-
+  var parse_chinese_date = function($, asset){
+    var html = $.html();
+    var text = '';
+    var dateparser = new Dateparser();
     dateparser.parse(html);
     var matches = dateparser.dump();
+    dateparser = null;
     if(matches){
       matches.forEach(function(date) {
         var summary = timeline.textRender(date.summary);
@@ -405,9 +389,24 @@ wikipedia.parseHTML = function(html, key, timeline, callback){
       });
     }
   }
+  var parse_thumb = function($){
+    $('.thumbinner').each(function(){
+      // clear
+      $(this).find('.magnify').remove();
 
+      // image
+      var src = $(this).find('img').attr('src');
+      src = wikipedia.imageOrigin(src);
+      src = 'http:'+src;
+      var asset = timeline.asset(src, '', '');
+
+      // text
+      var caption = $(this).children('.thumbcaption');
+      parse_chinese_date(caption.text(), asset);
+      $(this).remove();
+    });
+  }
   var $ = cheerio.load(html);
-  var keys = utils.keysFind(key);
   // prepare clean body
   $('#spoiler').remove();
   $('.mw-editsection').remove();
@@ -465,11 +464,11 @@ wikipedia.parseHTML = function(html, key, timeline, callback){
   // parse date in the body
   // $('.references').remove(); // berfore parse, remove reference first.
   if(key.match(/[1-2][0-9]{3}年[0-9]{1,2}月/)){
-    parse_date_page($, key, timeline); 
+    parse_date_page($); 
   }
   else{
-    parse_thumb($, key, timeline);
-    parse_chinese_date($, key, timeline);
+    parse_thumb($);
+    parse_chinese_date($);
   }
 
   if(typeof callback == 'function'){

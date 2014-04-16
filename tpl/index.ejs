@@ -28,7 +28,7 @@
                 <div><a data-toggle="modal" href="#myModal-{{$index}}" class="openSubscribe">訂閱</a> <span class="icon-envelope"></span></div>
                 <div ng-show="event.tag != ''"><span class="tag" ng-click="$parent.$parent.TagFilter(tag)" ng-repeat="tag in event.tag">{{tag}}</span> <span class="icon-tags"></span></div>
               </div>  
-              <h2><a href="/wiki/{{event.headline}}">{{event.headline}}<span class="icon-double-angle-right"></span></a></h2>
+              <h2><a href="/wikipedia/{{event.headline}}">{{event.headline}}<span class="icon-double-angle-right"></span></a></h2>
               <p class="content" ng-hide>{{event.text}}</p>
 						</div>
             <div class="sort" ng-hide="event.sort">{{event.sort}}</div>
@@ -57,7 +57,7 @@
 
       </div><!--main-->
       <div id="no-result" ng-show="(filterEvents|filter:filterByTag).length == 0">
-        目前沒有這筆資料，但是你可以看一下「<a href="/wiki/{{filter}}">{{filter}}</a>」的時間軸。
+        目前沒有這筆資料，但是你可以看一下「<a href="/wikipedia/{{filter}}">{{filter}}</a>」的時間軸。
       </div>
     </div><!-- container -->
     <div id="to-top" class="icon-angle-up icon-4x"></div>
