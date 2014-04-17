@@ -3,16 +3,13 @@ var moment = require('moment');
 var nconf = require('nconf');
 
 // local library
-var timeline = require(nconf.get('base')+'/lib/timeline');
+var Timeline = require(nconf.get('base')+'/lib/timeline');
 var fs = require('fs');
 
 /**
  * Constructor
  */
-function index() {
-  this.timeline = timeline();
-  this.spreadsheet_uri = nconf.get('index:source');
-}
+var index = {};
 
 /**
  * Page route of this module
@@ -29,14 +26,20 @@ index.route = function(tpl, args, ext, callback){
 
 
 index.get_json = function (data) {
-   this.parseFront(data);
-   var events = this.timeline.json.timeline;
-   var json = JSON.stringify(events);
-   fs.writeFile('./public/cache/index.json', json);
-   return json;
+  this.timeline = new Timeline();
+  this.spreadsheet_uri = nconf.get('index:source');
+  console.log(this);
+  this.parseFront(data);
+  console.log(this.timeline);
+  var events = this.timeline.json.timeline;
+  var json = JSON.stringify(events);
+  fs.writeFile('./pub/cache/index.json', json);
+  return json;
 }
 
 index.request_json = function (route, res) {
+  this.timeline = new Timeline();
+  this.spreadsheet_uri = nconf.get('index:source');
   var idx = this;
   request(this.spreadsheet_uri, function (error, response, data) {
     if(!error){
@@ -46,7 +49,6 @@ index.request_json = function (route, res) {
 }
 
 index.parseFront = function(data){
-  this.timeline = timeline();
   var json = JSON.parse(data).feed.entry;
   var years = {};
   var tags = {};

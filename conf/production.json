@@ -18,10 +18,10 @@
     "api": "w/api.php?action={action}&prop={prop}&format=json&titles=",
     "min_length": 40
   },
-  "base": "/home/nodejs/node/test_twangry",
+  "base": "/home/nodejs/node/twangry",
   "parser": "zhdateparser",
   "cache": 1,
-  "port": 8888,
+  "port": 8080,
   "proxy": false,
   "debug": false
 }

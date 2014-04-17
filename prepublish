@@ -1,11 +1,15 @@
 #!/usr/bin/env node
 
 var request = require('request');
-var config = require('config');
-var index = require('./lib/index');
-var category = require('./lib/category');
+var nconf = require('nconf');
+nconf.argv();
+nconf.env();
+nconf.file({ file: 'conf/'+nconf.get('NODE_ENV')+'.json' });
 
-request(config.index._source, function (error, response, data) {
+var index = require(nconf.get('base')+'/mod/index');
+var category = require(nconf.get('base')+'/lib/category');
+
+request(nconf.get('index:source'), function (error, response, data) {
   if (!error) {
     // cached
     index.get_json(data);
@@ -16,7 +20,7 @@ request(config.index._source, function (error, response, data) {
   }
 
 });
-request(config.category._source, function (error, response, data) {
+request(nconf.get('category:source'), function (error, response, data) {
   if (!error) {
     category.request_json();
     console.log('Successfully request JSON');
