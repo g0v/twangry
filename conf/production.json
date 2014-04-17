@@ -20,6 +20,7 @@
   },
   "base": "/home/nodejs/node/test_twangry",
   "parser": "zhdateparser",
+  "cache": 1,
   "port": 8888,
   "proxy": false,
   "debug": false

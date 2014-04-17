@@ -17,13 +17,14 @@ function index() {
 /**
  * Page route of this module
  */
-index.route = function(tpl){
+index.route = function(tpl, args, ext, callback){
   var nav = fs.readFileSync('pub/cache/category.json', 'utf-8');
   tpl.set('nav', JSON.parse(nav));
   tpl.set('page_title', nconf.get('page:sitename') + ' | ' + nconf.get('page:mission'));
   tpl.set('ogdescription', nconf.get('page:mission'));
   tpl.set('ogimage', nconf.get('page:logo'));
   tpl.set('is_front', 1);
+  callback();
 }
 
 
