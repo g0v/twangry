@@ -23,7 +23,7 @@ angular.module('index', ['firebase'])
 function EventCtrl($scope, $http, $templateCache, $filter, angularFire) {
   $scope.method = 'GET';
   $scope.url = '/index.json';
- 
+
   $http({
     method: $scope.method,
     url: $scope.url,
@@ -109,30 +109,14 @@ function EventCtrl($scope, $http, $templateCache, $filter, angularFire) {
     $elem.addClass('open');
   };
 
-  var openDelayTimer;
-
-  $scope.tmlabelMouseEnter = function (e) {
-    clearTimeout(openDelayTimer);
-    openDelayTimer = setTimeout(function () {
-      openItem($(e.currentTarget).parent('li'));
-    }, 200);
-  };
-
-  $scope.tmlabelClick = function (e) {
-    var $this = $(e.currentTarget);
-    var $a = $this.find('h2 a');
-    window.location = $a.attr('href');
-  };
-
-  $scope.plusSignClick = function (e) {
-    clearTimeout(openDelayTimer);
-    openItem($(e.currentTarget).parents('li'));
+  $scope.tmlabelClick = $scope.plusSignClick = function (e) {
+    openItem($(e.currentTarget).closest('li'));
   };
 
   $scope.minusSignClick = function (e) {
-    closeItem($(e.currentTarget).parents('li'));
+    closeItem($(e.currentTarget).closest('li'));
   };
-  
+
   $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
     $("#spinner").hide();
     $("ul.cbp_tmtimeline").show();
@@ -154,7 +138,7 @@ function SubscribeCtrl($scope, $http, $templateCache, $filter, angularFire){
           fb.set({title:encodeTitle, email:emailAddress, revision:0}, function(error) {
             if (error) {
               fb.off();
-            } 
+            }
             else {
             // after update firebase, obtain wikipedia revision number for further usage
               var targeturl='/updateWikiRev/'+encodeTitle;
@@ -165,11 +149,11 @@ function SubscribeCtrl($scope, $http, $templateCache, $filter, angularFire){
                 cache: $templateCache
               })
               .success(function(data, status) {
-                console.log("updateWikiRev success");  
+                console.log("updateWikiRev success");
               })
               .error(function(data, status) {
                 console.log("updateWikiRev error");
-              });			 
+              });
               fb.off();
             }
           });
@@ -190,15 +174,15 @@ function SubscribeCtrl($scope, $http, $templateCache, $filter, angularFire){
             });
           }
         }
-      }); 
+      });
     }
   };
-  
+
   $scope.UpdateSubscribe = function (e) {
     var eventtitle=$('#bookId').text();
     var encodeTitle=JSON.stringify(encodeURIComponent(eventtitle));
     var targeturl='/updateSubscribe/'+encodeTitle;
-      
+
     $http({
       method: 'GET',
       url: targeturl,
@@ -206,11 +190,11 @@ function SubscribeCtrl($scope, $http, $templateCache, $filter, angularFire){
       cache: $templateCache
     }).
     success(function(data, status) {
-      console.log("updateSubscribe success"); 
+      console.log("updateSubscribe success");
     }).
     error(function(data, status) {
       console.log("updateSubscribe error");
-    });		  
+    });
   }
 }
 
