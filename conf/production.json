@@ -18,7 +18,7 @@
     "api": "w/api.php?action={action}&prop={prop}&format=json&titles=",
     "min_length": 40
   },
-  "base": "/home/nodejs/node/twangry",
+  "base": "/Users/chih-chuanchan/Desktop/g0v/twangry",
   "parser": "zhdateparser",
   "cache": 1,
   "port": 8080,

@@ -30,9 +30,11 @@ var wikipedia = {};
  */
 wikipedia.route = function(tpl, args, ext, callback){
   if(args[1]){
-    var key = args[1];
+    var keys = [args[1]];
+    if(args[2])
+      keys.push(args[2]);
     if(wikipedia.hasOwnProperty(ext)){
-      wikipedia[ext](tpl, key, callback);
+      wikipedia[ext](tpl, keys, callback);
     }
   }
 }
@@ -42,21 +44,26 @@ wikipedia.route = function(tpl, args, ext, callback){
  * 
  * Path will be /wikipedia/key, /wikipedia/key.html
  */
-wikipedia.html = function(tpl, key, callback){
-  var keys = utils.keysFind(key);
+wikipedia.html = function(tpl, in_keys, callback){
+  var keys = [];
+  in_keys.forEach(function(key) {
+    var tmp = utils.keysFind(key);
+    tmp.forEach(function(elem){keys.push(elem);});
+  });
 
   // support wikipedia only key
   if(keys.length === 0){
-    keys.push(key);
+    in_keys.forEach(function(elem){keys.push(elem);});
   }
 
   // generate json first
+  var title = in_keys.join('/');
   wikipedia.update(keys, 0, function(){
-    tpl.set('page_title', key + ' - ' + nconf.get('page:sitename'));
+    tpl.set('page_title', title + ' - ' + nconf.get('page:sitename'));
     tpl.set('wiki_sources', keys);
 
     var tl = {
-      'source': tpl.get('base_url')+'/wikipedia/'+key+'.json',
+      'source': tpl.get('base_url')+'/wikipedia/'+title+'.json',
       'start_zoom_adjust': 5,
       'start_at_end': false,
     };
@@ -76,8 +83,18 @@ wikipedia.html = function(tpl, key, callback){
  * Will not here when json file exists.
  * Will not here when key contain multiple sub keys.
  */
-wikipedia.json = function (tpl, key, callback){
-  var keys = utils.keysFind(key);
+wikipedia.json = function (tpl, in_keys, callback){
+  var keys = [];
+  in_keys.forEach(function(key){
+    tmp = utils.keysFind(key);
+    tmp.forEach(function(elem){keys.push(elem);});
+  });
+
+  // support wikipedia only key
+  if(keys.length === 0){
+    in_keys.forEach(function(elem){keys.push(elem);});
+  }
+  
   var path = 'pub/cache/wikipedia/';
   if(keys.length == 1){
     if (fs.existsSync(path + keys[0] + '.json')) {
@@ -104,9 +121,10 @@ wikipedia.json = function (tpl, key, callback){
  */
 wikipedia.jsonMerge = function(keys){
   var results = [];
+  var path = 'pub/cache/wikipedia/';
   keys.forEach(function(key){
     if(fs.existsSync(path + key + '.json')){
-      var data = fs.readFileSync(path + keys[0] + '.json', 'utf-8');
+      var data = fs.readFileSync(path + key + '.json', 'utf-8');
       if(data){
         var json = JSON.parse(data);
         results.push(json);
@@ -117,7 +135,7 @@ wikipedia.jsonMerge = function(keys){
   if(results.length){
     first = results.shift();
     results.forEach(function(t){
-      first.json.timeline.date = first.timeline.date.concat(t.timeline.date);
+        first.timeline.date = first.timeline.date.concat(t.timeline.date);
     });
   }
   else{
@@ -278,7 +296,7 @@ wikipedia.parseHTML = function(html, key, timeline, callback){
       var date = year + $(this).text();
       startDate = date.replace(/(月)|(日)|(年)/g, ',').replace(/,$/, '');
       var content = $.html($(this).next());
-      timeline.setDate(startDate, date, content);
+      timeline.setDate(startDate, date, content, {}, {}, key);
     });
   }
 
@@ -306,7 +324,7 @@ wikipedia.parseHTML = function(html, key, timeline, callback){
         summary = summary.replace(/rel="([^"]+)"/g, 'href="'+nconf.get('wikipedia:scheme')+nconf.get('wikipedia:domain')+'/wiki/'+key+'#$1"');
 
         var d = cheerio.load(summary);
-        tag = d('sup > a.sup').eq(0).text().replace(/\[|\]/g,'');
+        tag = key;//d('sup > a.sup').eq(0).text().replace(/\[|\]/g,'');
         // section link
         // get asset
         if(!asset){
