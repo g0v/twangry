@@ -331,7 +331,8 @@ wikipedia.parseHTML = function(html, key, timeline, callback){
           if(d('.reference')){
             var ref = d('.reference a').attr('href');
             if(typeof(ref) === 'string' && ref.match(/#cite_note-\d+/)){
-              var ahref = $(ref).find('a.external');
+              // make sure pattern is valid while using jquery selector 
+              var ahref = (ref.indexOf(".."))? undefined: $(ref).find('a.external');
               if(ahref){
                 asset = timeline.asset(ahref.attr('href'), '', ahref.text());
               }
