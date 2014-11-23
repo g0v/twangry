@@ -26,17 +26,17 @@
           </div>
         </div>
     <div class="col-lg-2 col-lg-offset-5">
-              <form class="bs-component">
+              <form class="bs-component" ng-submit="QueryFilter(filter)">
                 <div class="form-group has-warning">
-                  <input type="text" class="form-control" id="inputWarning" placeholder="人物一" id="key1">
+                  <input type="text" class="form-control" placeholder="人物一" id="key1">
                 </div>
                 
                 <div class="form-group has-success">
-                  <input type="text" class="form-control" id="inputSuccess" placeholder="人物二" id="key2">
+                  <input type="text" class="form-control" placeholder="人物二" id="key2">
                 </div>
 
                 <div align="center">
-                  <a href="#" class="btn btn-primary">超級比一比</a>
+                  <a href="#" class="btn btn-primary" id="compare">超級比一比</a>
                 </div>
 
               </form>
@@ -48,6 +48,17 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <!--<script src="js/bootstrap.min.js"></script>-->
+    <script type="text/javascript">
+      $(function(){
+        
+        $("#compare").click(function() {
+              var pathArray = window.location.href.split('/');
+              var host = pathArray[2];
+              var url = "http://" + host+"/wikipedia/"+$("#key1").val()+"/"+$("#key2").val();
+              window.location = url;
+        });
+      });
+    </script>
   </body>
 </html>
