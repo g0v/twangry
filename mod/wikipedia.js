@@ -47,14 +47,14 @@ wikipedia.route = function(tpl, args, ext, callback){
 wikipedia.html = function(tpl, in_keys, callback){
   var keys = [];
   in_keys.forEach(function(key) {
+    // find wikipedia key
     var tmp = utils.keysFind(key);
     tmp.forEach(function(elem){keys.push(elem);});
+    
+    // already wikipedia key
+    if (tmp.length === 0)
+      keys.push(key);
   });
-
-  // support wikipedia only key
-  if(keys.length === 0){
-    in_keys.forEach(function(elem){keys.push(elem);});
-  }
 
   // generate json first
   var title = in_keys.join('/');
@@ -86,15 +86,16 @@ wikipedia.html = function(tpl, in_keys, callback){
 wikipedia.json = function (tpl, in_keys, callback){
   var keys = [];
   in_keys.forEach(function(key){
-    tmp = utils.keysFind(key);
+    // find wikipedia key
+    var tmp = utils.keysFind(key);
     tmp.forEach(function(elem){keys.push(elem);});
+
+    // already wikipedia key
+    if (tmp.length === 0)
+        keys.push(key);
+
   });
 
-  // support wikipedia only key
-  if(keys.length === 0){
-    in_keys.forEach(function(elem){keys.push(elem);});
-  }
-  
   var path = 'pub/cache/wikipedia/';
   if(keys.length == 1){
     if (fs.existsSync(path + keys[0] + '.json')) {
