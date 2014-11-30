@@ -14,8 +14,6 @@ var index = {};
 /**
  * Page route of this module
  */
-
-
 index.route = function(tpl, args, ext, callback){
   var nav = fs.readFileSync('pub/cache/category.json', 'utf-8');
   tpl.set('nav', JSON.parse(nav));
