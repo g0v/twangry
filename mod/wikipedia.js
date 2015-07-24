@@ -445,7 +445,6 @@ wikipedia.parseHTML = function(html, key, timeline, callback){
         })
         if (year && content) {
           timeline.setDate((month || '01') + '/' + (day || '01') + '/' + year, '', content, content, {}, key);
-          console.log((month || '01') + '/' + (day || '01') + '/' + year, content);
         }
       })
     })
