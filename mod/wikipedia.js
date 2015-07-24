@@ -41,7 +41,7 @@ wikipedia.route = function(tpl, args, ext, callback){
 
 /**
  * Html route
- * 
+ *
  * Path will be /wikipedia/key, /wikipedia/key.html
  */
 wikipedia.html = function(tpl, in_keys, callback){
@@ -50,7 +50,7 @@ wikipedia.html = function(tpl, in_keys, callback){
     // find wikipedia key
     var tmp = utils.keysFind(key);
     tmp.forEach(function(elem){keys.push(elem);});
-    
+
     // already wikipedia key
     if (tmp.length === 0)
       keys.push(key);
@@ -77,7 +77,7 @@ wikipedia.html = function(tpl, in_keys, callback){
 
 /**
  * JSON route
- * 
+ *
  * The path will /wikipedia/key.json,
  *
  * Will not here when json file exists.
@@ -116,7 +116,7 @@ wikipedia.json = function (tpl, in_keys, callback){
  * Merge JSON by given keys
  *
  * Only merge cached json, should be call wikipedia.update first
- * 
+ *
  * @param array keys
  *   keys found by utils.keysFind or added manually
  */
@@ -286,7 +286,7 @@ wikipedia.updateWatch = function(){
  *   timeline object declaire by Timeline
  * @param function callback
  *   callback function when complete parse.
- * 
+ *
  * @return object
  *   Will return Timeline object if no callback
  */
@@ -332,7 +332,7 @@ wikipedia.parseHTML = function(html, key, timeline, callback){
           if(d('.reference')){
             var ref = d('.reference a').attr('href');
             if(typeof(ref) === 'string' && ref.match(/#cite_note-\d+/)){
-              // make sure pattern is valid while using jquery selector 
+              // make sure pattern is valid while using jquery selector
               var ahref = (ref.indexOf(".."))? undefined: $(ref).find('a.external');
               if(ahref){
                 asset = timeline.asset(ahref.attr('href'), '', ahref.text());
@@ -403,6 +403,53 @@ wikipedia.parseHTML = function(html, key, timeline, callback){
       $(this).remove();
     });
   }
+  var convertMonth = {
+    January: '01',
+    February: '02',
+    March: '03',
+    April: '04',
+    May: '05',
+    June: '06',
+    July: '07',
+    August: '08',
+    September: '09',
+    October: '10',
+    November: '11',
+    December: '12',
+    '一月': '01',
+    '二月': '02',
+    '三月': '03',
+    '四月': '04',
+    '五月': '05',
+    '六月': '06',
+    '七月': '07',
+    '八月': '08',
+    '九月': '09',
+    '十月': '10',
+    '十一月': '11',
+    '十二月': '12',
+  }
+  var parse_table = function($){
+    $('.wikitable').each(function(){
+      $(this).find('tr').each(function(){
+        var year, month, day, content = ''
+        $(this).find('td').each(function(){
+          var r
+          if($(this).text().length > 14){
+            content += $(this).text()
+          }else if(r = $(this).text().match(/[1-2][0-9]{3}(年)?/)){
+            year = r[0].replace(/年/g, '')
+          }else if(r = $(this).text().match(Object.keys(convertMonth).join('|'))){
+            month = convertMonth[r[0]]
+          }
+        })
+        if (year && content) {
+          timeline.setDate((month || '01') + '/' + (day || '01') + '/' + year, '', content, content, {}, key);
+          console.log((month || '01') + '/' + (day || '01') + '/' + year, content);
+        }
+      })
+    })
+  }
   var $ = cheerio.load(html);
   // prepare clean body
   $('#spoiler').remove();
@@ -439,7 +486,7 @@ wikipedia.parseHTML = function(html, key, timeline, callback){
   }
   $('.infobox').remove();
   $('.rellink').remove();
-  
+
   // prepare headline
   var summary;
   summary = $('p').eq(0).text().replace(/\[[0-9]+\]/g, '');
@@ -461,11 +508,12 @@ wikipedia.parseHTML = function(html, key, timeline, callback){
   // parse date in the body
   // $('.references').remove(); // berfore parse, remove reference first.
   if(key.match(/[1-2][0-9]{3}年[0-9]{1,2}月/)){
-    parse_date_page($); 
+    parse_date_page($);
   }
   else{
     parse_thumb($);
     parse_chinese_date($);
+    parse_table($);
   }
 
   if(typeof callback == 'function'){
