@@ -432,19 +432,41 @@ wikipedia.parseHTML = function(html, key, timeline, callback){
   var parse_table = function($){
     $('.wikitable').each(function(){
       $(this).find('tr').each(function(){
-        var year, month, day, content = ''
+        var year, month, day, content = '';
+        var asset = {};
         $(this).find('td').each(function(){
-          var r
+          var r;
           if($(this).text().length > 14){
-            content += $(this).text()
-          }else if(r = $(this).text().match(/[1-2][0-9]{3}(年)?/)){
-            year = r[0].replace(/年/g, '')
-          }else if(r = $(this).text().match(Object.keys(convertMonth).join('|'))){
-            month = convertMonth[r[0]]
+            $(this).find('sup a').each(function(idx){
+              if(idx === 0){
+                var ref = $(this).attr('href').replace(':', '\\:');
+                if(ref.match(/^#/)){
+                  var ahref = $(ref).find("a.external");
+                  if(ahref){
+                    asset = timeline.asset(ahref.attr('href'), '', ahref.text());
+                  }
+                }
+              }
+            });
+            content += $(this).text();
+            content = content.replace(/\[\d+\]/, '');
+          }
+          else if(r = $(this).text().match(/[1-2][0-9]{3}(年)?/)){
+            year = r[0].replace(/年/g, '');
+          }
+          else if(r = $(this).text().match(Object.keys(convertMonth).join('|'))){
+            month = convertMonth[r[0]];
           }
         })
         if (year && content) {
-          timeline.setDate((month || '01') + '/' + (day || '01') + '/' + year, '', content, content, {}, key);
+          var date = year;
+          if(month){
+            date += '/' + month;
+          }
+          if(day){
+            date += '/' + day;
+          }
+          timeline.setDate(date, '', date, content, asset, key);
         }
       })
     })
