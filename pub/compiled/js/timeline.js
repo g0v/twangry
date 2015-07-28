@@ -4327,7 +4327,7 @@ if(typeof VMM != 'undefined' && typeof VMM.ExternalAPI == 'undefined') {
 					url	= m.id.replace("http://", "");//.split("/")[0];
 					
 				// Main Image
-				VMM.attachElement("#" + m.uid, "<a href='" + m.id + "' target='_blank'><img src='" + thumb_url + url + "'></a>");
+				VMM.attachElement("#" + m.uid, "<a href='" + m.id + "' target='_blank'><img src='" + thumb_url + m.id + "'></a>");
 				
 				// Thumb
 				VMM.attachElement("#" + m.uid + "_thumb", "<img src='" + thumb_url + url + "_t'>");
@@ -4477,7 +4477,13 @@ if(typeof VMM != 'undefined' && typeof VMM.MediaElement == 'undefined') {
 				}
 			// CAPTION
 				if (data.caption != null && data.caption != "") {
-					captionElem			=	"<div class='caption'>" + VMM.Util.linkify_with_twitter(data.caption, "_blank") + "</div>";
+          var cap = VMM.Util.linkify_with_twitter(data.caption, "_blank");
+          var thumb_url = '';
+          if( m.type == "website"){
+            thumb_url	= "http://i.jimmyhub.net/shot/";
+            thumb_url	= ' (<a href="'+thumb_url + m.id.replace("http://", "")+'_o">screenshot</a>)';
+          }
+					captionElem			=	"<div class='caption'>" + VMM.Util.linkify_with_twitter(data.caption, "_blank") + thumb_url +"</div>";
 				}
 			// IMAGE
 				if (m.type				==	"image") {
