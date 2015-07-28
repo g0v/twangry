@@ -19,7 +19,7 @@
         </div>
         
         <div id="filter" class="navbar-collapse collapse">
-        <% if(template === 'timeline') { %>
+        <% if(template === 'wikipedia') { %>
           <ul class="nav navbar-nav">
             <li><a class="page-title"><%= page_title %></a></li>
           </ul>
@@ -48,16 +48,16 @@
           </form>
         <% } %>
           <ul class="nav navbar-nav navbar-right">
-            <% if(template === 'timeline') { %>
+            <% if(template === 'wikipedia') { %>
               <li><a class="colorbox-inline" href="#" rel="embed" target="_blank" title="嵌入碼"><span class="icon-code"></span> 嵌入碼</a></li>
             <% } %>
-            <a class="btn" href="/checkout.html">比較人物</a>
-
-
+            <% if(template === 'index') { %>
+              <li><a class="btn" href="/checkout.html">比較人物</a></li>
+            <% } %>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="icon-thumbs-up-alt"></span></a>
               <ul class="dropdown-menu">
-                <% if(template === 'timeline') { %>
+                <% if(template === 'wikipedia') { %>
                 <li><a href="<%= url %>.json" rel="json" target="_blank" title="json"><span class="icon-wrench"></span> JSON</a></li>
                 <% } %>
                 <% if(template === 'index') { %>
@@ -82,7 +82,7 @@
         </div>
       </div>
     </div>
-  <% if(template === 'timeline') { %>
+  <% if(template === 'wikipedia') { %>
     <div class="hidden-element" style="display:none;">
       <div id="embed">
         <h2>拷貝下方輸入框文字嵌入自己的Blog</h2>

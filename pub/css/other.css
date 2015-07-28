@@ -92,17 +92,17 @@ html[xmlns] .clearfix {
 /**
  * Timeline specific
  */
-.timeline .page-title {
+.wikipedia .page-title {
   font-size: 22px;
   padding: 15px;
 }
-.timeline .page-title sup {
+.wikipedia .page-title sup {
   padding-left: 10px;
 }
-#storyjs-timeline {
+#storyjs {
   font-family: '\5FAE\8F6F\96C5\9ED1','微軟正黑體', 'Lato', Calibri, Arial, sans-serif !important;
 }
-#storyjs-timeline.vco-storyjs .vco-feature p {
+#storyjs .vco-storyjs .vco-feature p {
   color: #000;
 }
 #storyjs .timenav-tag-row-1 h3{ color:#8C92AD; }
@@ -112,14 +112,14 @@ html[xmlns] .clearfix {
 #storyjs .timenav-tag-row-5 h3{ color:#FF5254; }
 #storyjs .timenav-tag-row-6 h3{ color:#999; }
 
-#storyjs-timeline .vco-storyjs h3{
+#storyjs .vco-storyjs h3{
   font-size: 22px;
 }
-#storyjs-timeline .vco-slider .slider-item .content .content-container .text .container h2.date{
+#storyjs .vco-slider .slider-item .content .content-container .text .container h2.date{
   line-height:0;
   font-size: 0;
 }
-#storyjs-timeline .vco-slider .slider-item .content .content-container .text .container h2.date span.slide-tag{
+#storyjs .vco-slider .slider-item .content .content-container .text .container h2.date span.slide-tag{
   float:right;
   display: block;
 }
@@ -135,6 +135,9 @@ abbr.autoyear:before {
 }
 .vco-storyjs .vco-feature .slider-item .container h3 {
   margin-bottom: 0;
+}
+.vco-storyjs .vco-feature .slider-item .container h3 sub{
+  font-size: 15px;
 }
 .slider-item .container {
   position: relative;
