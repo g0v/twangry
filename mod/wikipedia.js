@@ -477,6 +477,7 @@ wikipedia.parseHTML = function(html, key, timeline, callback){
   $('.mw-editsection').remove();
   $('.ambox').remove();
   $('.navbox').remove();
+  $('.noprint').remove();
   var imgs, img, src, desc, width;
   imgs = $('a.image > img');
   width = 0;
