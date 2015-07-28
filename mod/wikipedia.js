@@ -308,6 +308,7 @@ wikipedia.parseHTML = function(html, key, timeline, callback){
   }
 
   var parse_chinese_date = function($, asset){
+    $('.wikitable').remove();
     var html = $.html();
     var text = '';
     var dateparser = new Dateparser();
@@ -331,12 +332,9 @@ wikipedia.parseHTML = function(html, key, timeline, callback){
         if(!asset){
           if(d('.reference')){
             var ref = d('.reference a').attr('href');
-            if(typeof(ref) === 'string' && ref.match(/#cite_note-\d+/)){
-              // make sure pattern is valid while using jquery selector
-              var ahref = (ref.indexOf(".."))? undefined: $(ref).find('a.external');
-              if(ahref){
-                asset = timeline.asset(ahref.attr('href'), '', ahref.text());
-              }
+            var ahref = $(ref).find('a.external');
+            if(ahref){
+              asset = timeline.asset(ahref.attr('href'), '', ahref.text());
             }
             d('.reference').remove();
           }
