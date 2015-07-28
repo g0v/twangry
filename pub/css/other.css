@@ -123,6 +123,16 @@ html[xmlns] .clearfix {
   float:right;
   display: block;
 }
+abbr.autoyear {
+  border-bottom: 1px dotted #000 !important;
+  font-style: italic !important;
+  padding: 0 5px 0 0 !important;
+}
+abbr.autoyear:before {
+  font-family: FontAwesome;
+  content: "\f017";
+  padding: 0 5px;
+}
 .vco-storyjs .vco-feature .slider-item .container h3 {
   margin-bottom: 0;
 }
@@ -147,7 +157,10 @@ html[xmlns] .clearfix {
 }
 .slider-item .container .before,
 .slider-item .container .after {
-  color: #999;
+  color: #777;
+}
+.slider-item .container .before, 
+.slider-item .container .more-after {
   display: none;
 }
 .slider-item .container .before.tip,

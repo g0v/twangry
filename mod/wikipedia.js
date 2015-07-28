@@ -368,7 +368,7 @@ wikipedia.parseHTML = function(html, key, timeline, callback){
 
         if(date.title.match(/\./)){
           var title = date.title.split('.');
-          title = title[0].replace(/\,/g, '/')+'<sub><a href="'+nconf.get('wikipedia:scheme')+nconf.get('wikipedia:domain')+'/wiki/'+key+'#'+title[1].replace(/\[|\]/g, '')+'" class="icon-time" style="font-family: FontAwesome;"></a></sub>';
+          title = title[0].replace(/\,/g, '/')+'<sub><a href="'+nconf.get('wikipedia:scheme')+nconf.get('wikipedia:domain')+'/wiki/'+key+'#'+title[1].replace(/\[|\]/g, '')+'" class="icon-beaker" style="font-family: FontAwesome;" title="由引用文獻自動判斷的時間"></a></sub>';
         }
         else{
           title = date.title.replace(/\,/g, '/').replace(/\/$/, '');
