@@ -532,8 +532,8 @@ wikipedia.parseHTML = function(html, key, timeline, callback){
   }
   else{
     parse_thumb($);
-    parse_chinese_date($);
     parse_table($);
+    parse_chinese_date($);
   }
 
   if(typeof callback == 'function'){
