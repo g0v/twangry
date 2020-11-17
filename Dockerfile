@@ -5,4 +5,4 @@ RUN npm i
 RUN npm install --unsafe-perm
 ENV NODE_ENV=production
 EXPOSE 8080
-CMD node twangry.js --port=$PORT
+CMD while [ 1 ]; do node twangry.js --port=$PORT; sleep 1; done
